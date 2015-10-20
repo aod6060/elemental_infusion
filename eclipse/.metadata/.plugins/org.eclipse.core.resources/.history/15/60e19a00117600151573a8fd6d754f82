@@ -1,0 +1,56 @@
+package com.derf.ei;
+
+import net.minecraftforge.common.config.Configuration;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+
+
+@Mod(modid=Main.MODID, name=Main.MODNAME, version=Main.VERSION)
+public class Main {
+	public final static String MODID   = "ei";
+	public final static String MODNAME = "Elemental Infusion";
+	public final static String VERSION = "1.0.0";
+	
+	@Instance
+	public static Main main = new Main();
+	
+	@SidedProxy(clientSide="com.derf.ei.ClientProxy", serverSide="com.derf.ei.ServerProxy")
+	public static CommonProxy proxy;
+	
+	public static int fireOreMin = 16;
+	public static int fireOreMax = 32;
+	public static int waterOreMin = 16;
+	public static int waterOreMax = 32;
+	public static int airOreMin = 16;
+	public static int airOreMax = 32;
+	public static int earthOreMin = 16;
+	public static int earthOreMax = 32;
+	
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent e) {
+		
+		Configuration config = new Configuration(e.getSuggestedConfigurationFile());
+		
+		config.load();
+		
+		
+		config.save();
+		
+		proxy.preInit(e);
+	}
+	
+	@EventHandler
+	public void init(FMLInitializationEvent e) {
+		proxy.init(e);
+	}
+	
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent e) {
+		proxy.postInit(e);
+	}
+}

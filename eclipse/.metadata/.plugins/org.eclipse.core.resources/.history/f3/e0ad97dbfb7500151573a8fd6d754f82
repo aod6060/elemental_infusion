@@ -1,0 +1,20 @@
+package com.derf.ei.block;
+
+import com.derf.ei.Main;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+
+public class EIBlockOre extends Block {
+
+	protected EIBlockOre(String name, Material material, float hardness, float res, String tool, int level) {
+		super(material);
+		// TODO Auto-generated constructor stub
+		this.setBlockName(name);
+		this.setBlockTextureName(Main.MODID + ":" + name);
+		this.setHardness(hardness);
+		this.setResistance(res);
+		this.setHarvestLevel("pickaxe", 1);
+	}
+
+}

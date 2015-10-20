@@ -1,0 +1,17 @@
+package com.derf.ei.block;
+
+import com.derf.ei.Main;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+
+public class EIBlockOre extends Block {
+
+	protected EIBlockOre(String name, Material material) {
+		super(material);
+		// TODO Auto-generated constructor stub
+		this.setBlockName(name);
+		this.setBlockTextureName(Main.MODID + ":" + name);
+	}
+
+}

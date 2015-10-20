@@ -1,0 +1,5 @@
+package com.derf.ei.item;
+
+public class EIItemDust extends Item {
+
+}

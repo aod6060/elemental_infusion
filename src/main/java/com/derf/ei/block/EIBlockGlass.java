@@ -1,0 +1,59 @@
+package com.derf.ei.block;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.Facing;
+import net.minecraft.world.IBlockAccess;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
+public class EIBlockGlass extends EIBlock {
+
+	public EIBlockGlass(String name, Material material, float hardness, float res, String tool, int level) {
+		super(name, material, hardness, res, tool, level, soundTypeGlass);
+	}
+
+	@Override
+	public boolean renderAsNormalBlock() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public int getRenderBlockPass() {
+		// TODO Auto-generated method stub
+		return 1;
+	}
+	
+	@Override
+	public boolean isOpaqueCube() {
+		return false;
+	}
+	
+    /**
+     * Returns true if the given side of this block type should be rendered, if the adjacent block is at the given
+     * coordinates.  Args: blockAccess, x, y, z, side
+     */
+    @SideOnly(Side.CLIENT)
+    public boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_, int p_149646_5_)
+    {
+        Block block = p_149646_1_.getBlock(p_149646_2_, p_149646_3_, p_149646_4_);
+
+        if (this == EIBlocks.voidGlass)
+        {
+            if (p_149646_1_.getBlockMetadata(p_149646_2_, p_149646_3_, p_149646_4_) != p_149646_1_.getBlockMetadata(p_149646_2_ - Facing.offsetsXForSide[p_149646_5_], p_149646_3_ - Facing.offsetsYForSide[p_149646_5_], p_149646_4_ - Facing.offsetsZForSide[p_149646_5_]))
+            {
+                return true;
+            }
+
+            if (block == this)
+            {
+                return false;
+            }
+        }
+
+        return block == this ? false : super.shouldSideBeRendered(p_149646_1_, p_149646_2_, p_149646_3_, p_149646_4_, p_149646_5_);
+    }
+}

@@ -1,0 +1,24 @@
+package com.derf.ei.crafting;
+
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+
+import com.derf.ei.block.EIBlocks;
+import com.derf.ei.item.EIItems;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+
+public final class EICrafting {
+	public static void create() {
+		GameRegistry.addShapedRecipe(
+				new ItemStack(EIBlocks.voidStone), 
+				"x o", 
+				" t ", 
+				"v b", 
+				'x', EIItems.fireDust,
+				'o', EIItems.waterDust,
+				't', Blocks.stone,
+				'v', EIItems.airDust,
+				'b', EIItems.earthDust);
+	}
+}

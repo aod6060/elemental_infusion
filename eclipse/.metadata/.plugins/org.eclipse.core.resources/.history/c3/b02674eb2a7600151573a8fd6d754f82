@@ -1,0 +1,7 @@
+package com.derf.ei.tileentity;
+
+public final class EITileEntitys {
+	public static void create() {
+		
+	}
+}

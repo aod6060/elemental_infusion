@@ -1,0 +1,42 @@
+package com.derf.ei;
+
+import com.derf.ei.block.EIBlocks;
+import com.derf.ei.item.EIItems;
+
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+
+public class CommonProxy {
+	
+	public static CreativeTabs tabEI = null;
+	
+	public void preInit(FMLPreInitializationEvent e) {
+		EIItems.create();
+		EIBlocks.create();
+		
+		tabEI = new CreativeTabs("tab_ei") {
+
+			@Override
+			public Item getTabIconItem() {
+				// TODO Auto-generated method stub
+				return EIItems.fireDust;
+			}
+			
+		};
+		
+		
+		EIItems.creativeTabs();
+		EIBlocks.creativeTabs();
+	}
+	
+	public void init(FMLInitializationEvent e) {
+		
+	}
+	
+	public void postInit(FMLPostInitializationEvent e) {
+		
+	}
+}

@@ -1,0 +1,8 @@
+package com.derf.ei.item;
+
+public class EIItems {
+	
+	public static createItems() {
+		
+	}
+}

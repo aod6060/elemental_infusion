@@ -1,0 +1,12 @@
+package com.derf.ei.block;
+
+import net.minecraft.block.material.Material;
+
+public class EIBlockGlass extends EIBlock {
+
+	public EIBlockGlass(String name, Material material, float hardness, float res, String tool, int level) {
+		super(name, material, hardness, res, tool, level, soundTypeGlass);
+		// TODO Auto-generated constructor stub
+	}
+
+}

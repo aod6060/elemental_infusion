@@ -1,0 +1,5 @@
+package com.derf.ei.tileentity;
+
+public class TileEntityWaterTotem extends TileEntity {
+
+}

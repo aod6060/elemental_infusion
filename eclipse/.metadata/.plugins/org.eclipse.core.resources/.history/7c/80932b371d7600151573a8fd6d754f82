@@ -1,0 +1,15 @@
+package com.derf.ei.block;
+
+import net.minecraft.block.material.Material;
+
+public class EIBlockItemDrop extends EIBlock {
+
+	private Item item;
+	
+	public EIBlockItemDrop(String name, Material material, float hardness,
+			float res, String tool, int level, SoundType sound) {
+		super(name, material, hardness, res, tool, level, sound);
+		// TODO Auto-generated constructor stub
+	}
+
+}

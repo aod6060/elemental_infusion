@@ -1,0 +1,12 @@
+package com.derf.ei.item;
+
+/**
+ * EIItemDustType - This is used to identify each
+ * type of dust, metal, or cry
+ */
+public enum EIItemDustType {
+	FIRE,
+	WATER,
+	AIR,
+	EARTH
+}

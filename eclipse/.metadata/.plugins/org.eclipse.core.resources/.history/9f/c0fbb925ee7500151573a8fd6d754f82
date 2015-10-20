@@ -1,0 +1,5 @@
+package com.derf.ei.item;
+
+public enum EIItemDustType {
+
+}

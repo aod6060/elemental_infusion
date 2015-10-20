@@ -1,0 +1,66 @@
+package com.derf.ei.tileentity;
+
+import net.minecraft.block.Block;
+import net.minecraft.tileentity.TileEntity;
+
+import com.derf.ei.block.EIBlockVoidStone;
+import com.derf.ei.block.EIBlocks;
+
+public class EITileEntityFireTotem extends EITileEntityTotem {
+	TotumBlock[] tbs = new TotumBlock[8];
+	
+	@Override
+	protected void updateOreBlocks() {
+		// TODO Auto-generated method stub
+		this.scanTBS();
+		
+		for(int i = 0; i < tbs.length; i++) {
+			
+			if(tbs[i].isIronBlock()) {
+				
+				tbs[i].setCurrentTime(3.0f);
+				
+				if(tbs[i].decrementTime()) {
+					worldObj.setBlock(tbs[i].getX(), tbs[i].getY(), tbs[i].getZ(), EIBlocks.fireIronBlock);
+				}
+			} else {
+				tbs[i].setCurrentTime(-1.0f);
+			}
+		}
+	}
+	
+	public void scanTBS() {
+		
+		if(tbs[0] == null) {
+			tbs[0] = new TotumBlock(this.xCoord - 1, this.yCoord - 1, this.zCoord);
+		}
+		
+		if(tbs[1] == null) {
+			tbs[1] = new TotumBlock(this.xCoord + 1, this.yCoord - 1, this.zCoord);
+		}
+		
+		if(tbs[2] == null) {
+			tbs[2] = new TotumBlock(this.xCoord, this.yCoord - 1, this.zCoord - 1);
+		}
+		
+		if(tbs[3] == null) {
+			tbs[3] = new TotumBlock(this.xCoord, this.yCoord - 1, this.zCoord + 1);
+		}
+		
+		if(tbs[4] == null) {
+			tbs[4] = new TotumBlock(this.xCoord - 1, this.yCoord - 1, this.zCoord - 1);
+		}
+		
+		if(tbs[5] == null) {
+			tbs[5] = new TotumBlock(this.xCoord + 1, this.yCoord - 1, this.zCoord - 1);
+		}
+		
+		if(tbs[6] == null) {
+			tbs[6] = new TotumBlock(this.xCoord + 1, this.yCoord - 1, this.zCoord + 1);
+		}
+		
+		if(tbs[7] == null) {
+			tbs[7] = new TotumBlock(this.xCoord - 1, this.yCoord - 1, this.zCoord + 1);
+		}
+	}
+}

@@ -1,0 +1,79 @@
+package com.derf.ei;
+
+import net.minecraftforge.common.config.Configuration;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+
+
+@Mod(modid=Main.MODID, name=Main.MODNAME, version=Main.VERSION)
+public class Main {
+	public final static String MODID   = "ei";
+	public final static String MODNAME = "Elemental Infusion";
+	public final static String VERSION = "1.0.0";
+	
+	@Instance
+	public static Main main = new Main();
+	
+	@SidedProxy(clientSide="com.derf.ei.ClientProxy", serverSide="com.derf.ei.ServerProxy")
+	public static CommonProxy proxy;
+	
+	/*
+	 * Configuration Stuff
+	 */
+	public static int fireOreMin;
+	public static int fireOreMax;
+	public static int fireOreChances;
+	public static int waterOreMin;
+	public static int waterOreMax;
+	public static int waterOreChances;
+	public static int airOreMin;
+	public static int airOreMax;
+	public static int airOreChances;
+	public static int earthOreMin;
+	public static int earthOreMax;
+	public static int earthOreChances;
+	
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent e) {
+		
+		Configuration config = new Configuration(e.getSuggestedConfigurationFile());
+		
+		config.load();
+		
+		fireOreMin = config.getInt("fireOreMin", "Ore", 16, 0, 255, "This is the minimum level were fireOre will spawn.");
+		fireOreMax = config.getInt("fireOreMax", "Ore", 32, 0, 255, "This is the maximum level were fireOre will spawn.");
+		fireOreChances = config.getInt("fireOreChances", "Ore", 8, 0, 20, "This is the amount of chances that fileOre will spawn.");
+		
+		waterOreMin = config.getInt("waterOreMin", "Ore", 16, 0, 255, "This is the minimum level were fireOre will spawn.");
+		waterOreMax = config.getInt("waterOreMax", "Ore", 32, 0, 255, "This is the maximum level were fireOre will spawn.");
+		waterOreChances = config.getInt("waterOreChances", "Ore", 8, 0, 20, "This is the amount of chances that fileOre will spawn.");
+		
+		airOreMin = config.getInt("airOreMin", "Ore", 16, 0, 255, "This is the minimum level were fireOre will spawn.");
+		airOreMax = config.getInt("airOreMax", "Ore", 32, 0, 255, "This is the maximum level were fireOre will spawn.");
+		airOreChances = config.getInt("airOreChances", "Ore", 8, 0, 20, "This is the amount of chances that fileOre will spawn.");
+		
+		earthOreMin = config.getInt("earthOreMin", "Ore", 16, 0, 255, "This is the minimum level were fireOre will spawn.");
+		earthOreMax = config.getInt("earthOreMax", "Ore", 32, 0, 255, "This is the maximum level were fireOre will spawn.");
+		earthOreChances = config.getInt("earthOreChances", "Ore", 8, 0, 20, "This is the amount of chances that fileOre will spawn.");
+		
+		
+		config.save();
+		
+		proxy.preInit(e);
+	}
+	
+	@EventHandler
+	public void init(FMLInitializationEvent e) {
+		proxy.init(e);
+	}
+	
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent e) {
+		proxy.postInit(e);
+	}
+}

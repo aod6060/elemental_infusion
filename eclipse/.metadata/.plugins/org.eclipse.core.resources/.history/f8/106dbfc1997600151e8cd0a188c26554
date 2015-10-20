@@ -1,0 +1,20 @@
+package com.derf.ei.tileentity;
+
+import net.minecraft.block.Block;
+import net.minecraft.tileentity.TileEntity;
+
+import com.derf.ei.block.EIBlockVoidStone;
+import com.derf.ei.block.EIBlocks;
+
+public class EITileEntityFireTotem extends EITileEntityTotem {
+	
+	public EITileEntityFireTotem() {
+		super();
+	}
+	@Override
+	protected void updateOreBlocks() {
+		// TODO Auto-generated method stub
+		//this.scanTBS();
+		this.updateBlock(EIBlocks.fireIronBlock);
+	}
+}
