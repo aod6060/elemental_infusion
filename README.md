@@ -28,7 +28,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 ## Note:
-	This mod is a WIP (Work in progress) mod. Its not complete so be vary wary 
+This mod is a WIP (Work in progress) mod. Its not complete so be vary wary 
 to install it into your mod pack or you own instance of minecraft. If something
 doesn't work, well, you know. I'm still working on it so I'll get to it. Please
 don't flood my issues section for the moment unless it really necisary. I'm 
