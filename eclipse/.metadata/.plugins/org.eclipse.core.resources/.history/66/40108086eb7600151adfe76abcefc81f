@@ -1,0 +1,9 @@
+package com.derf.ei.block;
+
+public enum EIVoidStoneType {
+	REGULAR,
+	ITEM_INPUT,
+	ITEM_OUTPUT,
+	LIQUID_INPUT,
+	LIQUID_OUTPUT
+}

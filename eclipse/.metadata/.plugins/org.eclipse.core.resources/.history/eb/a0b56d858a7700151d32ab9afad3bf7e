@@ -1,0 +1,11 @@
+package com.derf.ei.tileentity;
+
+public class EITileEntityMachineCore extends EITileEntity {
+	
+	EI
+	@Override
+	public void updateEntity() {
+		// TODO Auto-generated method stub
+		super.updateEntity();
+	}
+}

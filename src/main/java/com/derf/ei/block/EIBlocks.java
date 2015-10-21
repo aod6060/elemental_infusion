@@ -51,14 +51,6 @@ public final class EIBlocks {
 	public static Block machineCore;
 	// VoidGlass
 	public static Block voidGlass;
-
-	// Totum
-	public static Block totum;
-	// Totum Heads
-	public static Block fireTotumHead;
-	public static Block waterTotumHead;
-	public static Block airTotumHead;
-	public static Block earthTotumHead;
 	// Elemental Iron Blocks
 	public static Block fireIronBlock;
 	public static Block waterIronBlock;
@@ -84,17 +76,10 @@ public final class EIBlocks {
 		// Create VoidStone
 		voidStone = new EIBlockVoidStone("void_stone");
 		// Machine Core
-		machineCore = new EIBlock("machine_core", Material.rock, 1.0f, 2.0f, "pickaxe", 1, Block.soundTypeStone);
+		machineCore = new EIBlockMachineCore();
 		// VoidGlass
 		voidGlass = new EIBlockGlass("void_glass", Material.glass, 1.0f, 1.0f, "pickaxe", 0);
 		
-		// Totum
-		totum = new EIBlockItemDrop("totum", Material.rock, 1.0f, 1.0f, "pickaxe", 1, Block.soundTypeStone, EIBlocks.voidStone);
-		// Totum Heads
-		fireTotumHead = new EIBlockTotemHead("fire_totum_head", Material.rock, 1.0f, 1.0f, "pickaxe", 1, Block.soundTypeStone, EIType.FIRE);
-		waterTotumHead = new EIBlockTotemHead("water_totum_head", Material.rock, 1.0f, 1.0f, "pickaxe", 1, Block.soundTypeStone, EIType.WATER);
-		airTotumHead = new EIBlockTotemHead("air_totum_head", Material.rock, 1.0f, 1.0f, "pickaxe", 1, Block.soundTypeStone, EIType.AIR);
-		earthTotumHead = new EIBlockTotemHead("earth_totum_head", Material.rock, 1.0f, 1.0f, "pickaxe", 1, Block.soundTypeStone, EIType.EARTH);
 		// Elemental Iron Blocks
 		fireIronBlock = new EIBlock("fire_iron_block", Material.iron, 1.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
 		waterIronBlock = new EIBlock("water_iron_block", Material.iron, 1.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
@@ -111,22 +96,21 @@ public final class EIBlocks {
 		GameRegistry.registerBlock(waterOre, "water_ore");
 		GameRegistry.registerBlock(airOre, "air_ore");
 		GameRegistry.registerBlock(earthOre, "earth_ore");
+		
 		GameRegistry.registerBlock(fireBlock, "fire_block");
 		GameRegistry.registerBlock(waterBlock, "water_block");
 		GameRegistry.registerBlock(airBlock, "air_block");
 		GameRegistry.registerBlock(earthBlock, "earth_block");
+		
 		GameRegistry.registerBlock(voidStone, "void_stone");
 		GameRegistry.registerBlock(machineCore, "machine_core");
 		GameRegistry.registerBlock(voidGlass, "void_glass");
-		GameRegistry.registerBlock(totum, "totum");
-		GameRegistry.registerBlock(fireTotumHead, "fire_totum_head");
-		GameRegistry.registerBlock(waterTotumHead, "water_totum_head");
-		GameRegistry.registerBlock(airTotumHead, "air_totum_head");
-		GameRegistry.registerBlock(earthTotumHead, "earth_totum_head");
+		
 		GameRegistry.registerBlock(fireIronBlock, "fire_iron_block");
 		GameRegistry.registerBlock(waterIronBlock, "water_iron_block");
 		GameRegistry.registerBlock(airIronBlock, "air_iron_block");
 		GameRegistry.registerBlock(earthIronBlock, "earth_iron_block");
+		
 		GameRegistry.registerBlock(fireDiamondBlock, "fire_diamond_block");
 		GameRegistry.registerBlock(waterDiamondBlock, "water_diamond_block");
 		GameRegistry.registerBlock(airDiamondBlock, "air_diamond_block");
@@ -145,10 +129,6 @@ public final class EIBlocks {
 		voidStone.setCreativeTab(CommonProxy.tabEI);
 		machineCore.setCreativeTab(CommonProxy.tabEI);
 		voidGlass.setCreativeTab(CommonProxy.tabEI);
-		fireTotumHead.setCreativeTab(CommonProxy.tabEI);
-		waterTotumHead.setCreativeTab(CommonProxy.tabEI);
-		airTotumHead.setCreativeTab(CommonProxy.tabEI);
-		earthTotumHead.setCreativeTab(CommonProxy.tabEI);
 		fireIronBlock.setCreativeTab(CommonProxy.tabEI);
 		waterIronBlock.setCreativeTab(CommonProxy.tabEI);
 		airIronBlock.setCreativeTab(CommonProxy.tabEI);

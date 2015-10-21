@@ -1,0 +1,55 @@
+package com.derf.ei.multiblock;
+
+import java.util.ArrayList;
+
+import net.minecraft.block.Block;
+import net.minecraft.world.World;
+
+public class EIMultiBlockFireTotum extends EIMultiBlock {
+	
+	//ArrayList<Block> blocks = new ArrayList<Block>();
+	
+	
+	@Override
+	public void update(World world, int x, int y, int z) {
+		// TODO Auto-generated method stub
+		super.update(world, x, y, z);
+		ArrayList<Block> blockList = this.createBlockList(world, x, y, z);
+		
+		boolean b = true;
+		
+		for(int i = 0; i < blockList.size() - 1; i++) {
+			if(!blockList.get(i).getUnlocalizedName().equals("tile.void_stone")) {
+				b = false;
+				break;
+			}
+		}
+		
+		if(!blockList.get(blockList.size() - 1).equals("tile.block_fire")) {
+			b = false;
+		}
+		
+		if(b) {
+			System.out.println("Fire Totem is complete");
+		} else {
+			System.out.println("Fire Totem is not complete :(");
+		}
+	}
+	
+	private ArrayList<Block> createBlockList(World world, int x, int y, int z) {
+		ArrayList<Block> list = new ArrayList<Block>();
+		
+		list.add(world.getBlock(x-1, y, z));
+		list.add(world.getBlock(x+1, y, z));
+		list.add(world.getBlock(x, y, z-1));
+		list.add(world.getBlock(x, y, z+1));
+		list.add(world.getBlock(x-1, y, z-1));
+		list.add(world.getBlock(x+1, y, z-1));
+		list.add(world.getBlock(x+1, y, z+1));
+		list.add(world.getBlock(x-1, y, z+1));
+		list.add(world.getBlock(x, y+1, z));
+		list.add(world.getBlock(x, y+2, z));
+		
+		return list;
+	}
+}

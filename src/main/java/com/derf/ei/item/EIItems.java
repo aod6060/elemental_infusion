@@ -42,6 +42,8 @@ public final class EIItems {
 	public static Item voidStick;
 	// Void Tool
 	public static Item voidTool;
+	// Simple Debug Tool
+	public static Item debugTool;
 	
 	public static void create() {
 		// Elemental Dusts
@@ -62,7 +64,9 @@ public final class EIItems {
 		// Void Stick
 		voidStick = new EIItem("void_stick");
 		// Void Tool
-		voidTool = new EIItem("void_tool");
+		voidTool = new EIItemVoidTool("void_tool");
+		// Debug Tool
+		debugTool = new EIItemDebugTool("debug_tool");
 		
 		GameRegistry.registerItem(fireDust, "fire_dust");
 		GameRegistry.registerItem(waterDust, "water_dust");
@@ -78,6 +82,7 @@ public final class EIItems {
 		GameRegistry.registerItem(earthDiamond, "earth_diamond");
 		GameRegistry.registerItem(voidStick, "void_stick");
 		GameRegistry.registerItem(voidTool, "void_tool");
+		GameRegistry.registerItem(debugTool, "debug_tool");
 	}
 	
 	public static void creativeTabs() {
@@ -95,5 +100,6 @@ public final class EIItems {
 		earthDiamond.setCreativeTab(CommonProxy.tabEI);
 		voidStick.setCreativeTab(CommonProxy.tabEI);
 		voidTool.setCreativeTab(CommonProxy.tabEI);
+		debugTool.setCreativeTab(CommonProxy.tabEI);
 	}
 }

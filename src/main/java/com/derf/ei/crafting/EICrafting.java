@@ -63,40 +63,6 @@ public final class EICrafting {
 				"s",
 				'i', Items.iron_ingot,
 				's', EIItems.voidStick);
-		// NOTE: I'm considering to remove to totem heads
-		// And replace it with the Dust Blocks
-		// fire totem head
-		GameRegistry.addShapedRecipe(
-				new ItemStack(EIBlocks.fireTotumHead), 
-				" f ",
-				"fif",
-				" f ",
-				'f', EIItems.fireDust,
-				'i', EIBlocks.voidStone);
-		// water totem head
-		GameRegistry.addShapedRecipe(
-				new ItemStack(EIBlocks.waterTotumHead), 
-				" w ",
-				"wiw",
-				" w ",
-				'w', EIItems.waterDust,
-				'i', EIBlocks.voidStone);
-		// air totem head
-		GameRegistry.addShapedRecipe(
-				new ItemStack(EIBlocks.airTotumHead), 
-				" a ",
-				"aia",
-				" a ",
-				'a', EIItems.airDust,
-				'i', EIBlocks.voidStone);
-		// earth totem head
-		GameRegistry.addShapedRecipe(
-				new ItemStack(EIBlocks.earthTotumHead), 
-				" e ",
-				"eie",
-				" e ",
-				'e', EIItems.earthDust,
-				'i', EIBlocks.voidStone);
 		// 9 fire dusts
 		GameRegistry.addShapedRecipe(
 				new ItemStack(EIItems.fireDust, 9),

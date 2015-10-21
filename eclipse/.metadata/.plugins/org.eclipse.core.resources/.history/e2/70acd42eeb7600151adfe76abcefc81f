@@ -1,0 +1,8 @@
+package com.derf.ei.block;
+
+public enum EIMachineCoreType {
+	FIRE_TOTEM,
+	WATER_TOTEM,
+	AIR_TOTEM,
+	EARTH_TOTEM
+}

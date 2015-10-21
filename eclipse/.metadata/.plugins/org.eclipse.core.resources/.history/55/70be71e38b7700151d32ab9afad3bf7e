@@ -1,0 +1,14 @@
+package com.derf.ei.tileentity;
+
+import com.derf.ei.EIMachineCoreMode;
+
+public class EITileEntityMachineCore extends EITileEntity {
+	
+	private EIMachineCoreMode mode = EIMachineCoreMode.FIRE_TOTEM;
+	
+	@Override
+	public void updateEntity() {
+		// TODO Auto-generated method stub
+		super.updateEntity();
+	}
+}

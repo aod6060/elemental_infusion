@@ -1,0 +1,8 @@
+package com.derf.ei.tileentity;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+
+public final class EITileEntities {
+	public static void create() {
+	}
+}

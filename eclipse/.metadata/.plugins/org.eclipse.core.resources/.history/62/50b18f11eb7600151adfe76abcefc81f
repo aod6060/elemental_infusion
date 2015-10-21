@@ -1,0 +1,5 @@
+package com.derf.ei.block;
+
+public enum EIMachineCoreType {
+
+}
