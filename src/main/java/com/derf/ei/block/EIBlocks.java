@@ -45,8 +45,11 @@ public final class EIBlocks {
 	public static Block waterBlock;
 	public static Block airBlock;
 	public static Block earthBlock;
+	public static Block voidBlock;
 	// VoidStone
 	public static Block voidStone;
+	public static Block voidStoneItemInput;
+	public static Block voidStoneItemOutput;
 	// Machine Core
 	public static Block machineCore;
 	// VoidGlass
@@ -73,8 +76,11 @@ public final class EIBlocks {
 		waterBlock = new EIBlock("water_block", Material.iron, 1.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
 		airBlock = new EIBlock("air_block", Material.iron, 1.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
 		earthBlock = new EIBlock("earth_block", Material.iron, 1.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
+		voidBlock = new EIBlock("void_block", Material.iron, 1.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal); 
 		// Create VoidStone
 		voidStone = new EIBlockVoidStone("void_stone");
+		voidStoneItemInput = new EIBlockVoidStone("void_stone_item_input");
+		voidStoneItemOutput = new EIBlockVoidStone("void_stone_item_output");
 		// Machine Core
 		machineCore = new EIBlockMachineCore();
 		// VoidGlass
@@ -101,8 +107,12 @@ public final class EIBlocks {
 		GameRegistry.registerBlock(waterBlock, "water_block");
 		GameRegistry.registerBlock(airBlock, "air_block");
 		GameRegistry.registerBlock(earthBlock, "earth_block");
+		GameRegistry.registerBlock(voidBlock, "void_block");
 		
 		GameRegistry.registerBlock(voidStone, "void_stone");
+		GameRegistry.registerBlock(voidStoneItemInput, "void_stone_item_input");
+		GameRegistry.registerBlock(voidStoneItemOutput, "void_stone_item_output");
+		
 		GameRegistry.registerBlock(machineCore, "machine_core");
 		GameRegistry.registerBlock(voidGlass, "void_glass");
 		
@@ -122,20 +132,130 @@ public final class EIBlocks {
 		waterOre.setCreativeTab(CommonProxy.tabEI);
 		airOre.setCreativeTab(CommonProxy.tabEI);
 		earthOre.setCreativeTab(CommonProxy.tabEI);
+		
 		fireBlock.setCreativeTab(CommonProxy.tabEI);
 		waterBlock.setCreativeTab(CommonProxy.tabEI);
 		airBlock.setCreativeTab(CommonProxy.tabEI);
 		earthBlock.setCreativeTab(CommonProxy.tabEI);
+		voidBlock.setCreativeTab(CommonProxy.tabEI);
+		
 		voidStone.setCreativeTab(CommonProxy.tabEI);
 		machineCore.setCreativeTab(CommonProxy.tabEI);
 		voidGlass.setCreativeTab(CommonProxy.tabEI);
+		
 		fireIronBlock.setCreativeTab(CommonProxy.tabEI);
 		waterIronBlock.setCreativeTab(CommonProxy.tabEI);
 		airIronBlock.setCreativeTab(CommonProxy.tabEI);
 		earthIronBlock.setCreativeTab(CommonProxy.tabEI);
+		
 		fireDiamondBlock.setCreativeTab(CommonProxy.tabEI);
 		waterDiamondBlock.setCreativeTab(CommonProxy.tabEI);
 		airDiamondBlock.setCreativeTab(CommonProxy.tabEI);
 		earthDiamondBlock.setCreativeTab(CommonProxy.tabEI);
+	}
+	
+	/*
+	 * Ore Section
+	 */
+	public static boolean isFireOre(Block block) {
+		return fireOre.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	public static boolean isWaterOre(Block block) {
+		return waterOre.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	public static boolean isAirOre(Block block) {
+		return airOre.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	public static boolean isEarthOre(Block block) {
+		return earthOre.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	/*
+	 * Dust Block Section
+	 */
+	public static boolean isFireBlock(Block block) {
+		return fireBlock.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	public static boolean isWaterBlock(Block block) {
+		return waterBlock.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	public static boolean isAirBlock(Block block) {
+		return airBlock.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	public static boolean isEarthBlock(Block block) {
+		return earthBlock.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	public static boolean isVoidBlock(Block block) {
+		return voidBlock.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	/*
+	 * Void Stone Section
+	 */
+	public static boolean isVoidStone(Block block) {
+		return voidStone.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	public static boolean isVoidStoneItemInput(Block block) {
+		return voidStoneItemInput.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	public static boolean isVoidStoneItemOutput(Block block) {
+		return voidStoneItemOutput.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	/*
+	 * Machine Core Section
+	 */
+	public static boolean isMachineCore(Block block) {
+		return machineCore.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	/*
+	 * Void Glass Section
+	 */
+	public static boolean isVoidGlass(Block block) {
+		return voidGlass.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	/*
+	 * Elemental Iron Section
+	 */
+	public static boolean isFireIronBlock(Block block) {
+		return fireIronBlock.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	public static boolean isWaterIronBlock(Block block) {
+		return waterIronBlock.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	public static boolean isAirIronBlock(Block block) {
+		return airIronBlock.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	public static boolean isEarthIronBlock(Block block) {
+		return earthIronBlock.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	/*
+	 * Elemental Diamond Section
+	 */
+	public static boolean isFireDiamondBlock(Block block) {
+		return fireDiamondBlock.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	public static boolean isWaterDiamondBlock(Block block) {
+		return waterDiamondBlock.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	public static boolean isAirDiamondBlock(Block block) {
+		return airDiamondBlock.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	public static boolean isEarthDiamondBlock(Block block) {
+		return earthDiamondBlock.getUnlocalizedName().equals(block.getUnlocalizedName());
 	}
 }

@@ -1,5 +1,6 @@
 package com.derf.ei.multiblock;
 
+import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 

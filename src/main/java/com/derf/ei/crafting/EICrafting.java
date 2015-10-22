@@ -151,6 +151,16 @@ public final class EICrafting {
 				"fff",
 				"fff",
 				'f', EIItems.earthDust);
+		// 1 void dust block (Note: this might change using multiblock recipe)
+		GameRegistry.addShapedRecipe(
+				new ItemStack(EIBlocks.voidBlock),
+				" f ",
+				"a e",
+				" w ",
+				'f', EIBlocks.fireBlock,
+				'a', EIBlocks.airBlock,
+				'e', EIBlocks.earthBlock,
+				'w', EIBlocks.waterBlock);
 		// 1 fire iron block
 		GameRegistry.addShapedRecipe(
 				new ItemStack(EIBlocks.fireIronBlock), 
@@ -207,5 +217,30 @@ public final class EICrafting {
 				"fff",
 				"fff",
 				'f', EIItems.earthDiamond);
+		/*
+		 * Multiblock Recipes
+		 */
+		// Adding FireTotem Recipes
+		EICraftingMultiBlock.addFireTotemRecipe(new EICraftingBlockRecipe(Blocks.iron_block, EIBlocks.fireIronBlock, 3.0f));
+		EICraftingMultiBlock.addFireTotemRecipe(new EICraftingBlockRecipe(Blocks.diamond_block, EIBlocks.fireDiamondBlock, 6.0f));
+		// Adding WaterTotem Recipes
+		EICraftingMultiBlock.addWaterTotemRecipe(new EICraftingBlockRecipe(Blocks.iron_block, EIBlocks.waterIronBlock, 3.0f));
+		EICraftingMultiBlock.addWaterTotemRecipe(new EICraftingBlockRecipe(Blocks.diamond_block, EIBlocks.waterDiamondBlock, 6.0f));
+		// Adding AirTotem Recipes
+		EICraftingMultiBlock.addAirTotemRecipe(new EICraftingBlockRecipe(Blocks.iron_block, EIBlocks.airIronBlock, 3.0f));
+		EICraftingMultiBlock.addAirTotemRecipe(new EICraftingBlockRecipe(Blocks.diamond_block, EIBlocks.airDiamondBlock, 6.0f));
+		// Adding EarthTotem Recipes
+		EICraftingMultiBlock.addEarthTotemRecipe(new EICraftingBlockRecipe(Blocks.iron_block, EIBlocks.earthIronBlock, 3.0f));
+		EICraftingMultiBlock.addEarthTotemRecipe(new EICraftingBlockRecipe(Blocks.diamond_block, EIBlocks.earthDiamondBlock, 6.0f));
+		// Adding VoidTotem Recipes
+		EICraftingMultiBlock.addVoidTotemRecipe(new EICraftingBlockRecipe(EIBlocks.fireIronBlock, Blocks.iron_block, 3.0f));
+		EICraftingMultiBlock.addVoidTotemRecipe(new EICraftingBlockRecipe(EIBlocks.waterIronBlock, Blocks.iron_block, 3.0f));
+		EICraftingMultiBlock.addVoidTotemRecipe(new EICraftingBlockRecipe(EIBlocks.airIronBlock, Blocks.iron_block, 3.0f));
+		EICraftingMultiBlock.addVoidTotemRecipe(new EICraftingBlockRecipe(EIBlocks.earthIronBlock, Blocks.iron_block, 3.0f));
+		EICraftingMultiBlock.addVoidTotemRecipe(new EICraftingBlockRecipe(EIBlocks.fireDiamondBlock, Blocks.diamond_block, 6.0f));
+		EICraftingMultiBlock.addVoidTotemRecipe(new EICraftingBlockRecipe(EIBlocks.waterDiamondBlock, Blocks.diamond_block, 6.0f));
+		EICraftingMultiBlock.addVoidTotemRecipe(new EICraftingBlockRecipe(EIBlocks.airDiamondBlock, Blocks.diamond_block, 6.0f));
+		EICraftingMultiBlock.addVoidTotemRecipe(new EICraftingBlockRecipe(EIBlocks.earthDiamondBlock, Blocks.diamond_block, 6.0f));
+		
 	}
 }

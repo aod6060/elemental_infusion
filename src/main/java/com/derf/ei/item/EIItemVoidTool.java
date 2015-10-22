@@ -7,6 +7,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 
+import com.derf.ei.block.EIBlocks;
 import com.derf.ei.tileentity.EITileEntityMachineCore;
 
 public class EIItemVoidTool extends EIItem {
@@ -37,9 +38,18 @@ public class EIItemVoidTool extends EIItem {
 			Block block;
 			block = world.getBlock(x, y, z);
 			
-			if(block.getUnlocalizedName().equals("tile.void_stone")) {
-				player.addChatComponentMessage(new ChatComponentText("This is a Void Stone."));
-			} else if(block.getUnlocalizedName().equals("tile.machine_core")) {
+			if(isVoidStone(block)) {
+				
+				if(EIBlocks.isVoidStone(block)) {
+					world.setBlock(x, y, z, EIBlocks.voidStoneItemInput);
+				} else if(EIBlocks.isVoidStoneItemInput(block)) {
+					world.setBlock(x, y, z, EIBlocks.voidStoneItemOutput);
+				} else if(EIBlocks.isVoidStoneItemOutput(block)) {
+					world.setBlock(x, y, z, EIBlocks.voidStone);
+				}
+				
+			} else if(EIBlocks.isMachineCore(block)) {
+			
 				EITileEntityMachineCore tentity = (EITileEntityMachineCore) world.getTileEntity(x, y, z);
 				
 				if(player.isSneaking()) {
@@ -57,5 +67,9 @@ public class EIItemVoidTool extends EIItem {
 		return true;
 	}
 	
-	
+	boolean isVoidStone(Block block) {
+		return EIBlocks.isVoidStone(block) ||
+			   EIBlocks.isVoidStoneItemInput(block) ||
+			   EIBlocks.isVoidStoneItemOutput(block);
+	}
 }

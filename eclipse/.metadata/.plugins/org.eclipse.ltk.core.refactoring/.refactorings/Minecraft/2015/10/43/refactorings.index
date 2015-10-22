@@ -13,3 +13,5 @@
 1445387216151	Move compilation unit
 1445390115276	Rename type 'EIVoidTool'
 1445395649058	Rename type 'EIMultiBlockFireTotum'
+1445473843462	Rename type 'EIMultiBlockCrafting'
+1445473862374	Rename type 'EIBlockRecipe'

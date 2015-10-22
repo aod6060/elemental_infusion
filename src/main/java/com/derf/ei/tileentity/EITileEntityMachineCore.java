@@ -9,6 +9,7 @@ import com.derf.ei.multiblock.IMultiBlock;
 
 
 public class EITileEntityMachineCore extends EITileEntity {
+	// Totem Section
 	// Fire Totem
 	public static final int FIRE_TOTEM = 0;
 	// Water Totem
@@ -17,6 +18,11 @@ public class EITileEntityMachineCore extends EITileEntity {
 	public static final int AIR_TOTEM = 2;
 	// Earth Totem
 	public static final int EARTH_TOTEM = 3;
+	// Void Totem
+	public static final int VOID_TOTEM = 4;
+	// Generator Section
+	// Cobblestone Generator
+	public static final int COBBLE_STONE_GENERATOR = 5;
 	
 	private int mode = FIRE_TOTEM;
 	
@@ -58,6 +64,10 @@ public class EITileEntityMachineCore extends EITileEntity {
 			this.setMode(EARTH_TOTEM);
 		} else if(mode == EARTH_TOTEM) {
 			//mode = FIRE_TOTEM;
+			this.setMode(VOID_TOTEM);
+		} else if(mode == VOID_TOTEM) {
+			this.setMode(COBBLE_STONE_GENERATOR);
+		} else if(mode == COBBLE_STONE_GENERATOR) {
 			this.setMode(FIRE_TOTEM);
 		}
 	}
@@ -77,6 +87,12 @@ public class EITileEntityMachineCore extends EITileEntity {
 		case EARTH_TOTEM:
 			player.addChatComponentMessage(new ChatComponentText("Machine Core Configuration: Currently set to Earth Totem."));
 			break;
+		case VOID_TOTEM:
+			player.addChatComponentMessage(new ChatComponentText("Machine Core Configuration: Currently set to Void Totem."));
+			break;
+		case COBBLE_STONE_GENERATOR:
+			player.addChatComponentMessage(new ChatComponentText("Machine Core Configuration: Currently set to Cobblestone Generator."));
+			break;
 		}
 	}
 
@@ -84,11 +100,9 @@ public class EITileEntityMachineCore extends EITileEntity {
 	public void readFromNBT(NBTTagCompound compound) {
 		// TODO Auto-generated method stub
 		super.readFromNBT(compound);
-		
 		// Grab mode from NBT Compound
 		this.setMode(compound.getInteger("mode"));
 		// This section will be for the multiblock interface
-		
 		if(multiBlock != null) {
 			multiBlock.readFromNBT(compound);
 		}
@@ -98,7 +112,6 @@ public class EITileEntityMachineCore extends EITileEntity {
 	public void writeToNBT(NBTTagCompound compound) {
 		// TODO Auto-generated method stub
 		super.writeToNBT(compound);
-		
 		// Add mode to NBT Compound
 		compound.setInteger("mode", this.getMode());
 		// This section will save the data to the 

@@ -8,6 +8,14 @@ public final class EIMultiBlockFactory {
 		
 		if(id == EITileEntityMachineCore.FIRE_TOTEM) {
 			block = new EIMultiBlockFireTotem();
+		} else if(id == EITileEntityMachineCore.WATER_TOTEM) {
+			block = new EIMultiBlockWaterTotem();
+		} else if(id == EITileEntityMachineCore.AIR_TOTEM) {
+			block = new EIMultiBlockAirTotem();
+		} else if(id == EITileEntityMachineCore.EARTH_TOTEM) {
+			block = new EIMultiBlockEarthTotem();
+		} else if(id == EITileEntityMachineCore.VOID_TOTEM) {
+			block = new EIMultiBlockVoidTotem();
 		}
 		
 		return block;

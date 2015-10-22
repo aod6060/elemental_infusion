@@ -1,89 +1,92 @@
 package com.derf.ei.multiblock;
 
+import java.util.ArrayList;
+
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 
 import com.derf.ei.block.EIBlocks;
+import com.derf.ei.crafting.EICraftingBlockRecipe;
+import com.derf.ei.crafting.EICraftingBlockSlot;
 
-public final class EIMultiBlockTotem extends EIMultiBlock {
+public abstract class EIMultiBlockTotem extends EIMultiBlock {
 	
-	class BlockRecipe {
-		private final static float INTERVAL = 20.0f / 1000.0f;
+	protected EICraftingBlockSlot[] blockSlots = new EICraftingBlockSlot[8];
+	
+	protected ArrayList<Block> createBlockList(World world, int x, int y, int z) {
+		ArrayList<Block> list = new ArrayList<Block>();
 		
-		private int x;
-		private int y;
-		private int z;
-		private float duration;
-		private boolean isProcessing = false;
+		list.add(world.getBlock(x-1, y, z));
+		list.add(world.getBlock(x+1, y, z));
+		list.add(world.getBlock(x, y, z-1));
+		list.add(world.getBlock(x, y, z+1));
+		list.add(world.getBlock(x-1, y, z-1));
+		list.add(world.getBlock(x+1, y, z-1));
+		list.add(world.getBlock(x+1, y, z+1));
+		list.add(world.getBlock(x-1, y, z+1));
+		list.add(world.getBlock(x, y+1, z));
+		list.add(world.getBlock(x, y+2, z));
 		
-		public BlockRecipe(int x, int y, int z) {
-			this.x = x;
-			this.y = y;
-			this.z = z;
-			this.setDuration(-1);
-		}
+		return list;
+	}
+	
+	protected boolean isMultiBlockComplete(World world, int x, int y, int z, Block block) {
+		ArrayList<Block> blockList = this.createBlockList(world, x, y, z);
+		boolean b = true;
 		
-		public float getDuration() {
-			return duration;
-		}
-		
-		public void setDuration(float duration) {
-			this.duration = duration;
-		}
-		
-		public int getX() {
-			return x;
-		}
-		
-		public int getY() {
-			return y;
-		}
-		
-		public int getZ() {
-			return z;
-		}
-		
-		public void update(World world) {
-			Block block = world.getBlock(this.getX(), this.getY(), this.getZ());
-			
-			
-			if(this.isIronBlock(block)) {
-				if(!isProcessing) {
-					isProcessing = true;
-					this.setDuration(3.0f);
-				}
-				
-				if(this.getDuration() <= 0.0f) {
-					world.setBlock(this.getX(), this.getY(), this.getZ(), EIBlocks.fireIronBlock);
-					isProcessing = false;
-				} else {
-					this.setDuration(this.getDuration() - INTERVAL);
-				}
-			} else if(this.isDiamondBlock(block)) {
-				if(!isProcessing) {
-					isProcessing = true;
-					this.setDuration(6.0f);
-				}
-				
-				if(this.getDuration() <= 0.0f) {
-					world.setBlock(this.getX(), this.getY(), this.getZ(), EIBlocks.fireDiamondBlock);
-					isProcessing = false;
-				} else {
-					this.setDuration(this.getDuration() - INTERVAL);
-				}
+		for(int i = 0; i < blockList.size() - 1; i++) {
+			if(!EIBlocks.isVoidStone(blockList.get(i))) {
+				b = false;
+				break;
 			}
-			
 		}
 		
-		boolean isIronBlock(Block block) {
-			return block.getUnlocalizedName().equals("tile.blockIron");
+		if(!blockList.get(blockList.size() - 1).getUnlocalizedName().equals(block.getUnlocalizedName())) {
+			b = false;
 		}
 		
-		boolean isDiamondBlock(Block block) {
-			return block.getUnlocalizedName().equals("tile.blockDiamond");
+		return b;
+	}
+	
+	protected void checkSlotExist(World world, int x, int y, int z) {
+		
+		if(blockSlots[0] == null) {
+			blockSlots[0] = new EICraftingBlockSlot(x-1, y+1, z);
+		}
+		
+		if(blockSlots[1] == null) {
+			blockSlots[1] = new EICraftingBlockSlot(x+1, y+1, z);
+		}
+		
+		if(blockSlots[2] == null) {
+			blockSlots[2] = new EICraftingBlockSlot(x, y+1, z-1);
+		}
+		
+		if(blockSlots[3] == null) {
+			blockSlots[3] = new EICraftingBlockSlot(x, y+1, z+1);
+		}
+		
+		if(blockSlots[4] == null) {
+			blockSlots[4] = new EICraftingBlockSlot(x-1, y+1, z-1);
+		}
+		
+		if(blockSlots[5] == null) {
+			blockSlots[5] = new EICraftingBlockSlot(x+1, y+1, z-1);
+		}
+		
+		if(blockSlots[6] == null) {
+			blockSlots[6] = new EICraftingBlockSlot(x+1, y+1, z+1);
+		}
+		
+		if(blockSlots[7] == null) {
+			blockSlots[7] = new EICraftingBlockSlot(x-1, y+1, z+1);
 		}
 	}
 	
-	
-	
+	protected void updateSlots(World world, ArrayList<EICraftingBlockRecipe> recipes) {
+		for(int i = 0; i < blockSlots.length; i++) {
+			blockSlots[i].update(world, recipes);
+		}
+		
+	}
 }
