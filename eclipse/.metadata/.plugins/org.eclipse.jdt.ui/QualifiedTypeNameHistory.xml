@@ -6,8 +6,6 @@
 <fullyQualifiedTypeName name="com.derf.ei.Main"/>
 <fullyQualifiedTypeName name="com.derf.ei.item.EIItems"/>
 <fullyQualifiedTypeName name="com.derf.ei.crafting.EICrafting"/>
-<fullyQualifiedTypeName name="net.minecraft.block.BlockContainer"/>
-<fullyQualifiedTypeName name="net.minecraft.item.Item"/>
 <fullyQualifiedTypeName name="cpw.mods.fml.common.registry.GameRegistry"/>
 <fullyQualifiedTypeName name="com.derf.ei.tileentity.EITileEntities"/>
 <fullyQualifiedTypeName name="com.derf.ei.EIType"/>
@@ -19,9 +17,14 @@
 <fullyQualifiedTypeName name="net.minecraft.tileentity.TileEntity"/>
 <fullyQualifiedTypeName name="com.derf.ei.multiblock.EIMultiBlockFactory"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="com.derf.ei.tileentity.EITileEntityMachineCore"/>
 <fullyQualifiedTypeName name="net.minecraft.block.Block"/>
-<fullyQualifiedTypeName name="net.minecraft.init.Blocks"/>
 <fullyQualifiedTypeName name="com.derf.ei.crafting.EICraftingMultiBlock"/>
+<fullyQualifiedTypeName name="com.derf.ei.multiblock.EIMultiBlockCobbleGenerator.Position"/>
+<fullyQualifiedTypeName name="com.derf.ei.util.EIPosition"/>
+<fullyQualifiedTypeName name="net.minecraft.item.Item"/>
+<fullyQualifiedTypeName name="com.derf.ei.multiblock.generator.EIMultiBlockGeneratorDirt"/>
+<fullyQualifiedTypeName name="com.derf.ei.tileentity.EITileEntityMachineCore"/>
 <fullyQualifiedTypeName name="com.derf.ei.block.EIBlocks"/>
+<fullyQualifiedTypeName name="net.minecraft.init.Blocks"/>
+<fullyQualifiedTypeName name="net.minecraft.block.BlockContainer"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,6 @@
+package com.derf.ei.multiblock.generator;
+
+public class EIMultiBlockGeneratorSoulsand extends EIMultiBlockGenerator {
+	public EIMultiBlockGeneratorSoulsand() {
+	}
+}

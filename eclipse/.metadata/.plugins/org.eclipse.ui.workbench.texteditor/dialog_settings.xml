@@ -13,13 +13,17 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="blockSlot" key="selection"/>
+		<item value="FurnaceRecipe" key="selection"/>
 		<list key="findhistory">
+			<item value="FurnaceRecipe"/>
+			<item value="update"/>
+			<item value="Position"/>
 			<item value="BlockSlot"/>
 			<item value="inventory"/>
 			<item value="getItemDrop"/>
 		</list>
 		<list key="replacehistory">
+			<item value="EIPosition"/>
 			<item value="EICraftingBlockSlot"/>
 			<item value="blockSlots"/>
 		</list>

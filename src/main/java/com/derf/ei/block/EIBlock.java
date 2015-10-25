@@ -17,5 +17,4 @@ public class EIBlock extends Block {
 		this.setHarvestLevel(tool, level);
 		this.setStepSound(sound);
 	}
-
 }

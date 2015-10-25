@@ -1,0 +1,205 @@
+package com.derf.ei.multiblock;
+
+import java.util.ArrayList;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
+import net.minecraft.world.World;
+
+import com.derf.ei.block.EIBlocks;
+
+public class EIMultiBlockCobbleGenerator extends EIMultiBlock {
+	class Position {
+		private int x;
+		private int y;
+		private int z;
+		
+		public Position(int x, int y, int z) {
+			this.x = x;
+			this.y = y;
+			this.z = z;
+		}
+
+		public int getX() {
+			return x;
+		}
+
+		public int getY() {
+			return y;
+		}
+
+		public int getZ() {
+			return z;
+		}
+		
+		
+	}
+	
+	private final static float INTERVAL = 20.0f / 1000.0f;
+	
+	private boolean testBlocks = false;
+	
+	private boolean findOutput = false;
+	
+	private Block voidStoneOutput = null;
+	private Position voidStoneOutputPos = null;
+	
+	@Override
+	public void update(World world, int x, int y, int z) {
+		// TODO Auto-generated method stub
+		super.update(world, x, y, z);
+		
+		if(isMultiBlockComplete(world, x, y, z)) {
+			this.updateInventory(world);
+		}
+	}
+	
+	private void updateInventory(World world) {
+		// TODO Auto-generated method stub
+		int x = this.voidStoneOutputPos.getX();
+		int y = this.voidStoneOutputPos.getY();
+		int z = this.voidStoneOutputPos.getZ();
+		
+		
+		// Check 6 faces
+		
+		Block top = world.getBlock(x, y+1, z);
+		
+		
+		if(top instanceof BlockContainer) {
+			
+		}
+	}
+	
+	
+	private ArrayList<Block> createBlockList(World world, ArrayList<Position> position) {
+		
+		ArrayList<Block> temp = new ArrayList<Block>();
+		
+		for(int i = 0; i < position.size(); i++) {
+			temp.add(world.getBlock(position.get(i).getX(), position.get(i).getY(), position.get(i).getZ()));
+		}
+		
+		return temp;
+	}
+	
+	private ArrayList<Position> createPositionList(int x, int y, int z) {
+		ArrayList<Position> temp = new ArrayList<Position>();
+		
+		temp.add(new Position(x-1, y, z)); // Fire Iron Block
+		temp.add(new Position(x+1, y, z)); // Water Iron Block
+		temp.add(new Position(x-1, y, z-1));
+		temp.add(new Position(x-1, y, z+1));
+		temp.add(new Position(x-2, y, z));
+		temp.add(new Position(x-2, y, z-1));
+		temp.add(new Position(x-2, y, z+1));
+		temp.add(new Position(x+1, y, z-1));
+		temp.add(new Position(x+1, y, z+1));
+		temp.add(new Position(x+2, y, z));
+		temp.add(new Position(x+2, y, z-1));
+		temp.add(new Position(x+2, y, z+1));
+		temp.add(new Position(x, y, z-1));
+		temp.add(new Position(x, y, z+1));
+		
+		return temp;
+	}
+	
+	private void printBlocks(ArrayList<Block> temp) {
+		if(!testBlocks) {
+			for(int i = 0; i < temp.size(); i++) {
+				System.out.println("Unlocalizaed Name: " + temp.get(i).getUnlocalizedName());
+			}
+			
+			testBlocks = true;
+		}
+	}
+	
+	private boolean checkForVoidStone(ArrayList<Block> temp) {
+		boolean b = true;
+		
+		for(int i = 2; i < temp.size(); i++) {
+			if(!EIBlocks.isVoidStone(temp.get(i))){
+				
+				if(!EIBlocks.isVoidStoneItemOutput(temp.get(i))) {
+					b = false;
+					break;
+				}
+			}
+		}
+		
+		return b;
+	}
+	
+	private boolean checkForVoidStoneOutput(ArrayList<Block> temp) {
+		boolean b = false;
+		
+		for(int i = 2; i < temp.size(); i++) {
+				
+			if(EIBlocks.isVoidStoneItemOutput(temp.get(i))) {
+				b = true;
+				break;
+			}
+		}
+		
+		return b;
+	}
+	
+	private boolean checkIfOneVoidStoneOutput(ArrayList<Block> temp) {
+		int num = 0;
+		
+		
+		for(int i = 2; i < temp.size(); i++) {
+			if(EIBlocks.isVoidStoneItemOutput(temp.get(i))) {
+				num += 1;
+			}
+		}
+		
+		return num == 1;
+	}
+	
+	public void setOutputLocationBlock(ArrayList<Position> p, ArrayList<Block> b) {
+		for(int i = 2; i < p.size(); i++) {
+			if(EIBlocks.isVoidStoneItemOutput(b.get(i))) {
+				this.voidStoneOutput = b.get(i);
+				this.voidStoneOutputPos = p.get(i);
+				break;
+			}
+		}
+	}
+	
+	private boolean isMultiBlockComplete(World world, int x, int y, int z) {
+		ArrayList<Position> posList = this.createPositionList(x, y, z);
+		ArrayList<Block> blockList = this.createBlockList(world, posList);
+		
+		boolean b = true;
+		
+		printBlocks(blockList);
+		
+		if(!EIBlocks.isFireIronBlock(blockList.get(0))) {
+			b = false;
+		}
+		
+		if(!EIBlocks.isWaterIronBlock(blockList.get(1))) {
+			b = false;
+		}
+		
+		if(b) {
+			b = checkForVoidStone(blockList);
+		}
+		
+		if(b) {
+			b = checkForVoidStoneOutput(blockList);
+		}
+		
+		if(b) {
+			b = checkIfOneVoidStoneOutput(blockList);
+		}
+		
+		if(b) {
+			this.setOutputLocationBlock(posList, blockList);
+		}
+		
+		return b;
+	}
+
+}

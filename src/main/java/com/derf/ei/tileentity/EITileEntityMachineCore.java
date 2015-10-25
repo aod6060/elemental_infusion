@@ -1,9 +1,13 @@
 package com.derf.ei.tileentity;
 
+import java.util.ArrayList;
+
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
 
+import com.derf.ei.block.EIBlocks;
 import com.derf.ei.multiblock.EIMultiBlockFactory;
 import com.derf.ei.multiblock.IMultiBlock;
 
@@ -23,8 +27,40 @@ public class EITileEntityMachineCore extends EITileEntity {
 	// Generator Section
 	// Cobblestone Generator
 	public static final int COBBLE_STONE_GENERATOR = 5;
+	// Dirt Generator
+	public static final int DIRT_GENERATOR = 6;
+	// Sand Generator
+	public static final int SAND_GENERATOR = 7;
+	// Clay Generator
+	public static final int CLAY_GENERATOR = 8;
+	// Gravel Generator
+	public static final int GRAVEL_GENERATOR = 9;
+	// Netherrack Generator
+	public static final int NETHER_GENERATOR = 10;
+	// Soulsand Generator
+	public static final int SOULSAND_GENERATOR = 11;
+	// Void Furnace [Basic Level Furnace]
+	public static final int VOID_STONE_FURNACE = 12;
+	// Max Size
+	public static final int MB_SIZE = 13;
 	
 	private int mode = FIRE_TOTEM;
+	
+	private static String[] messages = new String[] {
+		"Machine Core Configuration: Currently set to Fire Totem.",
+		"Machine Core Configuration: Currently set to Water Totem.",
+		"Machine Core Configuration: Currently set to Air Totem.",
+		"Machine Core Configuration: Currently set to Earth Totem.",
+		"Machine Core Configuration: Currently set to Void Totem.",
+		"Machine Core Configuration: Currently set to Cobblestone Generator.",
+		"Machine Core Configuration: Currently set to Dirt Generator.",
+		"Machine Core Configuration: Currently set to Sand Generator.",
+		"Machine Core Configuration: Currently set to Clay Generator.",
+		"Machine Core Configuration: Currently set to Gravel Generator.",
+		"Machine Core Configuration: Currently set to Netherrack Generator.",
+		"Machine Core Configuration: Currently set to Soulsand Generator.",
+		"Machine Core Configuration: Currently set to Void Stone Furnace."
+	};
 	
 	private IMultiBlock multiBlock = EIMultiBlockFactory.createMultiBlock(FIRE_TOTEM);
 	
@@ -53,46 +89,19 @@ public class EITileEntityMachineCore extends EITileEntity {
 	}
 	
 	public void toggleMode() {
-		if(mode == FIRE_TOTEM) {
-			//mode = WATER_TOTEM;
-			this.setMode(WATER_TOTEM);
-		} else if(mode == WATER_TOTEM) {
-			//mode = AIR_TOTEM;
-			this.setMode(AIR_TOTEM);
-		} else if(mode == AIR_TOTEM) {
-			//mode = EARTH_TOTEM;
-			this.setMode(EARTH_TOTEM);
-		} else if(mode == EARTH_TOTEM) {
-			//mode = FIRE_TOTEM;
-			this.setMode(VOID_TOTEM);
-		} else if(mode == VOID_TOTEM) {
-			this.setMode(COBBLE_STONE_GENERATOR);
-		} else if(mode == COBBLE_STONE_GENERATOR) {
+		if(mode < MB_SIZE - 1) {
+			this.setMode(this.getMode() + 1);
+		} else {
 			this.setMode(FIRE_TOTEM);
 		}
 	}
 	
 	public void printType(EntityPlayer player) {
 		
-		switch(mode) {
-		case FIRE_TOTEM:
-			player.addChatComponentMessage(new ChatComponentText("Machine Core Configuration: Currently set to Fire Totem."));
-			break;
-		case WATER_TOTEM:
-			player.addChatComponentMessage(new ChatComponentText("Machine Core Configuration: Currently set to Water Totem."));
-			break;
-		case AIR_TOTEM:
-			player.addChatComponentMessage(new ChatComponentText("Machine Core Configuration: Currently set to Air Totem."));
-			break;
-		case EARTH_TOTEM:
-			player.addChatComponentMessage(new ChatComponentText("Machine Core Configuration: Currently set to Earth Totem."));
-			break;
-		case VOID_TOTEM:
-			player.addChatComponentMessage(new ChatComponentText("Machine Core Configuration: Currently set to Void Totem."));
-			break;
-		case COBBLE_STONE_GENERATOR:
-			player.addChatComponentMessage(new ChatComponentText("Machine Core Configuration: Currently set to Cobblestone Generator."));
-			break;
+		if(this.mode < messages.length) {
+			player.addChatComponentMessage(new ChatComponentText(messages[mode]));
+		} else {
+			player.addChatComponentMessage(new ChatComponentText("Machine Core Configuration: Unknown because the modder frcook didn't set it yet."));
 		}
 	}
 
@@ -121,5 +130,16 @@ public class EITileEntityMachineCore extends EITileEntity {
 		}
 	}
 	
+	private boolean checkForOneInputBlock(ArrayList<Block> temp) {
+		int num = 0;
+		
+		for(int i = 2; i < temp.size(); i++) {
+			if(EIBlocks.isVoidStoneItemInput(temp.get(i))) {
+				num += 1;
+			}
+		}
+		
+		return num == 1;
+	}
 	
 }

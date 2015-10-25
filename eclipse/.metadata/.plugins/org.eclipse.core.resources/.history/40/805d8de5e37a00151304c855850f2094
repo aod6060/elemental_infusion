@@ -1,0 +1,7 @@
+package com.derf.ei.multiblock.furnace;
+
+import com.derf.ei.multiblock.EIMultiBlock;
+
+public abstract class EIMultiBlockFurnace extends EIMultiBlock {
+
+}

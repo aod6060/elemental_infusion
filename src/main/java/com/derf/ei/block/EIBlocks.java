@@ -258,4 +258,8 @@ public final class EIBlocks {
 	public static boolean isEarthDiamondBlock(Block block) {
 		return earthDiamondBlock.getUnlocalizedName().equals(block.getUnlocalizedName());
 	}
+	
+	public static boolean isBlock(Block b, Block b2) {
+		return b.getUnlocalizedName().equals(b2.getUnlocalizedName());
+	}
 }

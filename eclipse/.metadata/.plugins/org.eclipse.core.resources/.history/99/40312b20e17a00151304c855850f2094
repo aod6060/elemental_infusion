@@ -1,0 +1,5 @@
+package com.derf.ei.multiblock.generator;
+
+public class EIMultiBlockGeneratorNetherrack extends EIMultiBlockGenerator {
+
+}
