@@ -11,6 +11,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public final class EICrafting {
 	public static void create() {
+		EICraftingMultiBlock.init();
+		
 		// Create Void Stone
 		GameRegistry.addShapedRecipe(
 				new ItemStack(EIBlocks.voidStone), 

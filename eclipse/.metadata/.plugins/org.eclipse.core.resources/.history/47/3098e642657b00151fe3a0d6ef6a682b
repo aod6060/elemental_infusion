@@ -1,0 +1,14 @@
+package com.derf.ei.multiblock.smelter;
+
+/**
+ * Smelters are somewhat different from the furnace. 
+ * It is used to do ore multiplications. 
+ * 2x low tier 
+ * 3x mid tier 
+ * 4x high tier
+ * @author Fred
+ *
+ */
+public class EIMultiBlockSmelter {
+
+}

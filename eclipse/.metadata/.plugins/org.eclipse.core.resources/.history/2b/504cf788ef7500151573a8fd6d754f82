@@ -1,6 +1,0 @@
-package com.derf.ei.item;
-
-import net.minecraft.item.Item;
-
-public class EIItemDust extends Item {
-}

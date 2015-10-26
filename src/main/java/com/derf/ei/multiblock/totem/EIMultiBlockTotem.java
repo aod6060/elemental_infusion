@@ -8,15 +8,33 @@ import net.minecraft.world.World;
 import com.derf.ei.block.EIBlocks;
 import com.derf.ei.crafting.EICraftingBlockRecipe;
 import com.derf.ei.crafting.EICraftingBlockSlot;
+import com.derf.ei.crafting.EICraftingMultiBlock;
 import com.derf.ei.multiblock.EIMultiBlock;
 
 public abstract class EIMultiBlockTotem extends EIMultiBlock {
 	
 	protected EICraftingBlockSlot[] blockSlots = new EICraftingBlockSlot[8];
 	
-	protected ArrayList<Block> createBlockList(World world, int x, int y, int z) {
+	private Block basicBlock = null;
+	private Block totemHead = null;
+	private ArrayList<EICraftingBlockRecipe> recipes = null;
+	
+	@Override
+	public void update(World world, int x, int y, int z) {
+		// TODO Auto-generated method stub
+		super.update(world, x, y, z);
+		
+		if(this.isMultiBlockComplete(world, x, y, z)) {
+			//System.out.println("Multi Block Complete");
+			this.checkSlotExist(world, x, y, z);
+			this.updateSlots(world, this.recipes);
+		}
+	}
+	
+	private ArrayList<Block> createBlockList(World world, int x, int y, int z) {
 		ArrayList<Block> list = new ArrayList<Block>();
 		
+		list.add(world.getBlock(x, y+2, z)); // Totem Head
 		list.add(world.getBlock(x-1, y, z));
 		list.add(world.getBlock(x+1, y, z));
 		list.add(world.getBlock(x, y, z-1));
@@ -26,30 +44,30 @@ public abstract class EIMultiBlockTotem extends EIMultiBlock {
 		list.add(world.getBlock(x+1, y, z+1));
 		list.add(world.getBlock(x-1, y, z+1));
 		list.add(world.getBlock(x, y+1, z));
-		list.add(world.getBlock(x, y+2, z));
+		
 		
 		return list;
 	}
 	
-	protected boolean isMultiBlockComplete(World world, int x, int y, int z, Block block) {
+	private boolean isMultiBlockComplete(World world, int x, int y, int z) {
 		ArrayList<Block> blockList = this.createBlockList(world, x, y, z);
 		boolean b = true;
+				
+		if(!EIBlocks.isBlock(this.totemHead, blockList.get(0))) {
+			b = false;
+		}
 		
-		for(int i = 0; i < blockList.size() - 1; i++) {
-			if(!EIBlocks.isVoidStone(blockList.get(i))) {
+		for(int i = 1; i < blockList.size() - 1; i++) {
+			if(!EIBlocks.isBlock(this.basicBlock, blockList.get(i))) {
 				b = false;
 				break;
 			}
 		}
 		
-		if(!blockList.get(blockList.size() - 1).getUnlocalizedName().equals(block.getUnlocalizedName())) {
-			b = false;
-		}
-		
 		return b;
 	}
 	
-	protected void checkSlotExist(World world, int x, int y, int z) {
+	private void checkSlotExist(World world, int x, int y, int z) {
 		
 		if(blockSlots[0] == null) {
 			blockSlots[0] = new EICraftingBlockSlot(x-1, y+1, z);
@@ -84,10 +102,22 @@ public abstract class EIMultiBlockTotem extends EIMultiBlock {
 		}
 	}
 	
-	protected void updateSlots(World world, ArrayList<EICraftingBlockRecipe> recipes) {
+	private void updateSlots(World world, ArrayList<EICraftingBlockRecipe> recipes) {
 		for(int i = 0; i < blockSlots.length; i++) {
 			blockSlots[i].update(world, recipes);
 		}
 		
+	}
+
+	protected void setBasicBlock(Block block) {
+		this.basicBlock = block;
+	}
+	
+	protected void setTotemHead(Block block) {
+		this.totemHead = block;
+	}
+
+	protected void setRecipesList(ArrayList<EICraftingBlockRecipe> recipes) {
+		this.recipes = recipes;
 	}
 }

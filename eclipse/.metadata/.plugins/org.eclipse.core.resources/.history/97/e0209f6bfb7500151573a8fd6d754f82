@@ -1,5 +1,0 @@
-package com.derf.ei.block;
-
-public class EIBlockOre extends Block {
-
-}

@@ -18,13 +18,20 @@
 <fullyQualifiedTypeName name="com.derf.ei.multiblock.EIMultiBlockFactory"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="net.minecraft.block.Block"/>
-<fullyQualifiedTypeName name="com.derf.ei.crafting.EICraftingMultiBlock"/>
 <fullyQualifiedTypeName name="com.derf.ei.multiblock.EIMultiBlockCobbleGenerator.Position"/>
 <fullyQualifiedTypeName name="com.derf.ei.util.EIPosition"/>
-<fullyQualifiedTypeName name="net.minecraft.item.Item"/>
 <fullyQualifiedTypeName name="com.derf.ei.multiblock.generator.EIMultiBlockGeneratorDirt"/>
 <fullyQualifiedTypeName name="com.derf.ei.tileentity.EITileEntityMachineCore"/>
-<fullyQualifiedTypeName name="com.derf.ei.block.EIBlocks"/>
 <fullyQualifiedTypeName name="net.minecraft.init.Blocks"/>
 <fullyQualifiedTypeName name="net.minecraft.block.BlockContainer"/>
+<fullyQualifiedTypeName name="com.derf.ei.block.EIBlocks"/>
+<fullyQualifiedTypeName name="com.derf.ei.multiblock.smelter.EIMultiBlockSmelterVoidStone"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.util.Map.Entry"/>
+<fullyQualifiedTypeName name="net.minecraftforge.oredict.OreDictionary"/>
+<fullyQualifiedTypeName name="com.derf.ei.crafting.EICraftingBlockRecipe"/>
+<fullyQualifiedTypeName name="com.derf.ei.crafting.EICraftingMultiBlock"/>
+<fullyQualifiedTypeName name="net.minecraft.item.Item"/>
 </qualifiedTypeNameHistroy>

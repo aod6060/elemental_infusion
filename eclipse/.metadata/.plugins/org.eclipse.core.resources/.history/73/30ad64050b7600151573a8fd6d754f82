@@ -1,5 +1,0 @@
-package com.derf.ei.world;
-
-public class EIWorldGen implements IWorldGenerator {
-
-}

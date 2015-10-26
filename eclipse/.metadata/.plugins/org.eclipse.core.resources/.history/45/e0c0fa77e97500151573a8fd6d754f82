@@ -1,7 +1,0 @@
-package com.derf.ei;
-
-public class Main {
-	public final static String MODID   = "ei";
-	public final static String MODNAME = "Elemental Infusion";
-	public final static String VERSION = "1.0.0";
-}

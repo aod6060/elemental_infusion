@@ -41,8 +41,10 @@ public class EITileEntityMachineCore extends EITileEntity {
 	public static final int SOULSAND_GENERATOR = 11;
 	// Void Furnace [Basic Level Furnace]
 	public static final int VOID_STONE_FURNACE = 12;
+	// Void Smelter. [Basic Level Smelter]
+	public static final int VOID_STONE_SMELTER = 13;
 	// Max Size
-	public static final int MB_SIZE = 13;
+	public static final int MB_SIZE = 14;
 	
 	private int mode = FIRE_TOTEM;
 	
@@ -59,7 +61,8 @@ public class EITileEntityMachineCore extends EITileEntity {
 		"Machine Core Configuration: Currently set to Gravel Generator.",
 		"Machine Core Configuration: Currently set to Netherrack Generator.",
 		"Machine Core Configuration: Currently set to Soulsand Generator.",
-		"Machine Core Configuration: Currently set to Void Stone Furnace."
+		"Machine Core Configuration: Currently set to Void Stone Furnace.",
+		"Machine Core Configuration: Currently set to Void Stone Smelter."
 	};
 	
 	private IMultiBlock multiBlock = EIMultiBlockFactory.createMultiBlock(FIRE_TOTEM);
