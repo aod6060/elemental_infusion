@@ -2,6 +2,7 @@ package com.derf.ei.block;
 
 import com.derf.ei.CommonProxy;
 import com.derf.ei.EIType;
+import com.derf.ei.fluid.EIFluids;
 import com.derf.ei.item.EIItems;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -50,52 +51,73 @@ public final class EIBlocks {
 	public static Block voidStone;
 	public static Block voidStoneItemInput;
 	public static Block voidStoneItemOutput;
+	public static Block voidStoneLiquidInput;
+	public static Block voidStoneLiquidOutput;
 	// Machine Core
 	public static Block machineCore;
 	// VoidGlass
 	public static Block voidGlass;
+	// VoidTank
+	public static Block voidTank;
 	// Elemental Iron Blocks
 	public static Block fireIronBlock;
 	public static Block waterIronBlock;
 	public static Block airIronBlock;
 	public static Block earthIronBlock;
+	public static Block voidIronBlock;
 	// Elemental Diamonds Blocks
 	public static Block fireDiamondBlock;
 	public static Block waterDiamondBlock;
 	public static Block airDiamondBlock;
 	public static Block earthDiamondBlock;
+	public static Block voidDiamondBlock;
+	// Elemental Liquids
+	public static Block liquidFireDust;
+	public static Block liquidWaterDust;
+	public static Block liquidAirDust;
+	public static Block liquidEarthDust;
 	
 	public static void create() {
 		// Create Ore
-		fireOre = new EIBlockOre("fire_ore", Material.rock, 1.0f, 2.0f, "pickaxe", 1, EIItems.fireDust, 1, 4);
-		waterOre = new EIBlockOre("water_ore", Material.rock, 1.0f, 2.0f, "pickaxe", 1, EIItems.waterDust, 1, 4);
-		airOre = new EIBlockOre("air_ore", Material.rock, 1.0f, 2.0f, "pickaxe", 1, EIItems.airDust, 1, 4);
-		earthOre = new EIBlockOre("earth_ore", Material.rock, 1.0f, 2.0f, "pickaxe", 1, EIItems.earthDust, 1, 4);
+		fireOre = new EIBlockOre("fire_ore", Material.rock, 1.5f, 2.0f, "pickaxe", 1, EIItems.fireDust, 1, 4);
+		waterOre = new EIBlockOre("water_ore", Material.rock, 1.5f, 2.0f, "pickaxe", 1, EIItems.waterDust, 1, 4);
+		airOre = new EIBlockOre("air_ore", Material.rock, 1.5f, 2.0f, "pickaxe", 1, EIItems.airDust, 1, 4);
+		earthOre = new EIBlockOre("earth_ore", Material.rock, 1.5f, 2.0f, "pickaxe", 1, EIItems.earthDust, 1, 4);
 		// Create Blocks
-		fireBlock = new EIBlock("fire_block", Material.iron, 1.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
-		waterBlock = new EIBlock("water_block", Material.iron, 1.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
-		airBlock = new EIBlock("air_block", Material.iron, 1.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
-		earthBlock = new EIBlock("earth_block", Material.iron, 1.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
-		voidBlock = new EIBlock("void_block", Material.iron, 1.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal); 
+		fireBlock = new EIBlock("fire_block", Material.iron, 1.5f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
+		waterBlock = new EIBlock("water_block", Material.iron, 1.5f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
+		airBlock = new EIBlock("air_block", Material.iron, 1.5f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
+		earthBlock = new EIBlock("earth_block", Material.iron, 1.5f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
+		voidBlock = new EIBlock("void_block", Material.iron, 1.5f, 2.0f, "pickaxe", 1, Block.soundTypeMetal); 
 		// Create VoidStone
 		voidStone = new EIBlockVoidStone("void_stone");
 		voidStoneItemInput = new EIBlockVoidStone("void_stone_item_input");
 		voidStoneItemOutput = new EIBlockVoidStone("void_stone_item_output");
+		voidStoneLiquidInput = new EIBlockVoidStone("void_stone_liquid_input");
+		voidStoneLiquidOutput = new EIBlockVoidStone("void_stone_liquid_output");
 		// Machine Core
 		machineCore = new EIBlockMachineCore();
 		// VoidGlass
 		voidGlass = new EIBlockGlass("void_glass", Material.glass, 1.0f, 1.0f, "pickaxe", 0);
-		
+		// VoidTank
+		voidTank = new EIBlock("void_tank", Material.glass, 1.0f, 1.0f, "pickaxe", 0, Block.soundTypeGlass);
 		// Elemental Iron Blocks
-		fireIronBlock = new EIBlock("fire_iron_block", Material.iron, 1.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
-		waterIronBlock = new EIBlock("water_iron_block", Material.iron, 1.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
-		airIronBlock = new EIBlock("air_iron_block", Material.iron, 1.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
-		earthIronBlock = new EIBlock("earth_iron_block", Material.iron, 1.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal); 
+		fireIronBlock = new EIBlock("fire_iron_block", Material.iron, 2.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
+		waterIronBlock = new EIBlock("water_iron_block", Material.iron, 2.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
+		airIronBlock = new EIBlock("air_iron_block", Material.iron, 2.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
+		earthIronBlock = new EIBlock("earth_iron_block", Material.iron, 2.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal); 
+		voidIronBlock = new EIBlock("void_iron_block", Material.iron, 2.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
 		// Elemental Diamond Blocks
-		fireDiamondBlock = new EIBlock("fire_diamond_block", Material.iron, 1.0f, 2.0f, "pickaxe", 2, Block.soundTypeMetal);
-		waterDiamondBlock = new EIBlock("water_diamond_block", Material.iron, 1.0f, 2.0f, "pickaxe", 2, Block.soundTypeMetal);
-		airDiamondBlock = new EIBlock("air_diamond_block", Material.iron, 1.0f, 2.0f, "pickaxe", 2, Block.soundTypeMetal);
-		earthDiamondBlock = new EIBlock("earth_diamond_block", Material.iron, 1.0f, 2.0f, "pickaxe", 2, Block.soundTypeMetal); 
+		fireDiamondBlock = new EIBlock("fire_diamond_block", Material.iron, 2.0f, 2.0f, "pickaxe", 2, Block.soundTypeMetal);
+		waterDiamondBlock = new EIBlock("water_diamond_block", Material.iron, 2.0f, 2.0f, "pickaxe", 2, Block.soundTypeMetal);
+		airDiamondBlock = new EIBlock("air_diamond_block", Material.iron, 2.0f, 2.0f, "pickaxe", 2, Block.soundTypeMetal);
+		earthDiamondBlock = new EIBlock("earth_diamond_block", Material.iron, 2.0f, 2.0f, "pickaxe", 2, Block.soundTypeMetal);
+		voidDiamondBlock = new EIBlock("void_diamond_block", Material.iron, 2.0f, 2.0f, "pickaxe", 2, Block.soundTypeMetal);
+		// Elemental Liquids
+		liquidFireDust = new EIBlockFluid("liquid_fire_dust", EIFluids.fireDustFluid, Material.lava);
+		liquidWaterDust = new EIBlockFluid("liquid_water_dust", EIFluids.waterDustFluid, Material.water);
+		liquidAirDust = new EIBlockFluid("liquid_air_dust", EIFluids.airDustFluid, Material.water);
+		liquidEarthDust = new EIBlockFluid("liquid_earth_dust", EIFluids.earthDustFluid, Material.ground);
 		
 		// GameRegistry
 		GameRegistry.registerBlock(fireOre, "fire_ore");
@@ -112,19 +134,32 @@ public final class EIBlocks {
 		GameRegistry.registerBlock(voidStone, "void_stone");
 		GameRegistry.registerBlock(voidStoneItemInput, "void_stone_item_input");
 		GameRegistry.registerBlock(voidStoneItemOutput, "void_stone_item_output");
+		GameRegistry.registerBlock(voidStoneLiquidInput, "void_stone_liquid_input");
+		GameRegistry.registerBlock(voidStoneLiquidOutput, "void_stone_liquid_output");
 		
 		GameRegistry.registerBlock(machineCore, "machine_core");
+		
 		GameRegistry.registerBlock(voidGlass, "void_glass");
+		
+		GameRegistry.registerBlock(voidTank, "void_tank");
 		
 		GameRegistry.registerBlock(fireIronBlock, "fire_iron_block");
 		GameRegistry.registerBlock(waterIronBlock, "water_iron_block");
 		GameRegistry.registerBlock(airIronBlock, "air_iron_block");
 		GameRegistry.registerBlock(earthIronBlock, "earth_iron_block");
+		GameRegistry.registerBlock(voidIronBlock, "void_iron_block");
 		
 		GameRegistry.registerBlock(fireDiamondBlock, "fire_diamond_block");
 		GameRegistry.registerBlock(waterDiamondBlock, "water_diamond_block");
 		GameRegistry.registerBlock(airDiamondBlock, "air_diamond_block");
 		GameRegistry.registerBlock(earthDiamondBlock, "earth_diamond_block");
+		GameRegistry.registerBlock(voidDiamondBlock, "void_diamond_block");
+		
+		GameRegistry.registerBlock(liquidFireDust, "liquid_fire_dust");
+		GameRegistry.registerBlock(liquidWaterDust, "liquid_water_dust");
+		GameRegistry.registerBlock(liquidAirDust, "liquid_air_dust");
+		GameRegistry.registerBlock(liquidEarthDust, "liquid_earth_dust");
+		
 	}
 	
 	public static void creativeTabs() {
@@ -140,18 +175,29 @@ public final class EIBlocks {
 		voidBlock.setCreativeTab(CommonProxy.tabEI);
 		
 		voidStone.setCreativeTab(CommonProxy.tabEI);
+		
 		machineCore.setCreativeTab(CommonProxy.tabEI);
+		
 		voidGlass.setCreativeTab(CommonProxy.tabEI);
+		
+		voidTank.setCreativeTab(CommonProxy.tabEI);
 		
 		fireIronBlock.setCreativeTab(CommonProxy.tabEI);
 		waterIronBlock.setCreativeTab(CommonProxy.tabEI);
 		airIronBlock.setCreativeTab(CommonProxy.tabEI);
 		earthIronBlock.setCreativeTab(CommonProxy.tabEI);
+		voidIronBlock.setCreativeTab(CommonProxy.tabEI);
 		
 		fireDiamondBlock.setCreativeTab(CommonProxy.tabEI);
 		waterDiamondBlock.setCreativeTab(CommonProxy.tabEI);
 		airDiamondBlock.setCreativeTab(CommonProxy.tabEI);
 		earthDiamondBlock.setCreativeTab(CommonProxy.tabEI);
+		voidDiamondBlock.setCreativeTab(CommonProxy.tabEI);
+		
+		liquidFireDust.setCreativeTab(CommonProxy.tabEI);
+		liquidWaterDust.setCreativeTab(CommonProxy.tabEI);
+		liquidAirDust.setCreativeTab(CommonProxy.tabEI);
+		liquidEarthDust.setCreativeTab(CommonProxy.tabEI);
 	}
 	
 	/*
@@ -210,6 +256,13 @@ public final class EIBlocks {
 		return voidStoneItemOutput.getUnlocalizedName().equals(block.getUnlocalizedName());
 	}
 	
+	public static boolean isVoidStoneLiquidInput(Block block) {
+		return voidStoneLiquidInput.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	public static boolean isVoidStoneLiquidOutput(Block block) {
+		return voidStoneLiquidOutput.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
 	/*
 	 * Machine Core Section
 	 */
@@ -221,6 +274,12 @@ public final class EIBlocks {
 	 */
 	public static boolean isVoidGlass(Block block) {
 		return voidGlass.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	/*
+	 * Void Tank Section
+	 */
+	public static boolean isVoidTank(Block block) {
+		return voidTank.getUnlocalizedName().equals(block.getUnlocalizedName());
 	}
 	/*
 	 * Elemental Iron Section
@@ -239,6 +298,10 @@ public final class EIBlocks {
 	
 	public static boolean isEarthIronBlock(Block block) {
 		return earthIronBlock.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	public static boolean isVoidIronBlock(Block block) {
+		return voidIronBlock.getUnlocalizedName().equals(block.getUnlocalizedName());
 	}
 	/*
 	 * Elemental Diamond Section
@@ -259,6 +322,19 @@ public final class EIBlocks {
 		return earthDiamondBlock.getUnlocalizedName().equals(block.getUnlocalizedName());
 	}
 	
+	public static boolean isVoidDiamondBlock(Block block) {
+		return voidDiamondBlock.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	
+	/*
+	 * Elemental Liquids
+	 */
+	public static boolean isLiquidFireDust(Block block) {
+		return liquidFireDust.getUnlocalizedName().equals(block.getUnlocalizedName());
+	}
+	/*
+	 * Any block test
+	 */
 	public static boolean isBlock(Block b, Block b2) {
 		return b.getUnlocalizedName().equals(b2.getUnlocalizedName());
 	}

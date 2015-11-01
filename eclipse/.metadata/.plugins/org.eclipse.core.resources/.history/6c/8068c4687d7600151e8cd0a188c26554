@@ -1,7 +1,0 @@
-package com.derf.ei.tileentity;
-
-import net.minecraft.tileentity.TileEntity;
-
-public class EITileEntityAirTotem extends TileEntity {
-
-}

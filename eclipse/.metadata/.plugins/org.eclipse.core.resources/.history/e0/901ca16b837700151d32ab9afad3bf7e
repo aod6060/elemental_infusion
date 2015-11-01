@@ -1,5 +1,0 @@
-package com.derf.ei.tileentity;
-
-public abstract class EITileEntity extends TileEntity {
-
-}

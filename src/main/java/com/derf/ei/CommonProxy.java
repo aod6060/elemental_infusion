@@ -6,6 +6,7 @@ import net.minecraftforge.common.config.Configuration;
 
 import com.derf.ei.block.EIBlocks;
 import com.derf.ei.crafting.EICrafting;
+import com.derf.ei.fluid.EIFluids;
 import com.derf.ei.item.EIItems;
 import com.derf.ei.tileentity.EITileEntities;
 import com.derf.ei.world.EIWorldGen;
@@ -23,6 +24,7 @@ public class CommonProxy {
 	
 	public void preInit(FMLPreInitializationEvent e) {
 		EIItems.create();
+		EIFluids.create();
 		EIBlocks.create();
 		EITileEntities.create();
 		

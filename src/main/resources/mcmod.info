@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
+  "modid": "ei",
+  "name": "Elemental Infusion",
+  "description": "Elemental Infusion allows you to infuse metals and make configurable multiblock machines.",
+  "version": "1.0.0",
+  "mcversion": "mc1.7.10:f1448",
+  "url": "https://github.com/aod6060/elemental_infusion",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["aod6060 (aka. derf6060 in minecraft)"],
+  "credits": "What are credits??? I'm a \nsimple gamer/programmer.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

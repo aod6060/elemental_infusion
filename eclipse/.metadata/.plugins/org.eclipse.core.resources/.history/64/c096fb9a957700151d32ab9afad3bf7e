@@ -1,7 +1,0 @@
-package com.derf.ei.multiblock;
-
-public final class EIMultiBlockFactory {
-	public final static createMultiBlock(int id) {
-		
-	}
-}

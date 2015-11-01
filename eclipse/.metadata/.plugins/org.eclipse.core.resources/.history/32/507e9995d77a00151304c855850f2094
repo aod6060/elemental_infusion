@@ -1,7 +1,0 @@
-package com.derf.ei.multiblock.generator;
-
-public class EIMultiBlockGeneratorGravel extends EIMultiBlockGenerator {
-	public EIMultiBlockGeneratorGravel() {
-		
-	}
-}

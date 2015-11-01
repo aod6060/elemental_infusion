@@ -1,0 +1,10 @@
+package com.derf.ei.fluid;
+
+public final class EIFluids {
+	// Elemental Liquids
+	public static Fluid fireDustFluid;
+	
+	public static void create() {
+		
+	}
+}

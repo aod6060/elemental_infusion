@@ -8,6 +8,7 @@ import com.derf.ei.multiblock.generator.EIMultiBlockGeneratorGravel;
 import com.derf.ei.multiblock.generator.EIMultiBlockGeneratorNetherrack;
 import com.derf.ei.multiblock.generator.EIMultiBlockGeneratorSand;
 import com.derf.ei.multiblock.generator.EIMultiBlockGeneratorSoulsand;
+import com.derf.ei.multiblock.itemvoid.EIMultiBlockItemVoidBasic;
 import com.derf.ei.multiblock.smelter.EIMultiBlockSmelterVoidStone;
 import com.derf.ei.multiblock.totem.EIMultiBlockTotemAir;
 import com.derf.ei.multiblock.totem.EIMultiBlockTotemEarth;
@@ -49,6 +50,8 @@ public final class EIMultiBlockFactory {
 			block = new EIMultiBlockFurnaceVoidStone();
 		} else if(id == EITileEntityMachineCore.VOID_STONE_SMELTER) {
 			block = new EIMultiBlockSmelterVoidStone();
+		} else if(id == EITileEntityMachineCore.BASIC_ITEM_VOID) {
+			block = new EIMultiBlockItemVoidBasic();
 		}
 		
 		return block;

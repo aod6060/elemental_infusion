@@ -1,7 +1,0 @@
-package com.derf.ei.crafting;
-
-public final class EICrafting {
-	public static void create() {
-		
-	}
-}

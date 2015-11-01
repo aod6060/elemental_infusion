@@ -1,0 +1,15 @@
+package com.derf.ei.fluid;
+
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+
+public final class EIFluids {
+	// Elemental Liquids
+	public static Fluid fireDustFluid;
+	
+	public static void create() {
+		fireDustFluid = new EIFluid("liquid_fire_dust", 20, 1000, 1000, 100, false);
+		
+		FluidRegistry.registerFluid(fireDustFluid);
+	}
+}

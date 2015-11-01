@@ -40,3 +40,6 @@ tile.air_diamond_block.name=Air Diamond Block
 tile.earth_diamond_block.name=Earth Diamond Block
 tile.void_glass.name=Void Glass
 tile.machine_core.name=Machine Core
+tile.void_tank.name=Void Tank
+tile.void_iron_block.name=Void Iron Block
+tile.void_diamond_block.name=Void Diamond Block

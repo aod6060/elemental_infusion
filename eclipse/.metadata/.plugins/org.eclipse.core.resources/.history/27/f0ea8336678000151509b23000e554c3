@@ -1,0 +1,14 @@
+package com.derf.ei.multiblock.itemvoid;
+
+import com.derf.ei.block.EIBlocks;
+
+public class EIMultiBlockItemVoidBasic extends EIMultiBlockItemVoid {
+	public EIMultiBlockItemVoidBasic() {
+		this.setLeftBlock(EIBlocks.voidBlock);
+		this.setRightBlock(EIBlocks.voidBlock);
+		this.setBasicBlock(EIBlocks.voidStone);
+		this.setBasicInputBlock(EIBlocks.voidStoneItemInput);
+		this.setMaxTime(0.1f);
+		this.setQuantity(64);
+	}
+}
