@@ -1,0 +1,55 @@
+package com.derf.ei.block;
+
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemBucket;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+import net.minecraft.item.ItemStack;
+
+import com.derf.ei.tileentity.EITileEntityTank;
+
+public class EIBlockTank extends EIBlockContainer {
+
+	private int capacity;
+	
+	public EIBlockTank(String name, int capacity) {
+		super(name, Material.glass, 1.0f, 1.0f, "pickaxe", 0, soundTypeGlass);
+		this.capacity = capacity;
+	}
+
+	@Override
+	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
+		// TODO Auto-generated method stub
+		return new EITileEntityTank(this.capacity);
+	}
+
+	@Override
+	public boolean onBlockActivated(
+			World world, 
+			int x,
+			int y, 
+			int z, 
+			EntityPlayer player,
+			int side, 
+			float fx, 
+			float fy,
+			float fz) {
+		
+		
+		if(!world.isRemote)
+			ItemStack stack = player.getItemInUse();
+			
+			if(stack != null) {
+				
+				if(stack.getItem() instanceof ItemBucket) {
+					
+					
+				}
+			}
+		}
+		return false;
+	}
+	
+	
+}

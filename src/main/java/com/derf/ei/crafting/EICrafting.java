@@ -65,6 +65,18 @@ public final class EICrafting {
 				"s",
 				'i', Items.iron_ingot,
 				's', EIItems.voidStick);
+		// Void Tank
+		GameRegistry.addShapedRecipe(
+				new ItemStack(EIBlocks.voidTank),
+				"fsw",
+				"sgs",
+				"ase",
+				'f', EIItems.fireDust,
+				's', EIBlocks.voidStone,
+				'w', EIItems.waterDust,
+				'g', EIBlocks.voidGlass,
+				'a', EIItems.airDust,
+				'e', EIItems.earthDust);
 		// 9 fire dusts
 		GameRegistry.addShapedRecipe(
 				new ItemStack(EIItems.fireDust, 9),
@@ -85,6 +97,11 @@ public final class EICrafting {
 				new ItemStack(EIItems.earthDust, 9),
 				"f",
 				'f', EIBlocks.earthBlock);
+		// 9 Void Dusts
+		GameRegistry.addShapedRecipe(
+				new ItemStack(EIItems.voidDust, 9),
+				"v",
+				'v', EIBlocks.voidBlock);
 		// 9 fire iron ingots
 		GameRegistry.addShapedRecipe(
 				new ItemStack(EIItems.fireIronIngot, 9),
@@ -105,6 +122,11 @@ public final class EICrafting {
 				new ItemStack(EIItems.earthIronIngot, 9),
 				"f",
 				'f', EIBlocks.earthIronBlock);
+		// 9 void iron ingots
+		GameRegistry.addShapedRecipe(
+				new ItemStack(EIItems.voidIronIngot, 9),
+				"v",
+				'v', EIBlocks.voidIronBlock);
 		// 9 fire diamonds
 		GameRegistry.addShapedRecipe(
 				new ItemStack(EIItems.fireDiamond, 9),
@@ -125,6 +147,11 @@ public final class EICrafting {
 				new ItemStack(EIItems.earthDiamond, 9),
 				"f",
 				'f', EIBlocks.earthDiamondBlock);
+		// 9 void diamonds
+		GameRegistry.addShapedRecipe(
+				new ItemStack(EIItems.voidDiamond, 9),
+				"v",
+				'v', EIBlocks.voidDiamondBlock);
 		// 1 fire dust block
 		GameRegistry.addShapedRecipe(
 				new ItemStack(EIBlocks.fireBlock), 
@@ -163,6 +190,13 @@ public final class EICrafting {
 				'a', EIBlocks.airBlock,
 				'e', EIBlocks.earthBlock,
 				'w', EIBlocks.waterBlock);
+		// 1 void dust block
+		GameRegistry.addShapedRecipe(
+				new ItemStack(EIBlocks.voidBlock), 
+				"vvv",
+				"vvv",
+				"vvv",
+				'v', EIItems.voidDust);
 		// 1 fire iron block
 		GameRegistry.addShapedRecipe(
 				new ItemStack(EIBlocks.fireIronBlock), 
@@ -191,6 +225,13 @@ public final class EICrafting {
 				"fff",
 				"fff",
 				'f', EIItems.earthIronIngot);
+		// 1 void iron block
+		GameRegistry.addShapedRecipe(
+				new ItemStack(EIBlocks.voidIronBlock), 
+				"fff",
+				"fff",
+				"fff",
+				'f', EIItems.voidIronIngot);
 		// 1 fire diamond block
 		GameRegistry.addShapedRecipe(
 				new ItemStack(EIBlocks.fireDiamondBlock), 
@@ -219,6 +260,13 @@ public final class EICrafting {
 				"fff",
 				"fff",
 				'f', EIItems.earthDiamond);
+		// 1 void diamond block
+		GameRegistry.addShapedRecipe(
+				new ItemStack(EIBlocks.voidDiamondBlock), 
+				"fff",
+				"fff",
+				"fff",
+				'f', EIItems.voidDiamond);
 		/*
 		 * Multiblock Recipes
 		 */

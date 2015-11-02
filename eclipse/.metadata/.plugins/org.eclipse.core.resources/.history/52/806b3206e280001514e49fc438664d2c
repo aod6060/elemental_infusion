@@ -1,0 +1,77 @@
+package com.derf.ei.tileentity;
+
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidTank;
+import net.minecraftforge.fluids.FluidTankInfo;
+import net.minecraftforge.fluids.IFluidTank;
+
+public class EITileEntityTank extends EITileEntity implements IFluidTank {
+	protected FluidTank tank = null;
+	
+	public EITileEntityTank(int capacity) {
+		tank = new FluidTank(capacity);
+	}
+	
+	@Override
+	public FluidStack getFluid() {
+		// TODO Auto-generated method stub
+		return tank.getFluid();
+	}
+
+	@Override
+	public int getFluidAmount() {
+		// TODO Auto-generated method stub
+		return tank.getFluidAmount();
+	}
+
+	@Override
+	public int getCapacity() {
+		// TODO Auto-generated method stub
+		return tank.getCapacity();
+	}
+
+	@Override
+	public FluidTankInfo getInfo() {
+		// TODO Auto-generated method stub
+		return tank.getInfo();
+	}
+
+	@Override
+	public int fill(FluidStack resource, boolean doFill) {
+		// TODO Auto-generated method stub
+		return tank.fill(resource, doFill);
+	}
+
+	@Override
+	public FluidStack drain(int maxDrain, boolean doDrain) {
+		// TODO Auto-generated method stub
+		return tank.drain(maxDrain, doDrain);
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound compound) {
+		// TODO Auto-generated method stub
+		super.readFromNBT(compound);
+		
+		int capacity = compound.getInteger("capacity");
+		
+		if(this.tank == null) {
+			this.tank = new FluidTank(capacity);
+		}
+		
+		this.tank.readFromNBT(compound);
+	}
+
+	@Override
+	public void writeToNBT(NBTTagCompound compound) {
+		// TODO Auto-generated method stub
+		super.writeToNBT(compound);
+		
+		compound.setInteger("capacity", this.tank.getCapacity());
+		
+		this.tank.writeToNBT(compound);
+	}
+	
+	
+}

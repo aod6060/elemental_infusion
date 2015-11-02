@@ -1,0 +1,5 @@
+package com.derf.ei.handlers;
+
+public class EIBucketHandler {
+
+}

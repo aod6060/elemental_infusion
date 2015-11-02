@@ -1,0 +1,8 @@
+package com.derf.ei.tileentity;
+
+import net.minecraftforge.fluids.FluidTank;
+
+public class EITileEntityTank extends EITileEntity {
+	
+	protected FluidTank tank;
+}

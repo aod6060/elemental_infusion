@@ -1,10 +1,16 @@
 package com.derf.ei.item;
 
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+
 import com.derf.ei.CommonProxy;
-import com.derf.ei.EIType;
+import com.derf.ei.block.EIBlocks;
+import com.derf.ei.fluid.EIFluids;
+import com.derf.ei.handlers.EIBucketHandler;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.item.Item;
 
 public final class EIItems {
 	
@@ -42,6 +48,12 @@ public final class EIItems {
 	public static Item voidStick;
 	// Void Tool
 	public static Item voidTool;
+	// Elemental Dust Buckets
+	public static Item bucketLiquidFireDust;
+	public static Item bucketLiquidWaterDust;
+	public static Item bucketLiquidAirDust;
+	public static Item bucketLiquidEarthDust;
+	
 	// Simple Debug Tool
 	public static Item debugTool;
 	// Void Tooles (Void Diamond, Void Iron)
@@ -69,6 +81,11 @@ public final class EIItems {
 		voidStick = new EIItem("void_stick");
 		// Void Tool
 		voidTool = new EIItemVoidTool("void_tool");
+		// Liquid Dust Buckets
+		bucketLiquidFireDust = new EIItemBucket("bucket_liquid_fire_dust", EIBlocks.liquidFireDust);
+		bucketLiquidWaterDust = new EIItemBucket("bucket_liquid_water_dust", EIBlocks.liquidWaterDust);
+		bucketLiquidAirDust = new EIItemBucket("bucket_liquid_air_dust", EIBlocks.liquidAirDust);
+		bucketLiquidEarthDust = new EIItemBucket("bucket_liquid_earth_dust", EIBlocks.liquidEarthDust);
 		// Debug Tool
 		debugTool = new EIItemDebugTool("debug_tool");
 		
@@ -94,7 +111,25 @@ public final class EIItems {
 		
 		GameRegistry.registerItem(voidTool, "void_tool");
 		
+		GameRegistry.registerItem(bucketLiquidFireDust, "bucket_liquid_fire_dust");
+		GameRegistry.registerItem(bucketLiquidWaterDust, "bucket_liquid_water_dust");
+		GameRegistry.registerItem(bucketLiquidAirDust, "bucket_liquid_air_dust");
+		GameRegistry.registerItem(bucketLiquidEarthDust, "bucket_liquid_earth_dust");
+		
 		GameRegistry.registerItem(debugTool, "debug_tool");
+		
+		
+		// Fluid Container Registry
+		FluidContainerRegistry.registerFluidContainer(EIFluids.fireDustFluid, new ItemStack(bucketLiquidFireDust), new ItemStack(Items.bucket));
+		FluidContainerRegistry.registerFluidContainer(EIFluids.waterDustFluid, new ItemStack(bucketLiquidWaterDust), new ItemStack(Items.bucket));
+		FluidContainerRegistry.registerFluidContainer(EIFluids.airDustFluid, new ItemStack(bucketLiquidAirDust), new ItemStack(Items.bucket));
+		FluidContainerRegistry.registerFluidContainer(EIFluids.earthDustFluid, new ItemStack(bucketLiquidEarthDust), new ItemStack(Items.bucket));
+		
+		// Registering bucket to Event Handler
+		EIBucketHandler.INSTANCE.buckets.put(EIBlocks.liquidFireDust, bucketLiquidFireDust);
+		EIBucketHandler.INSTANCE.buckets.put(EIBlocks.liquidWaterDust, bucketLiquidWaterDust);
+		EIBucketHandler.INSTANCE.buckets.put(EIBlocks.liquidAirDust, bucketLiquidAirDust);
+		EIBucketHandler.INSTANCE.buckets.put(EIBlocks.liquidEarthDust, bucketLiquidEarthDust);
 	}
 	
 	public static void creativeTabs() {
@@ -119,6 +154,11 @@ public final class EIItems {
 		voidStick.setCreativeTab(CommonProxy.tabEI);
 		
 		voidTool.setCreativeTab(CommonProxy.tabEI);
+		
+		bucketLiquidFireDust.setCreativeTab(CommonProxy.tabEI);
+		bucketLiquidWaterDust.setCreativeTab(CommonProxy.tabEI);
+		bucketLiquidAirDust.setCreativeTab(CommonProxy.tabEI);
+		bucketLiquidEarthDust.setCreativeTab(CommonProxy.tabEI);
 		
 		debugTool.setCreativeTab(CommonProxy.tabEI);
 	

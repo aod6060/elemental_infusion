@@ -14,6 +14,13 @@ item.air_diamond.name=Air Diamond
 item.earth_diamond.name=Earth Diamond
 item.void_stick.name=Void Stick
 item.void_tool.name=Void Tool
+item.void_diamond.name=Void Diamond
+item.void_iron_ingot.name=Void Iron Ingot
+item.void_dust.name=Void Dust
+item.bucket_liquid_water_dust.name=Bucket Liquid Water Dust
+item.bucket_liquid_fire_dust.name=Bucket Liquid Fire Dust
+item.bucket_liquid_earth_dust.name=Bucket Liquid Earth Dust
+item.bucket_liquid_air_dust.name=Bucket Liquid Air Dust
 item.debug_tool.name=derf6060's debugging cheating tool ftw!!! >:3
 
 tile.fire_ore.name=Fire Ore
@@ -43,3 +50,12 @@ tile.machine_core.name=Machine Core
 tile.void_tank.name=Void Tank
 tile.void_iron_block.name=Void Iron Block
 tile.void_diamond_block.name=Void Diamond Block
+tile.liquid_fire_dust.name=Liquid Fire Dust
+tile.liquid_water_dust.name=Liquid Water Dust
+tile.liquid_air_dust.name=Liquid Air Dust
+tile.liquid_earth_dust.name=Liquid Earth Dust
+
+fluid.liquid_fire_dust=Liquid Fire Dust
+fluid.liquid_water_dust=Liquid Water Dust
+fluid.liquid_air_dust=Liquid Air Dust
+fluid.liquid_earth_dust=Liquid Earth Dust

@@ -1,14 +1,15 @@
 package com.derf.ei.block;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+
 import com.derf.ei.CommonProxy;
-import com.derf.ei.EIType;
 import com.derf.ei.fluid.EIFluids;
 import com.derf.ei.item.EIItems;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
 
 public final class EIBlocks {
 	
@@ -59,6 +60,7 @@ public final class EIBlocks {
 	public static Block voidGlass;
 	// VoidTank
 	public static Block voidTank;
+	public static ItemBlock voidTankItem;
 	// Elemental Iron Blocks
 	public static Block fireIronBlock;
 	public static Block waterIronBlock;
@@ -100,7 +102,8 @@ public final class EIBlocks {
 		// VoidGlass
 		voidGlass = new EIBlockGlass("void_glass", Material.glass, 1.0f, 1.0f, "pickaxe", 0);
 		// VoidTank
-		voidTank = new EIBlock("void_tank", Material.glass, 1.0f, 1.0f, "pickaxe", 0, Block.soundTypeGlass);
+		voidTank = new EIBlockTank("void_tank", 32000);
+		
 		// Elemental Iron Blocks
 		fireIronBlock = new EIBlock("fire_iron_block", Material.iron, 2.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
 		waterIronBlock = new EIBlock("water_iron_block", Material.iron, 2.0f, 2.0f, "pickaxe", 1, Block.soundTypeMetal);
@@ -160,6 +163,9 @@ public final class EIBlocks {
 		GameRegistry.registerBlock(liquidAirDust, "liquid_air_dust");
 		GameRegistry.registerBlock(liquidEarthDust, "liquid_earth_dust");
 		
+		
+		voidTankItem = (ItemBlock) Item.getItemFromBlock(voidTank);
+		voidTankItem.setMaxStackSize(1);
 	}
 	
 	public static void creativeTabs() {
