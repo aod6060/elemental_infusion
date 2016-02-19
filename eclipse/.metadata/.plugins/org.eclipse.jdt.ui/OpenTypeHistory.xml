@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<typeInfo handle="=Minecraft/C:\/Users\/Fred\/.gradle\/caches\/minecraft\/net\/minecraftforge\/forge\/1.7.10-10.13.4.1448-1.7.10\/forgeSrc-1.7.10-10.13.4.1448-1.7.10.jar&lt;net.minecraft.tileentity(TileEntity.class[TileEntity" modifiers="33" timestamp="1443807740523"/>
-<typeInfo handle="=Minecraft/src\/main\/java&lt;com.derf.ei.multiblock{IMultiBlock.java[IMultiBlock" modifiers="513" timestamp="1445391734622"/>
-<typeInfo handle="=Minecraft/src\/main\/java&lt;com.derf.ei.multiblock.generator{EIMultiBlockGenerator.java[EIMultiBlockGenerator" modifiers="1025" timestamp="1445759921694"/>
-<typeInfo handle="=Minecraft/src\/main\/java&lt;com.derf.ei.multiblock{EIMultiBlock.java[EIMultiBlock" modifiers="1025" timestamp="1445472280532"/>
-<typeInfo handle="=Minecraft/src\/main\/java&lt;com.derf.ei.multiblock.smelter{EIMultiBlockSmelter.java[EIMultiBlockSmelter" modifiers="1" timestamp="1445822767792"/>
-<typeInfo handle="=Minecraft/C:\/Users\/Fred\/.gradle\/caches\/minecraft\/net\/minecraftforge\/forge\/1.7.10-10.13.4.1448-1.7.10\/forgeSrc-1.7.10-10.13.4.1448-1.7.10.jar&lt;net.minecraft.item(ItemBucket.class[ItemBucket" modifiers="33" timestamp="1443807740523"/>
-<typeInfo handle="=Minecraft/src\/main\/java&lt;com.derf.ei.block{EIBlockContainer.java[EIBlockContainer" modifiers="1025" timestamp="1445229289213"/>
-<typeInfo handle="=Minecraft/src\/main\/java&lt;com.derf.ei.tileentity{EITileEntity.java[EITileEntity" modifiers="1025" timestamp="1445396134851"/>
-<typeInfo handle="=Minecraft/C:\/Users\/Fred\/.gradle\/caches\/minecraft\/net\/minecraftforge\/forge\/1.7.10-10.13.4.1448-1.7.10\/forgeSrc-1.7.10-10.13.4.1448-1.7.10.jar&lt;net.minecraftforge.fluids(IFluidTank.class[IFluidTank" modifiers="1537" timestamp="1443807740523"/>
-<typeInfo handle="=Minecraft/C:\/Users\/Fred\/.gradle\/caches\/minecraft\/net\/minecraftforge\/forge\/1.7.10-10.13.4.1448-1.7.10\/forgeSrc-1.7.10-10.13.4.1448-1.7.10.jar&lt;net.minecraftforge.fluids(IFluidContainerItem.class[IFluidContainerItem" modifiers="1537" timestamp="1443807740523"/>
+<typeInfo handle="=MDKExample/C:\/Program Files\/Java\/jre7\/lib\/rt.jar&lt;java.lang(Object.class[Object" modifiers="33" timestamp="1388691438518"/>
+<typeInfo handle="=MDKExample/src\/main\/java&lt;com.derf.ei{EICommonProxy.java[EICommonProxy" modifiers="1" timestamp="1454893063115"/>
+<typeInfo handle="=MDKExample/C:\/Users\/Fred\/.gradle\/caches\/minecraft\/net\/minecraftforge\/forge\/1.8.9-11.15.1.1722\/stable\/20\/forgeBin-1.8.9-11.15.1.1722.jar&lt;net.minecraftforge.fml.common(IWorldGenerator.class[IWorldGenerator" modifiers="1537" timestamp="1454468595454"/>
+<typeInfo handle="=MDKExample/C:\/Users\/Fred\/.gradle\/caches\/minecraft\/net\/minecraftforge\/forge\/1.8.9-11.15.1.1722\/stable\/20\/forgeBin-1.8.9-11.15.1.1722.jar&lt;net.minecraft.item(ItemSword.class[ItemSword" modifiers="33" timestamp="1454468595454"/>
+<typeInfo handle="=MDKExample/C:\/Users\/Fred\/.gradle\/caches\/minecraft\/net\/minecraftforge\/forge\/1.8.9-11.15.1.1722\/stable\/20\/forgeBin-1.8.9-11.15.1.1722.jar&lt;net.minecraft.item(ItemPickaxe.class[ItemPickaxe" modifiers="33" timestamp="1454468595454"/>
+<typeInfo handle="=MDKExample/C:\/Users\/Fred\/.gradle\/caches\/minecraft\/net\/minecraftforge\/forge\/1.8.9-11.15.1.1722\/stable\/20\/forgeBin-1.8.9-11.15.1.1722.jar&lt;net.minecraft.item(ItemHoe.class[ItemHoe" modifiers="33" timestamp="1454468595454"/>
+<typeInfo handle="=MDKExample/src\/main\/java&lt;com.derf.ei.blocks.tileentity.multiblock{IMultiBlock.java[IMultiBlock" modifiers="513" timestamp="1455261723428"/>
 </typeInfoHistroy>

@@ -1,5 +1,0 @@
-package com.derf.ei.multiblock.itemvoid;
-
-public class EIMultiBlockItemVoidBasic extends EIMultiBlockItemVoid {
-
-}

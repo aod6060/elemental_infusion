@@ -1,7 +1,0 @@
-package com.derf.ei.item;
-
-import net.minecraft.item.ItemBucket;
-
-public class EIItemBucket extends ItemBucket {
-
-}

@@ -1,7 +1,0 @@
-package com.derf.ei.fluid;
-
-import net.minecraftforge.fluids.Fluid;
-
-public class EIFluid extends Fluid {
-
-}

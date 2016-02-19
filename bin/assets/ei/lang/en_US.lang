@@ -1,61 +1,59 @@
-itemGroup.tab_ei=Elemental Infusion
-
+# Item Groups
+itemGroup.tabEI=Elemental Infusion
+# Items
+# Elemental Dust
 item.fire_dust.name=Fire Dust
 item.water_dust.name=Water Dust
-item.air_dust.name=Air Dust
 item.earth_dust.name=Earth Dust
-item.fire_iron_ingot.name=Fire Iron Ingot
-item.water_iron_ingot.name=Water Iron Ingot
-item.air_iron_ingot.name=Air Iron Ingot
-item.earth_iron_ingot.name=Earth Iron Ingot
-item.fire_diamond.name=Fire Diamond
-item.water_diamond.name=Water Diamond
-item.air_diamond.name=Air Diamond
-item.earth_diamond.name=Earth Diamond
-item.void_stick.name=Void Stick
-item.void_tool.name=Void Tool
-item.void_diamond.name=Void Diamond
-item.void_iron_ingot.name=Void Iron Ingot
-item.void_dust.name=Void Dust
-item.bucket_liquid_water_dust.name=Bucket Liquid Water Dust
-item.bucket_liquid_fire_dust.name=Bucket Liquid Fire Dust
-item.bucket_liquid_earth_dust.name=Bucket Liquid Earth Dust
-item.bucket_liquid_air_dust.name=Bucket Liquid Air Dust
-item.debug_tool.name=derf6060's debugging cheating tool ftw!!! >:3
-
+item.wind_dust.name=Wind Dust
+item.voidium_dust.name=Voidium Dust
+# Voidium Ingot
+item.voidium_ingot.name=Voidium Ingot
+# Voidium Crystal
+item.voidium_crystal.name=Voidium Crystal
+# Tier 1 Tools VOIDIUM
+# Tools
+item.voidium_sword.name=Voidium Sword
+item.voidium_pickaxe.name=Voidium Pickaxe
+item.voidium_shovel.name=Voidium Shovel
+item.voidium_axe.name=Voidium Axe
+item.voidium_hoe.name=Voidium Hoe
+# Armor
+item.voidium_helmet.name=Voidium Helmet
+item.voidium_chestplate.name=Voidium Chestplate
+item.voidium_leggings.name=Voidium Leggings
+item.voidium_boots.name=Voidium Boots
+# Tier 2 Tools (Voidium Crystal Tools and Armor)
+# Tools
+item.voidium_crystal_sword.name=Voidium Crystal Sword
+item.voidium_crystal_pickaxe.name=Voidium Crystal Pickaxe
+item.voidium_crystal_shovel.name=Voidium Crystal Shovel
+item.voidium_crystal_axe.name=Voidium Crystal Axe
+item.voidium_crystal_hoe.name=Voidium Crystal Hoe
+# Armor
+item.voidium_crystal_helmet.name=Voidium Crystal Helmet
+item.voidium_crystal_chestplate.name=Voidium Crystal Chestplate
+item.voidium_crystal_leggings.name=Voidium Crystal Leggings
+item.voidium_crystal_boots.name=Voidium Crystal Boots
+# Runes
+# Blank Runes
+item.blank_rune.name=Blank Rune
+# Prima
+item.fire_rune.name=Fire Rune
+item.water_rune.name=Water Rune
+item.earth_rune.name=Earth Rune
+item.wind_rune.name=Wind Rune
+item.voidium_rune.name=Voidium Rune
+# Secondary
+# Wand
+item.wand.name=Wand
+# Tiles
+# Elemental Ore
 tile.fire_ore.name=Fire Ore
 tile.water_ore.name=Water Ore
-tile.air_ore.name=Air Ore
 tile.earth_ore.name=Earth Ore
-tile.fire_block.name=Fire Dust Block
-tile.water_block.name=Water Dust Block
-tile.air_block.name=Air Dust Block
-tile.earth_block.name=Earth Dust Block
-tile.void_block.name=Void Dust Block
-tile.void_stone.name=Void Stone
-tile.fire_totum_head.name=Fire Totum
-tile.water_totum_head.name=Water Totum
-tile.air_totum_head.name=Air Totum
-tile.earth_totum_head.name=Earth Totum
-tile.fire_iron_block.name=Fire Iron Block
-tile.water_iron_block.name=Water Iron Block
-tile.air_iron_block.name=Air Iron Block
-tile.earth_iron_block.name=Earth Iron Block
-tile.fire_diamond_block.name=Fire Diamond Block
-tile.water_diamond_block.name=Water Diamond Block
-tile.air_diamond_block.name=Air Diamond Block
-tile.earth_diamond_block.name=Earth Diamond Block
-tile.void_glass.name=Void Glass
+tile.wind_ore.name=Wind Ore
+# Voidium Stone
+tile.voidium_stone.name=Voidium Stone
+# Machine Core
 tile.machine_core.name=Machine Core
-tile.void_tank.name=Void Tank
-tile.void_iron_block.name=Void Iron Block
-tile.void_diamond_block.name=Void Diamond Block
-tile.liquid_fire_dust.name=Liquid Fire Dust
-tile.liquid_water_dust.name=Liquid Water Dust
-tile.liquid_air_dust.name=Liquid Air Dust
-tile.liquid_earth_dust.name=Liquid Earth Dust
-
-fluid.liquid_fire_dust=Liquid Fire Dust
-fluid.liquid_water_dust=Liquid Water Dust
-fluid.liquid_air_dust=Liquid Air Dust
-fluid.liquid_earth_dust=Liquid Earth Dust

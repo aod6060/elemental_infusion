@@ -1,8 +1,0 @@
-package com.derf.ei.fluid;
-
-public final class EIFluids {
-	
-	public static void create() {
-		
-	}
-}

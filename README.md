@@ -1,7 +1,7 @@
 # Elemental Infusion
 
 ## What is Elemental Infusion
-This is a simple mod for Minecraft 1.7.10. So what does this mod do exactly. Well it kind of between a techmod and magic mod. For one you have to collect elemental dusts to advance your career as a elementalist. There are four elements (fire, water, air, and earth) to both create items and machines to do stuff. Because I'm in the early stages of this mod I'm not really sure what I'm going to add. Plus my objective with this mod is to have fun. :)
+This is a simple mod for Minecraft 1.8.9. So what does this mod do exactly. Well it kind of between a techmod and magic mod. For one you have to collect elemental dusts to advance your career as a elementalist. There are four elements (fire, water, air, and earth) to both create items and machines to do stuff. Because I'm in the early stages of this mod I'm not really sure what I'm going to add. Plus my objective with this mod is to have fun. :)
 
 ## License
 
