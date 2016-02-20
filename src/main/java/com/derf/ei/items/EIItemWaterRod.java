@@ -2,10 +2,12 @@ package com.derf.ei.items;
 
 import net.minecraft.item.Item;
 
-public class EIBasicItem extends Item {
+public class EIItemWaterRod extends Item {
 	
-	public EIBasicItem(String name) {
+	public EIItemWaterRod(String name) {
 		super();
 		this.setUnlocalizedName(name);
+		this.setMaxStackSize(1);
 	}
+	
 }

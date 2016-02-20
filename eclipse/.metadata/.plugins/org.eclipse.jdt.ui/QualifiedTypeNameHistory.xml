@@ -11,16 +11,19 @@
 <fullyQualifiedTypeName name="net.minecraft.block.BlockContainer"/>
 <fullyQualifiedTypeName name="net.minecraft.tileentity.TileEntity"/>
 <fullyQualifiedTypeName name="net.minecraft.util.ITickable"/>
-<fullyQualifiedTypeName name="net.minecraft.init.Items"/>
 <fullyQualifiedTypeName name="net.minecraft.util.EnumParticleTypes"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="net.minecraft.block.Block"/>
-<fullyQualifiedTypeName name="com.derf.ei.blocks.EIBlocks"/>
 <fullyQualifiedTypeName name="net.minecraft.entity.player.EntityPlayer"/>
 <fullyQualifiedTypeName name="com.derf.ei.blocks.tileentity.EITileEntityMachineCore"/>
-<fullyQualifiedTypeName name="net.minecraft.item.Item"/>
-<fullyQualifiedTypeName name="net.minecraft.init.Blocks"/>
 <fullyQualifiedTypeName name="com.derf.ei.items.EIItems"/>
 <fullyQualifiedTypeName name="net.minecraft.inventory.IInventory"/>
 <fullyQualifiedTypeName name="com.derf.ei.crafting.EIInfuserRecipeManager"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.derf.ei.blocks.EIBlocks"/>
+<fullyQualifiedTypeName name="net.minecraft.item.Item"/>
+<fullyQualifiedTypeName name="net.minecraft.init.Blocks"/>
+<fullyQualifiedTypeName name="net.minecraft.entity.item.EntityItem"/>
+<fullyQualifiedTypeName name="net.minecraft.init.Items"/>
 </qualifiedTypeNameHistroy>

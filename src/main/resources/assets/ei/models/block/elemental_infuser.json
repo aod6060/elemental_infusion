@@ -1,0 +1,11 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"down": "ei:blocks/elemental_infuser_down",
+		"up": "ei:blocks/elemental_infuser_up",
+		"north": "ei:blocks/elemental_infuser_north",
+		"south": "ei:blocks/elemental_infuser_south",
+		"west": "ei:blocks/elemental_infuser_west",
+		"east": "ei:blocks/elemental_infuser_east"
+	}
+}

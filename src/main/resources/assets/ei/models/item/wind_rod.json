@@ -1,6 +1,6 @@
 {
 	"parent": "ei:item/item_basic",
 	"textures": {
-		"layer0": "ei:items/wand"
+		"layer0": "ei:items/wind_rod"
 	}
 }

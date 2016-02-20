@@ -11,6 +11,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.derf.ei.EILoader;
+import com.derf.ei.blocks.EIBlocks;
 import com.derf.ei.client.EIRendererRegister;
 import com.derf.ei.creativetabs.EICreativeTabs;
 
@@ -66,7 +67,13 @@ public final class EIItems {
 	public static Item voidiumRune;
 	// Secondary Runes
 	// Wand
-	public static Item wand;
+	public static Item elementalWand;
+	// Rods
+	public static Item fireRod;
+	public static Item waterRod;
+	public static Item earthRod;
+	public static Item windRod;
+	public static Item voidiumRod;
 	
 	public static void create() {
 		VOIDIUM = EnumHelper.addToolMaterial("VOIDIUM", 2, 750, 6.0F, 2.0F, 0);
@@ -74,15 +81,15 @@ public final class EIItems {
 		AM_VOIDIUM = EnumHelper.addArmorMaterial("AM_VOIDIUM", EILoader.modid + ":voidium", 15, new int[]{2, 6, 5, 2}, 0);
 		AM_VOIDIUM_CRYSTAL = EnumHelper.addArmorMaterial("AM_VOIDIUM_CRYSTAL", EILoader.modid + ":voidium_crystal", 20, new int[]{3, 8, 6, 3}, 0);
 		// Elemental Dust
-		fireDust = new EIBasicItem("fire_dust");
-		waterDust = new EIBasicItem("water_dust");
-		earthDust = new EIBasicItem("earth_dust");
-		windDust = new EIBasicItem("wind_dust");
-		voidiumDust = new EIBasicItem("voidium_dust");
+		fireDust = new EIItemBasic("fire_dust");
+		waterDust = new EIItemBasic("water_dust");
+		earthDust = new EIItemBasic("earth_dust");
+		windDust = new EIItemBasic("wind_dust");
+		voidiumDust = new EIItemBasic("voidium_dust");
 		// Voidium Ingot
-		voidiumIngot = new EIBasicItem("voidium_ingot");
+		voidiumIngot = new EIItemBasic("voidium_ingot");
 		// Voidium Crystal
-		voidiumCrystal = new EIBasicItem("voidium_crystal");
+		voidiumCrystal = new EIItemBasic("voidium_crystal");
 		// Tier 1 Tools VOIDIUM
 		// Tools
 		voidiumSword = new EIItemSword("voidium_sword", VOIDIUM);
@@ -109,16 +116,22 @@ public final class EIItems {
 		voidiumCrystalBoots = new EIItemArmor("voidium_crystal_helmet", AM_VOIDIUM_CRYSTAL, 1, 3);
 		// Runes
 		// Blank Rune
-		blankRune = new EIBasicItem("blank_rune");
+		blankRune = new EIItemBasic("blank_rune");
 		// Prima Runes
-		fireRune = new EIBasicItem("fire_rune");
-		waterRune = new EIBasicItem("water_rune");
-		earthRune = new EIBasicItem("earth_rune");
-		windRune = new EIBasicItem("wind_rune");
-		voidiumRune = new EIBasicItem("voidium_rune");
+		fireRune = new EIItemBasic("fire_rune");
+		waterRune = new EIItemBasic("water_rune");
+		earthRune = new EIItemBasic("earth_rune");
+		windRune = new EIItemBasic("wind_rune");
+		voidiumRune = new EIItemBasic("voidium_rune");
 		// Secondary Runes
 		// Wand
-		wand = new EIItemWand("wand");
+		elementalWand = new EIItemElementalWand("elemental_wand");
+		// Rods
+		fireRod = new EIItemFireRod("fire_rod");
+		waterRod = new EIItemFireRod("water_rod");
+		earthRod = new EIItemFireRod("earth_rod");
+		windRod = new EIItemFireRod("wind_rod");
+		voidiumRod = new EIItemFireRod("voidium_rod");
 	}
 	
 	public static void register() {
@@ -167,7 +180,13 @@ public final class EIItems {
 		GameRegistry.registerItem(voidiumRune, "voidium_rune");
 		// Secondary Runes
 		// Wand
-		GameRegistry.registerItem(wand, "wand");
+		GameRegistry.registerItem(elementalWand, "elemental_wand");
+		// Rods
+		GameRegistry.registerItem(fireRod, "fire_rod");
+		GameRegistry.registerItem(waterRod, "water_rod");
+		GameRegistry.registerItem(earthRod, "earth_rod");
+		GameRegistry.registerItem(windRod, "wind_rod");
+		GameRegistry.registerItem(voidiumRod, "voidium_rod");
 	}
 	
 	public static void creativeTabs() {
@@ -215,27 +234,17 @@ public final class EIItems {
 		windRune.setCreativeTab(EICreativeTabs.tabEI);
 		voidiumRune.setCreativeTab(EICreativeTabs.tabEI);
 		// Secondary Runes
-		// Wand
-		wand.setCreativeTab(EICreativeTabs.tabEI);
+		// Elemental Wand
+		elementalWand.setCreativeTab(EICreativeTabs.tabEI);
+		// Rods
+		fireRod.setCreativeTab(EICreativeTabs.tabEI);
+		waterRod.setCreativeTab(EICreativeTabs.tabEI);
+		earthRod.setCreativeTab(EICreativeTabs.tabEI);
+		windRod.setCreativeTab(EICreativeTabs.tabEI);
+		voidiumRod.setCreativeTab(EICreativeTabs.tabEI);
 	}
 	
 	public static void crafting() {
-		// Voidium Ingot
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(voidiumIngot), 
-				Items.iron_ingot,
-				fireDust,
-				waterDust,
-				earthDust,
-				windDust);
-		// Voidium Crystal
-		GameRegistry.addShapelessRecipe(
-				new ItemStack(voidiumCrystal), 
-				Items.diamond,
-				fireDust,
-				waterDust,
-				earthDust,
-				windDust);
 		// Tier 1 Tools VOIDIUM
 		// Tools
 		GameRegistry.addRecipe(
@@ -278,7 +287,6 @@ public final class EIItems {
 				new ItemStack(voidiumHelmet), 
 				"vvv",
 				"v v",
-				"  ",
 				'v', voidiumIngot);
 		GameRegistry.addRecipe(
 				new ItemStack(voidiumChestplate), 
@@ -296,7 +304,6 @@ public final class EIItems {
 				new ItemStack(voidiumBoots), 
 				"v v",
 				"v v",
-				"  ",
 				'v', voidiumIngot);
 		// Tier 2 Tools (Voidium Crystal Tools and Armor)
 		// Tools
@@ -340,7 +347,6 @@ public final class EIItems {
 				new ItemStack(voidiumCrystalHelmet), 
 				"vvv",
 				"v v",
-				"  ",
 				'v', voidiumCrystal);
 		GameRegistry.addRecipe(
 				new ItemStack(voidiumCrystalChestplate), 
@@ -358,8 +364,15 @@ public final class EIItems {
 				new ItemStack(voidiumCrystalBoots), 
 				"v v",
 				"v v",
-				"  ",
 				'v', voidiumCrystal);
+		// Elemental Wand
+		GameRegistry.addRecipe(
+				new ItemStack(elementalWand),
+				"v",
+				"s",
+				"v",
+				'v', EIBlocks.voidiumStone,
+				's', Items.stick);
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -409,6 +422,12 @@ public final class EIItems {
 		EIRendererRegister.register(voidiumRune, 0, EILoader.modid + ":voidium_rune");
 		// Secondary Runes
 		// Wand
-		EIRendererRegister.register(wand, 0, EILoader.modid + ":wand");
+		EIRendererRegister.register(elementalWand, 0, EILoader.modid + ":elemental_wand");
+		// Rods
+		EIRendererRegister.register(fireRod, 0, EILoader.modid + ":fire_rod");
+		EIRendererRegister.register(waterRod, 0, EILoader.modid + ":water_rod");
+		EIRendererRegister.register(earthRod, 0, EILoader.modid + ":earth_rod");
+		EIRendererRegister.register(windRod, 0, EILoader.modid + ":wind_rod");
+		EIRendererRegister.register(voidiumRod, 0, EILoader.modid + ":voidium_rod");
 	}
 }

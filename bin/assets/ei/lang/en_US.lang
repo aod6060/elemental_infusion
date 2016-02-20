@@ -45,8 +45,14 @@ item.earth_rune.name=Earth Rune
 item.wind_rune.name=Wind Rune
 item.voidium_rune.name=Voidium Rune
 # Secondary
-# Wand
-item.wand.name=Wand
+# Elemental Wand
+item.elemental_wand.name=Elemental Wand
+# Rods
+item.fire_rod.name=Fire Rod
+item.water_rod.name=Water Rod
+item.earth_rod.name=Earth Rod
+item.wind_rod.name=Wind Rod
+item.voidium_rod.name=Voidium Rod
 # Tiles
 # Elemental Ore
 tile.fire_ore.name=Fire Ore
@@ -55,5 +61,5 @@ tile.earth_ore.name=Earth Ore
 tile.wind_ore.name=Wind Ore
 # Voidium Stone
 tile.voidium_stone.name=Voidium Stone
-# Machine Core
-tile.machine_core.name=Machine Core
+# Elemental Infuser
+tile.elemental_infuser.name=Elemental Infuser

@@ -1,6 +1,0 @@
-{
-	"parent": "ei:item/block_basic",
-	"textures": {
-		"all": "ei:blocks/machine_core"
-	}
-}

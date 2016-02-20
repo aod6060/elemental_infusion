@@ -1,7 +1,7 @@
 {
 	"variants": {
 		"normal": {
-			"model": "ei:machine_core"
+			"model": "ei:elemental_infuser"
 		}
 	}
 }
