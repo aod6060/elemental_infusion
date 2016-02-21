@@ -24,10 +24,10 @@ public class EIItemFireRod extends Item {
 		this.setMaxStackSize(1);
 	}
 
+	
 	@Override
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing facing, float fx, float fy, float fz) {
+	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 		// TODO Auto-generated method stub
-		
 		
 		if(!world.isRemote) {
 			if(stack.getTagCompound() == null) {
@@ -36,8 +36,8 @@ public class EIItemFireRod extends Item {
 				stack.setTagCompound(tag);
 			}
 			
+			
 			if(player.isSneaking()) {
-				
 				if(stack.getTagCompound().getInteger("mode") == FIRE) {
 					player.addChatMessage(new ChatComponentText("Mode: LAVA"));
 					stack.getTagCompound().setInteger("mode", LAVA);
@@ -48,6 +48,29 @@ public class EIItemFireRod extends Item {
 					stack.getTagCompound().setInteger("mode", FIRE);
 					player.addChatMessage(new ChatComponentText("Mode: FIRE"));
 				}
+			} else {
+				
+			}
+		}
+		
+		return super.onItemRightClick(stack, world, player);
+	}
+
+
+	@Override
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing facing, float fx, float fy, float fz) {
+		// TODO Auto-generated method stub
+		boolean b = false;
+		
+		if(!world.isRemote) {
+			if(stack.getTagCompound() == null) {
+				NBTTagCompound tag = new NBTTagCompound();
+				tag.setInteger("mode", FIRE);
+				stack.setTagCompound(tag);
+			}
+			
+			if(player.isSneaking()) {
+				b = true;
 			} else {
 				switch(stack.getTagCompound().getInteger("mode")) {
 				case FIRE:
@@ -62,7 +85,8 @@ public class EIItemFireRod extends Item {
 				}
 			}
 		}
-		return super.onItemUse(stack, player, world, pos, facing, fx, fy, fz);
+		
+		return b;
 	}
 
 	private void setFire(World world, EntityPlayer player, BlockPos pos, EnumFacing facing) {
@@ -90,7 +114,7 @@ public class EIItemFireRod extends Item {
 			world.setBlockState(new BlockPos(pos.getX(), pos.getY(), pos.getZ() - 1), Blocks.flowing_lava.getDefaultState());
 		} else if(facing.getName().compareTo("south") == 0) {
 			world.setBlockState(new BlockPos(pos.getX(), pos.getY(), pos.getZ() + 1), Blocks.flowing_lava.getDefaultState());
-		}
+		} 
 	}
 	
 	private void doSmelt(World world, EntityPlayer player, BlockPos pos) {
@@ -113,6 +137,10 @@ public class EIItemFireRod extends Item {
 			world.spawnEntityInWorld(new EntityItem(world, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.netherbrick)));
 		} else if(world.getBlockState(pos).getBlock() == Blocks.clay) {
 			world.setBlockState(pos, Blocks.hardened_clay.getDefaultState());
+		} else if(world.getBlockState(pos).getBlock() == Blocks.ice) {
+			world.setBlockState(pos, Blocks.flowing_water.getDefaultState());
+		} else if(world.getBlockState(pos).getBlock() == Blocks.packed_ice) {
+			world.setBlockState(pos, Blocks.ice.getDefaultState());
 		}
 	}
 }

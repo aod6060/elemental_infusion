@@ -23,7 +23,10 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.derf.ei.blocks.EIBlocks"/>
 <fullyQualifiedTypeName name="net.minecraft.item.Item"/>
-<fullyQualifiedTypeName name="net.minecraft.init.Blocks"/>
 <fullyQualifiedTypeName name="net.minecraft.entity.item.EntityItem"/>
 <fullyQualifiedTypeName name="net.minecraft.init.Items"/>
+<fullyQualifiedTypeName name="net.minecraft.entity.Entity"/>
+<fullyQualifiedTypeName name="net.minecraft.entity.EntityCreature"/>
+<fullyQualifiedTypeName name="com.derf.ei.util.Vec3"/>
+<fullyQualifiedTypeName name="net.minecraft.init.Blocks"/>
 </qualifiedTypeNameHistroy>

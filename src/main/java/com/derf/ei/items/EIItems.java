@@ -128,10 +128,10 @@ public final class EIItems {
 		elementalWand = new EIItemElementalWand("elemental_wand");
 		// Rods
 		fireRod = new EIItemFireRod("fire_rod");
-		waterRod = new EIItemFireRod("water_rod");
-		earthRod = new EIItemFireRod("earth_rod");
-		windRod = new EIItemFireRod("wind_rod");
-		voidiumRod = new EIItemFireRod("voidium_rod");
+		waterRod = new EIItemWaterRod("water_rod");
+		earthRod = new EIItemEarthRod("earth_rod");
+		windRod = new EIItemWindRod("wind_rod");
+		voidiumRod = new EIItemVoidiumRod("voidium_rod");
 	}
 	
 	public static void register() {
