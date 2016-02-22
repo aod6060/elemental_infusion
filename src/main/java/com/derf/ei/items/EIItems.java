@@ -27,7 +27,6 @@ public final class EIItems {
 	public static Item waterDust;
 	public static Item earthDust;
 	public static Item windDust;
-	public static Item voidiumDust;
 	// Voidium Ingot
 	public static Item voidiumIngot;
 	// VoidiumCrystal
@@ -66,6 +65,10 @@ public final class EIItems {
 	public static Item windRune;
 	public static Item voidiumRune;
 	// Secondary Runes
+	public static Item magnetismRune;
+	public static Item illuminationRune;
+	public static Item growthRune; // Grows plants faster
+	public static Item miningRune;
 	// Wand
 	public static Item elementalWand;
 	// Rods
@@ -85,7 +88,6 @@ public final class EIItems {
 		waterDust = new EIItemBasic("water_dust");
 		earthDust = new EIItemBasic("earth_dust");
 		windDust = new EIItemBasic("wind_dust");
-		voidiumDust = new EIItemBasic("voidium_dust");
 		// Voidium Ingot
 		voidiumIngot = new EIItemBasic("voidium_ingot");
 		// Voidium Crystal
@@ -124,6 +126,10 @@ public final class EIItems {
 		windRune = new EIItemBasic("wind_rune");
 		voidiumRune = new EIItemBasic("voidium_rune");
 		// Secondary Runes
+		magnetismRune = new EIItemBasic("magnetism_rune");
+		illuminationRune = new EIItemBasic("illumination_rune");
+		growthRune = new EIItemBasic("growth_rune");
+		miningRune = new EIItemBasic("mining_rune");
 		// Wand
 		elementalWand = new EIItemElementalWand("elemental_wand");
 		// Rods
@@ -140,7 +146,6 @@ public final class EIItems {
 		GameRegistry.registerItem(waterDust, "water_dust");
 		GameRegistry.registerItem(earthDust, "earth_dust");
 		GameRegistry.registerItem(windDust, "wind_dust");
-		GameRegistry.registerItem(voidiumDust, "voidium_dust");
 		// Voidium Ingot
 		GameRegistry.registerItem(voidiumIngot, "voidium_ingot");
 		// Voidium Crystal
@@ -179,6 +184,10 @@ public final class EIItems {
 		GameRegistry.registerItem(windRune, "wind_rune");
 		GameRegistry.registerItem(voidiumRune, "voidium_rune");
 		// Secondary Runes
+		GameRegistry.registerItem(magnetismRune, "magnetism_rune");
+		GameRegistry.registerItem(illuminationRune, "illumination_rune");
+		GameRegistry.registerItem(growthRune, "growth_rune");
+		GameRegistry.registerItem(miningRune, "mining_rune");
 		// Wand
 		GameRegistry.registerItem(elementalWand, "elemental_wand");
 		// Rods
@@ -195,7 +204,6 @@ public final class EIItems {
 		waterDust.setCreativeTab(EICreativeTabs.tabEI);
 		earthDust.setCreativeTab(EICreativeTabs.tabEI);
 		windDust.setCreativeTab(EICreativeTabs.tabEI);
-		voidiumDust.setCreativeTab(EICreativeTabs.tabEI);
 		// Voidium Ingot
 		voidiumIngot.setCreativeTab(EICreativeTabs.tabEI);
 		// Voidium Crystal
@@ -234,6 +242,10 @@ public final class EIItems {
 		windRune.setCreativeTab(EICreativeTabs.tabEI);
 		voidiumRune.setCreativeTab(EICreativeTabs.tabEI);
 		// Secondary Runes
+		magnetismRune.setCreativeTab(EICreativeTabs.tabEI);
+		illuminationRune.setCreativeTab(EICreativeTabs.tabEI);
+		growthRune.setCreativeTab(EICreativeTabs.tabEI);
+		miningRune.setCreativeTab(EICreativeTabs.tabEI);
 		// Elemental Wand
 		elementalWand.setCreativeTab(EICreativeTabs.tabEI);
 		// Rods
@@ -382,7 +394,6 @@ public final class EIItems {
 		EIRendererRegister.register(waterDust, 0, EILoader.modid + ":water_dust");
 		EIRendererRegister.register(earthDust, 0, EILoader.modid + ":earth_dust");
 		EIRendererRegister.register(windDust, 0, EILoader.modid + ":wind_dust");
-		EIRendererRegister.register(voidiumDust, 0, EILoader.modid + ":voidium_dust");
 		// Voidium Ingot
 		EIRendererRegister.register(voidiumIngot, 0, EILoader.modid + ":voidium_ingot");
 		// Voidium Crystal
@@ -421,6 +432,10 @@ public final class EIItems {
 		EIRendererRegister.register(windRune, 0, EILoader.modid + ":wind_rune");
 		EIRendererRegister.register(voidiumRune, 0, EILoader.modid + ":voidium_rune");
 		// Secondary Runes
+		EIRendererRegister.register(magnetismRune, 0, EILoader.modid + ":magnetism_rune");
+		EIRendererRegister.register(illuminationRune, 0, EILoader.modid + ":illumination_rune");
+		EIRendererRegister.register(growthRune, 0, EILoader.modid + ":growth_rune");
+		EIRendererRegister.register(miningRune, 0, EILoader.modid + ":mining_rune");
 		// Wand
 		EIRendererRegister.register(elementalWand, 0, EILoader.modid + ":elemental_wand");
 		// Rods

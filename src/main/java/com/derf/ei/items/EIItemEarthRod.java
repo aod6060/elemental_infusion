@@ -70,7 +70,6 @@ public class EIItemEarthRod extends Item {
 			}
 			
 			if(player.isSneaking()) {
-				b = true;
 			} else {
 				switch(stack.getTagCompound().getInteger("mode")) {
 				case DIRT:
@@ -85,7 +84,7 @@ public class EIItemEarthRod extends Item {
 				}
 			}
 		}
-		return b;
+		return true;
 	}
 
 	private void placeDirt(World world, EntityPlayer player, BlockPos pos,

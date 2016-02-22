@@ -21,7 +21,6 @@
 <fullyQualifiedTypeName name="com.derf.ei.crafting.EIInfuserRecipeManager"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="com.derf.ei.blocks.EIBlocks"/>
 <fullyQualifiedTypeName name="net.minecraft.item.Item"/>
 <fullyQualifiedTypeName name="net.minecraft.entity.item.EntityItem"/>
 <fullyQualifiedTypeName name="net.minecraft.init.Items"/>
@@ -29,4 +28,11 @@
 <fullyQualifiedTypeName name="net.minecraft.entity.EntityCreature"/>
 <fullyQualifiedTypeName name="com.derf.ei.util.Vec3"/>
 <fullyQualifiedTypeName name="net.minecraft.init.Blocks"/>
+<fullyQualifiedTypeName name="com.derf.ei.blocks.EIBlocks"/>
+<fullyQualifiedTypeName name="net.minecraft.util.StatCollector"/>
+<fullyQualifiedTypeName name="net.minecraftforge.client.event.RenderGameOverlayEvent"/>
+<fullyQualifiedTypeName name="net.minecraftforge.client.event.RenderGameOverlayEvent.Pre"/>
+<fullyQualifiedTypeName name="net.minecraftforge.client.event.RenderGameOverlayEvent.Post"/>
+<fullyQualifiedTypeName name="net.minecraftforge.common.MinecraftForge"/>
+<fullyQualifiedTypeName name="com.derf.ei.handler.EIHandlers"/>
 </qualifiedTypeNameHistroy>

@@ -6,12 +6,13 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 public class EIInfuserRecipe {
 	private ArrayList<ItemStack> itemStacks = new ArrayList<ItemStack>();
 	private ItemStack craftedItem;
-	private String description;
+	//private String description;
 	
 	public int size() {
 		return itemStacks.size();
@@ -156,11 +157,7 @@ public class EIInfuserRecipe {
 		}
 	}
 	
-	public void setDescription(String name) {
-		this.description = name;
-	}
-	
 	public String getDescription() {
-		return this.description;
+		return "Crafting: " + craftedItem.getDisplayName();
 	}
 }

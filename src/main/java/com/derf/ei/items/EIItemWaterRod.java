@@ -73,7 +73,6 @@ public class EIItemWaterRod extends Item {
 			}
 			
 			if(player.isSneaking()) {
-				b = true;
 			} else {
 				switch(stack.getTagCompound().getInteger("mode")) {
 				case WATER:
@@ -89,7 +88,7 @@ public class EIItemWaterRod extends Item {
 			}
 		}
 		
-		return b;
+		return true;
 	}
 
 

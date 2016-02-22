@@ -21,7 +21,7 @@ import com.derf.ei.util.EIVec3;
 public class EIItemWindRod extends Item {
 	
 	
-	public static final double strength = 5.0;
+	public static final double strength = 2.0;
 	public static final double range = 16.0;
 	
 	public static final int BLAST = 0;
@@ -103,6 +103,7 @@ public class EIItemWindRod extends Item {
 				}
 			}
 		}
+		
 		return b;
 	}
 

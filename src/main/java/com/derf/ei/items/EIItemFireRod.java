@@ -70,7 +70,6 @@ public class EIItemFireRod extends Item {
 			}
 			
 			if(player.isSneaking()) {
-				b = true;
 			} else {
 				switch(stack.getTagCompound().getInteger("mode")) {
 				case FIRE:
@@ -86,7 +85,7 @@ public class EIItemFireRod extends Item {
 			}
 		}
 		
-		return b;
+		return true;
 	}
 
 	private void setFire(World world, EntityPlayer player, BlockPos pos, EnumFacing facing) {

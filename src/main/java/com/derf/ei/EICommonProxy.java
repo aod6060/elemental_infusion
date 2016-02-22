@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import com.derf.ei.blocks.EIBlocks;
 import com.derf.ei.crafting.EIInfuserRecipeManager;
 import com.derf.ei.creativetabs.EICreativeTabs;
+import com.derf.ei.handler.EIHandlers;
 import com.derf.ei.items.EIItems;
 import com.derf.ei.world.EIWorldGenerator;
 
@@ -32,6 +33,7 @@ public class EICommonProxy {
 		EIBlocks.crafting();
 		EIInfuserRecipeManager.create();
 		GameRegistry.registerWorldGenerator(new EIWorldGenerator(), 0);
+		EIHandlers.create();
 	}
 	
 	public void postInit(FMLPostInitializationEvent e) {

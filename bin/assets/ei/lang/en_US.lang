@@ -39,20 +39,24 @@ item.voidium_crystal_boots.name=Voidium Crystal Boots
 # Blank Runes
 item.blank_rune.name=Blank Rune
 # Prima
-item.fire_rune.name=Fire Rune
-item.water_rune.name=Water Rune
-item.earth_rune.name=Earth Rune
-item.wind_rune.name=Wind Rune
-item.voidium_rune.name=Voidium Rune
+item.fire_rune.name=Rune of Fire
+item.water_rune.name=Rune of Water
+item.earth_rune.name=Rune of Earth
+item.wind_rune.name=Rune of Wind
+item.voidium_rune.name=Rune of Voidium
 # Secondary
+item.magnetism_rune.name=Rune of Magnetism
+item.illumination_rune.name=Rune of Illumination
+item.growth_rune.name=Rune of Growth
+item.mining_rune.name=Rune of Mining
 # Elemental Wand
 item.elemental_wand.name=Elemental Wand
 # Rods
-item.fire_rod.name=Fire Rod
-item.water_rod.name=Water Rod
-item.earth_rod.name=Earth Rod
-item.wind_rod.name=Wind Rod
-item.voidium_rod.name=Voidium Rod
+item.fire_rod.name=Rod of Fire
+item.water_rod.name=Rod of Water
+item.earth_rod.name=Rod of Earth
+item.wind_rod.name=Rod of Wind
+item.voidium_rod.name=Rod of Voidium
 # Tiles
 # Elemental Ore
 tile.fire_ore.name=Fire Ore

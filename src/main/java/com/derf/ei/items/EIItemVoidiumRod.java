@@ -82,7 +82,6 @@ public class EIItemVoidiumRod extends Item {
 			}
 			
 			if(player.isSneaking()) {
-				b = true;
 			} else {
 				switch(stack.getTagCompound().getInteger("mode")) {
 				case VOID_1x1:
@@ -101,13 +100,11 @@ public class EIItemVoidiumRod extends Item {
 					void_9x9(world, pos, player, facing);
 					break;
 				}
-				
-				b = true;
 			}
 		}
 		
 
-		return b;
+		return true;
 	}
 
 	private void void_1x1(World world, BlockPos pos, EntityPlayer player, EnumFacing facing) {
@@ -122,7 +119,7 @@ public class EIItemVoidiumRod extends Item {
 		ArrayList<BlockPos> bpos = getBlock3x3(world, pos, facing);
 		
 		for(int i = 0; i < bpos.size(); i++) {
-			if(!this.isUnbreable(world, pos)) {	
+			if(!this.isUnbreable(world, bpos.get(i))) {	
 				world.destroyBlock(bpos.get(i), false);
 			}
 		}
@@ -134,22 +131,44 @@ public class EIItemVoidiumRod extends Item {
 		ArrayList<BlockPos> temp = new ArrayList<BlockPos>();
 		
 		if(facing.getName().contains("up") || facing.getName().contains("down")) {
+			
 			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()-1));
 			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-1));
 			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()-1));
+			
 			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()));
 			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
 			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()));
+			
 			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()+1));
 			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+1));
 			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()+1));
-		} else if(facing.getName().contains("west")) {
 			
-		} else if(facing.getName().contains("east")) {
+		} else if(facing.getName().contains("west") || facing.getName().contains("east")) {
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()+1));
 			
-		} else if(facing.getName().contains("north")) {
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+1));
 			
-		} else if(facing.getName().contains("south")) {
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()+1));
+		
+		} else if(facing.getName().contains("north") || facing.getName().contains("south")) {
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()-1, pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()+1, pos.getZ()));
 			
 		}
 		return temp;
@@ -157,19 +176,656 @@ public class EIItemVoidiumRod extends Item {
 
 	private void void_5x5(World world, BlockPos pos, EntityPlayer player, EnumFacing facing) {
 		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
+		ArrayList<BlockPos> bpos = getBlock5x5(world, pos, facing);
 		
+		for(int i = 0; i < bpos.size(); i++) {
+			if(!this.isUnbreable(world, bpos.get(i))) {	
+				world.destroyBlock(bpos.get(i), false);
+			}
+		}
+	}
+
+	private ArrayList<BlockPos> getBlock5x5(World world, BlockPos pos,
+			EnumFacing facing) {
+		// TODO Auto-generated method stub
+		ArrayList<BlockPos> temp = new ArrayList<BlockPos>();
+		
+		if(facing.getName().contains("up") || facing.getName().contains("down")) {
+			
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()-2));
+			
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()-1));
+			
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()+1));
+			
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()+2));
+			
+		} else if(facing.getName().contains("west") || facing.getName().contains("east")) {
+			/*
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()+1));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+1));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()+1));
+			*/
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()+2));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()+2));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()+2));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+2));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()+2));
+			
+		} else if(facing.getName().contains("north") || facing.getName().contains("south")) {
+			/*
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()-1, pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()+1, pos.getZ()));
+			*/
+			
+			temp.add(new BlockPos(pos.getX()-2, pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY()+3, pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-2, pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY()+2, pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-2, pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY()+1, pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-2, pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY()-1, pos.getZ()));
+		}
+		
+		return temp;
 	}
 
 	private void void_7x7(World world, BlockPos pos, EntityPlayer player, EnumFacing facing) {
 		// TODO Auto-generated method stub
+		ArrayList<BlockPos> bpos = getBlock7x7(world, pos, facing);
 		
+		for(int i = 0; i < bpos.size(); i++) {
+			if(!this.isUnbreable(world, bpos.get(i))) {	
+				world.destroyBlock(bpos.get(i), false);
+			}
+		}
+	}
+
+	private ArrayList<BlockPos> getBlock7x7(World world, BlockPos pos,
+			EnumFacing facing) {
+		// TODO Auto-generated method stub
+		ArrayList<BlockPos> temp = new ArrayList<BlockPos>();
+		
+		if(facing.getName().contains("up") || facing.getName().contains("down")) {
+			temp.add(new BlockPos(pos.getX()-3, pos.getY(), pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()-3));
+			
+			temp.add(new BlockPos(pos.getX()-3, pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()-2));
+			
+			temp.add(new BlockPos(pos.getX()-3, pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()-1));
+			
+			temp.add(new BlockPos(pos.getX()-3, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-3, pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()+1));
+			
+			temp.add(new BlockPos(pos.getX()-3, pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()+2));
+			
+			temp.add(new BlockPos(pos.getX()-3, pos.getY(), pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()+3));
+			
+		} else if(facing.getName().contains("west") || facing.getName().contains("east")) {
+			/*
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()+1));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+1));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()+1));
+			*/
+			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()+3));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY()+4, pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+4, pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+4, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+4, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+4, pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+4, pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+4, pos.getZ()+3));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()+3));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()+3));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()+3));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+3));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()+3));
+			
+		} else if(facing.getName().contains("north") || facing.getName().contains("south")) {
+			/*
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()-1, pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()+1, pos.getZ()));
+			*/
+			temp.add(new BlockPos(pos.getX()-3, pos.getY()+5, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY()+5, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()+5, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()+5, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY()+5, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY()+5, pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-3, pos.getY()+4, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY()+4, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()+4, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+4, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()+4, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY()+4, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY()+4, pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-3, pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY()+3, pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-3, pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY()+2, pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-3, pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY()+1, pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-3, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-3, pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY()-1, pos.getZ()));
+		}
+		
+		return temp;
 	}
 
 	private void void_9x9(World world, BlockPos pos, EntityPlayer player, EnumFacing facing) {
 		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
+		ArrayList<BlockPos> bpos = getBlock9x9(world, pos, facing);
 		
+		for(int i = 0; i < bpos.size(); i++) {
+			if(!this.isUnbreable(world, bpos.get(i))) {	
+				world.destroyBlock(bpos.get(i), false);
+			}
+		}
 	}
 	
+	private ArrayList<BlockPos> getBlock9x9(World world, BlockPos pos,
+			EnumFacing facing) {
+		// TODO Auto-generated method stub
+		ArrayList<BlockPos> temp = new ArrayList<BlockPos>();
+		
+		if(facing.getName().contains("up") || facing.getName().contains("down")) {
+			temp.add(new BlockPos(pos.getX()-4, pos.getY(), pos.getZ()-4));
+			temp.add(new BlockPos(pos.getX()-3, pos.getY(), pos.getZ()-4));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()-4));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()-4));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()  -4));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()-4));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()-4));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()-4));
+			temp.add(new BlockPos(pos.getX()+4, pos.getY(), pos.getZ()-4));
+			
+			temp.add(new BlockPos(pos.getX()-4, pos.getY(), pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX()-3, pos.getY(), pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()  -3));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX()+4, pos.getY(), pos.getZ()-3));
+			
+			temp.add(new BlockPos(pos.getX()-4, pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX()-3, pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()  -2));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX()+4, pos.getY(), pos.getZ()-2));
+			
+			temp.add(new BlockPos(pos.getX()-4, pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX()-3, pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()  -1));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX()+4, pos.getY(), pos.getZ()-1));
+			
+			temp.add(new BlockPos(pos.getX()-4, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-3, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+4, pos.getY(), pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-4, pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX()-3, pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()  +1));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX()+4, pos.getY(), pos.getZ()+1));
+			
+			temp.add(new BlockPos(pos.getX()-4, pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX()-3, pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()  +2));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX()+4, pos.getY(), pos.getZ()+2));
+			
+			temp.add(new BlockPos(pos.getX()-4, pos.getY(), pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX()-3, pos.getY(), pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()  +3));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX()+4, pos.getY(), pos.getZ()+3));
+			
+			temp.add(new BlockPos(pos.getX()-4, pos.getY(), pos.getZ()+4));
+			temp.add(new BlockPos(pos.getX()-3, pos.getY(), pos.getZ()+4));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()+4));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()+4));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()  +4));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()+4));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()+4));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()+4));
+			temp.add(new BlockPos(pos.getX()+4, pos.getY(), pos.getZ()+4));
+		} else if(facing.getName().contains("west") || facing.getName().contains("east")) {
+			temp.add(new BlockPos(pos.getX(), pos.getY()+7, pos.getZ()-4));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+7, pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+7, pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+7, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+7, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+7, pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+7, pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+7, pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+7, pos.getZ()+4));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY()+6, pos.getZ()-4));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+6, pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+6, pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+6, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+6, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+6, pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+6, pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+6, pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+6, pos.getZ()+4));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()-4));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()+4));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY()+4, pos.getZ()-4));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+4, pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+4, pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+4, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+4, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+4, pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+4, pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+4, pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+4, pos.getZ()+4));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()-4));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()+4));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()-4));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+2, pos.getZ()+4));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()-4));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()+4));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-4));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+4));
+			
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()-4));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()-3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()-2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()-1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()+1));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()+2));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()+3));
+			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()+4));
+			
+		} else if(facing.getName().contains("north") || facing.getName().contains("south")) {
+			temp.add(new BlockPos(pos.getX()-4, pos.getY()+7, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-3, pos.getY()+7, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY()+7, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()+7, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), 	pos.getY()+7, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()+7, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY()+7, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY()+7, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+4, pos.getY()+7, pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-4, pos.getY()+6, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-3, pos.getY()+6, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY()+6, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()+6, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), 	pos.getY()+6, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()+6, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY()+6, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY()+6, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+4, pos.getY()+6, pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-4, pos.getY()+5, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-3, pos.getY()+5, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY()+5, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()+5, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), 	pos.getY()+5, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()+5, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY()+5, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY()+5, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+4, pos.getY()+5, pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-4, pos.getY()+4, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-3, pos.getY()+4, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY()+4, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()+4, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), 	pos.getY()+4, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()+4, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY()+4, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY()+4, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+4, pos.getY()+4, pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-4, pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-3, pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), 	pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY()+3, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+4, pos.getY()+3, pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-4, pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-3, pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), 	pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY()+2, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+4, pos.getY()+2, pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-4, pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-3, pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), 	pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY()+1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+4, pos.getY()+1, pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-4, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-3, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+4, pos.getY(), pos.getZ()));
+			
+			temp.add(new BlockPos(pos.getX()-4, pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-3, pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-2, pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()-1, pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX(), 	pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+1, pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+2, pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+3, pos.getY()-1, pos.getZ()));
+			temp.add(new BlockPos(pos.getX()+4, pos.getY()-1, pos.getZ()));
+		}
+		return temp;
+	}
+
 	private boolean isUnbreable(World world, BlockPos pos) {
 		return world.getBlockState(pos).getBlock() == Blocks.bedrock || world.getBlockState(pos).getBlock() == Blocks.end_portal_frame;
 	}
