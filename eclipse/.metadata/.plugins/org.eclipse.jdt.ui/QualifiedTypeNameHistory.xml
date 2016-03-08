@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="net.minecraft.client.Minecraft"/>
 <fullyQualifiedTypeName name="net.minecraftforge.fml.relauncher.Side"/>
 <fullyQualifiedTypeName name="net.minecraft.block.material.Material"/>
 <fullyQualifiedTypeName name="com.derf.ei.creativetabs.EICreativeTabs"/>
@@ -13,26 +12,38 @@
 <fullyQualifiedTypeName name="net.minecraft.util.ITickable"/>
 <fullyQualifiedTypeName name="net.minecraft.util.EnumParticleTypes"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
-<fullyQualifiedTypeName name="net.minecraft.block.Block"/>
 <fullyQualifiedTypeName name="net.minecraft.entity.player.EntityPlayer"/>
 <fullyQualifiedTypeName name="com.derf.ei.blocks.tileentity.EITileEntityMachineCore"/>
 <fullyQualifiedTypeName name="com.derf.ei.items.EIItems"/>
 <fullyQualifiedTypeName name="net.minecraft.inventory.IInventory"/>
-<fullyQualifiedTypeName name="com.derf.ei.crafting.EIInfuserRecipeManager"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="net.minecraft.item.Item"/>
 <fullyQualifiedTypeName name="net.minecraft.entity.item.EntityItem"/>
 <fullyQualifiedTypeName name="net.minecraft.init.Items"/>
-<fullyQualifiedTypeName name="net.minecraft.entity.Entity"/>
-<fullyQualifiedTypeName name="net.minecraft.entity.EntityCreature"/>
 <fullyQualifiedTypeName name="com.derf.ei.util.Vec3"/>
-<fullyQualifiedTypeName name="net.minecraft.init.Blocks"/>
 <fullyQualifiedTypeName name="com.derf.ei.blocks.EIBlocks"/>
 <fullyQualifiedTypeName name="net.minecraft.util.StatCollector"/>
 <fullyQualifiedTypeName name="net.minecraftforge.client.event.RenderGameOverlayEvent"/>
 <fullyQualifiedTypeName name="net.minecraftforge.client.event.RenderGameOverlayEvent.Pre"/>
 <fullyQualifiedTypeName name="net.minecraftforge.client.event.RenderGameOverlayEvent.Post"/>
 <fullyQualifiedTypeName name="net.minecraftforge.common.MinecraftForge"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.derf.ei.items.EIRod.IRodAction"/>
+<fullyQualifiedTypeName name="net.minecraft.item.crafting.FurnaceRecipes"/>
+<fullyQualifiedTypeName name="net.minecraft.block.Block"/>
+<fullyQualifiedTypeName name="net.minecraft.entity.Entity"/>
+<fullyQualifiedTypeName name="net.minecraft.entity.EntityCreature"/>
+<fullyQualifiedTypeName name="net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType"/>
+<fullyQualifiedTypeName name="net.minecraft.init.Blocks"/>
+<fullyQualifiedTypeName name="net.minecraft.util.MovingObjectPosition.MovingObjectType"/>
 <fullyQualifiedTypeName name="com.derf.ei.handler.EIHandlers"/>
+<fullyQualifiedTypeName name="com.derf.ei.blocks.tileentity.EITileEntityElementalInfuser"/>
+<fullyQualifiedTypeName name="com.derf.ei.crafting.EIInfuserRecipeManager"/>
+<fullyQualifiedTypeName name="net.minecraft.client.renderer.texture.TextureAtlasSprite"/>
+<fullyQualifiedTypeName name="net.minecraft.client.renderer.WorldRenderer.State"/>
+<fullyQualifiedTypeName name="org.lwjgl.opengl.GL11"/>
+<fullyQualifiedTypeName name="net.minecraft.client.renderer.GlStateManager"/>
+<fullyQualifiedTypeName name="net.minecraft.client.Minecraft"/>
+<fullyQualifiedTypeName name="net.minecraft.client.renderer.texture.TextureMap"/>
+<fullyQualifiedTypeName name="net.minecraft.client.renderer.Tessellator"/>
 </qualifiedTypeNameHistroy>

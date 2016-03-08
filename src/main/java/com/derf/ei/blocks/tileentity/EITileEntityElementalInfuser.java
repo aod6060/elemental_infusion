@@ -2,22 +2,16 @@ package com.derf.ei.blocks.tileentity;
 
 import java.util.ArrayList;
 
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
-import net.minecraft.world.World;
 
-import com.derf.ei.blocks.EIBlocks;
+import com.derf.ei.crafting.EIInfuserRecipe;
 import com.derf.ei.crafting.EIInfuserRecipeManager;
-import com.derf.ei.items.EIItems;
 
 public class EITileEntityElementalInfuser extends TileEntity {
 	
@@ -119,5 +113,11 @@ public class EITileEntityElementalInfuser extends TileEntity {
 		EIInfuserRecipeManager.getNames(names);
 		
 		player.addChatMessage(new ChatComponentText(EIInfuserRecipeManager.get(names.get(this.mode)).getDescription()));
+	}
+	
+	public String getRecipe() {
+		ArrayList<String> names = new ArrayList<String>();
+		EIInfuserRecipeManager.getNames(names);
+		return names.get(this.mode);
 	}
 }

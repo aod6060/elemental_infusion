@@ -14,6 +14,19 @@ import com.derf.ei.EILoader;
 import com.derf.ei.blocks.EIBlocks;
 import com.derf.ei.client.EIRendererRegister;
 import com.derf.ei.creativetabs.EICreativeTabs;
+import com.derf.ei.items.rods.EIItemRodBlast;
+import com.derf.ei.items.rods.EIItemRodCobbleStone;
+import com.derf.ei.items.rods.EIItemRodDirt;
+import com.derf.ei.items.rods.EIItemRodEarth;
+import com.derf.ei.items.rods.EIItemRodFire;
+import com.derf.ei.items.rods.EIItemRodLava;
+import com.derf.ei.items.rods.EIItemRodSmelting;
+import com.derf.ei.items.rods.EIItemRodSnow;
+import com.derf.ei.items.rods.EIItemRodSnowGolum;
+import com.derf.ei.items.rods.EIItemRodTravel;
+import com.derf.ei.items.rods.EIItemRodVoidium;
+import com.derf.ei.items.rods.EIItemRodWater;
+import com.derf.ei.items.rods.EIItemRodWind;
 
 public final class EIItems {
 	// Materials
@@ -72,10 +85,23 @@ public final class EIItems {
 	// Wand
 	public static Item elementalWand;
 	// Rods
+	// Fire
 	public static Item fireRod;
+	public static Item lavaRod;
+	public static Item smeltingRod;
+	// Water
 	public static Item waterRod;
+	public static Item snowRod;
+	public static Item snowGolumRod;
+	// Earth
 	public static Item earthRod;
+	public static Item dirtRod;
+	public static Item cobbleStoneRod;
+	// Wind
 	public static Item windRod;
+	public static Item travelRod;
+	public static Item blastRod;
+	// Voidium
 	public static Item voidiumRod;
 	
 	public static void create() {
@@ -133,11 +159,25 @@ public final class EIItems {
 		// Wand
 		elementalWand = new EIItemElementalWand("elemental_wand");
 		// Rods
-		fireRod = new EIItemFireRod("fire_rod");
-		waterRod = new EIItemWaterRod("water_rod");
-		earthRod = new EIItemEarthRod("earth_rod");
-		windRod = new EIItemWindRod("wind_rod");
-		voidiumRod = new EIItemVoidiumRod("voidium_rod");
+		// Fire
+		fireRod = new EIItemRodFire("fire_rod");
+		lavaRod = new EIItemRodLava("lava_rod");
+		smeltingRod = new EIItemRodSmelting("smelting_rod");
+		// Water
+		waterRod = new EIItemRodWater("water_rod");
+		snowRod = new EIItemRodSnow("snow_rod");
+		snowGolumRod = new EIItemRodSnowGolum("snow_golum_rod");
+		// Earth
+		earthRod = new EIItemRodEarth("earth_rod");
+		dirtRod = new EIItemRodDirt("dirt_rod");
+		cobbleStoneRod = new EIItemRodCobbleStone("cobble_stone_rod");
+		// Wind
+		windRod = new EIItemRodWind("wind_rod");
+		travelRod = new EIItemRodTravel("travel_rod");
+		blastRod = new EIItemRodBlast("blast_rod");
+		// Voidium
+		voidiumRod = new EIItemRodVoidium("voidium_rod");
+		
 	}
 	
 	public static void register() {
@@ -191,11 +231,25 @@ public final class EIItems {
 		// Wand
 		GameRegistry.registerItem(elementalWand, "elemental_wand");
 		// Rods
+		// Fire
 		GameRegistry.registerItem(fireRod, "fire_rod");
+		GameRegistry.registerItem(lavaRod, "lava_rod");
+		GameRegistry.registerItem(smeltingRod, "smelting_rod");
+		// Water
 		GameRegistry.registerItem(waterRod, "water_rod");
+		GameRegistry.registerItem(snowRod, "snow_rod");
+		GameRegistry.registerItem(snowGolumRod, "snow_golum_rod");
+		// Earth
 		GameRegistry.registerItem(earthRod, "earth_rod");
+		GameRegistry.registerItem(dirtRod, "dirt_rod");
+		GameRegistry.registerItem(cobbleStoneRod, "cobble_stone_rod");
+		// Wind
 		GameRegistry.registerItem(windRod, "wind_rod");
+		GameRegistry.registerItem(travelRod, "travel_rod");
+		GameRegistry.registerItem(blastRod, "blast_rod");
+		// Voidium
 		GameRegistry.registerItem(voidiumRod, "voidium_rod");
+		// Complex
 	}
 	
 	public static void creativeTabs() {
@@ -249,10 +303,23 @@ public final class EIItems {
 		// Elemental Wand
 		elementalWand.setCreativeTab(EICreativeTabs.tabEI);
 		// Rods
+		// Fire
 		fireRod.setCreativeTab(EICreativeTabs.tabEI);
+		lavaRod.setCreativeTab(EICreativeTabs.tabEI);
+		smeltingRod.setCreativeTab(EICreativeTabs.tabEI);
+		// Water
 		waterRod.setCreativeTab(EICreativeTabs.tabEI);
+		snowRod.setCreativeTab(EICreativeTabs.tabEI);
+		snowGolumRod.setCreativeTab(EICreativeTabs.tabEI);
+		// Earth
 		earthRod.setCreativeTab(EICreativeTabs.tabEI);
+		dirtRod.setCreativeTab(EICreativeTabs.tabEI);
+		cobbleStoneRod.setCreativeTab(EICreativeTabs.tabEI);
+		// Wind
 		windRod.setCreativeTab(EICreativeTabs.tabEI);
+		travelRod.setCreativeTab(EICreativeTabs.tabEI);
+		blastRod.setCreativeTab(EICreativeTabs.tabEI);
+		// Voidium
 		voidiumRod.setCreativeTab(EICreativeTabs.tabEI);
 	}
 	
@@ -439,10 +506,23 @@ public final class EIItems {
 		// Wand
 		EIRendererRegister.register(elementalWand, 0, EILoader.modid + ":elemental_wand");
 		// Rods
+		// Fire
 		EIRendererRegister.register(fireRod, 0, EILoader.modid + ":fire_rod");
+		EIRendererRegister.register(lavaRod, 0, EILoader.modid + ":lava_rod");
+		EIRendererRegister.register(smeltingRod, 0, EILoader.modid + ":smelting_rod");
+		// Water
 		EIRendererRegister.register(waterRod, 0, EILoader.modid + ":water_rod");
+		EIRendererRegister.register(snowRod, 0, EILoader.modid + ":snow_rod");
+		EIRendererRegister.register(snowGolumRod, 0, EILoader.modid + ":snow_golum_rod");
+		// Earth
 		EIRendererRegister.register(earthRod, 0, EILoader.modid + ":earth_rod");
+		EIRendererRegister.register(dirtRod, 0, EILoader.modid + ":dirt_rod");
+		EIRendererRegister.register(cobbleStoneRod, 0, EILoader.modid + ":cobble_stone_rod");
+		// Wind
 		EIRendererRegister.register(windRod, 0, EILoader.modid + ":wind_rod");
+		EIRendererRegister.register(travelRod, 0, EILoader.modid + ":travel_rod");
+		EIRendererRegister.register(blastRod, 0, EILoader.modid + ":blast_rod");
+		// Voidium
 		EIRendererRegister.register(voidiumRod, 0, EILoader.modid + ":voidium_rod");
 	}
 }

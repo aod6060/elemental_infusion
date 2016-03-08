@@ -1,4 +1,4 @@
-package com.derf.ei.items;
+package com.derf.ei.items.rods;
 
 import java.util.ArrayList;
 
@@ -12,19 +12,16 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
-public class EIItemVoidiumRod extends Item {
+public class EIItemRodVoidium extends EIItemRod {
 	
 	public static final int VOID_1x1 = 0;
 	public static final int VOID_3x3 = 1;
 	public static final int VOID_5x5 = 2;
 	public static final int VOID_7x7 = 3;
 	public static final int VOID_9x9 = 4;
-	//public static final int PLACE_VOID_BLOCK = 4;
 	
-	public EIItemVoidiumRod(String name) {
-		super();
-		this.setUnlocalizedName(name);
-		this.setMaxStackSize(1);
+	public EIItemRodVoidium(String name) {
+		super(name);
 	}
 
 	@Override
@@ -224,19 +221,6 @@ public class EIItemVoidiumRod extends Item {
 			temp.add(new BlockPos(pos.getX()+2, pos.getY(), pos.getZ()+2));
 			
 		} else if(facing.getName().contains("west") || facing.getName().contains("east")) {
-			/*
-			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()-1));
-			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()));
-			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()+1));
-			
-			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-1));
-			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
-			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+1));
-			
-			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()-1));
-			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()));
-			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()+1));
-			*/
 			
 			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()-2));
 			temp.add(new BlockPos(pos.getX(), pos.getY()+3, pos.getZ()-1));
@@ -269,19 +253,6 @@ public class EIItemVoidiumRod extends Item {
 			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()+2));
 			
 		} else if(facing.getName().contains("north") || facing.getName().contains("south")) {
-			/*
-			temp.add(new BlockPos(pos.getX()-1, pos.getY()-1, pos.getZ()));
-			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()));
-			temp.add(new BlockPos(pos.getX()+1, pos.getY()-1, pos.getZ()));
-			
-			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()));
-			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
-			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()));
-			
-			temp.add(new BlockPos(pos.getX()-1, pos.getY()+1, pos.getZ()));
-			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()));
-			temp.add(new BlockPos(pos.getX()+1, pos.getY()+1, pos.getZ()));
-			*/
 			
 			temp.add(new BlockPos(pos.getX()-2, pos.getY()+3, pos.getZ()));
 			temp.add(new BlockPos(pos.getX()-1, pos.getY()+3, pos.getZ()));
@@ -391,19 +362,6 @@ public class EIItemVoidiumRod extends Item {
 			temp.add(new BlockPos(pos.getX()+3, pos.getY(), pos.getZ()+3));
 			
 		} else if(facing.getName().contains("west") || facing.getName().contains("east")) {
-			/*
-			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()-1));
-			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()));
-			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()+1));
-			
-			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()-1));
-			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
-			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()+1));
-			
-			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()-1));
-			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()));
-			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()+1));
-			*/
 			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()-3));
 			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()-2));
 			temp.add(new BlockPos(pos.getX(), pos.getY()+5, pos.getZ()-1));
@@ -461,19 +419,6 @@ public class EIItemVoidiumRod extends Item {
 			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()+3));
 			
 		} else if(facing.getName().contains("north") || facing.getName().contains("south")) {
-			/*
-			temp.add(new BlockPos(pos.getX()-1, pos.getY()-1, pos.getZ()));
-			temp.add(new BlockPos(pos.getX(), pos.getY()-1, pos.getZ()));
-			temp.add(new BlockPos(pos.getX()+1, pos.getY()-1, pos.getZ()));
-			
-			temp.add(new BlockPos(pos.getX()-1, pos.getY(), pos.getZ()));
-			temp.add(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
-			temp.add(new BlockPos(pos.getX()+1, pos.getY(), pos.getZ()));
-			
-			temp.add(new BlockPos(pos.getX()-1, pos.getY()+1, pos.getZ()));
-			temp.add(new BlockPos(pos.getX(), pos.getY()+1, pos.getZ()));
-			temp.add(new BlockPos(pos.getX()+1, pos.getY()+1, pos.getZ()));
-			*/
 			temp.add(new BlockPos(pos.getX()-3, pos.getY()+5, pos.getZ()));
 			temp.add(new BlockPos(pos.getX()-2, pos.getY()+5, pos.getZ()));
 			temp.add(new BlockPos(pos.getX()-1, pos.getY()+5, pos.getZ()));

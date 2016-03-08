@@ -52,10 +52,23 @@ item.mining_rune.name=Rune of Mining
 # Elemental Wand
 item.elemental_wand.name=Elemental Wand
 # Rods
+# Fire
 item.fire_rod.name=Rod of Fire
+item.lava_rod.name=Rod of Lava
+item.smelting_rod.name=Rod of Smelting
+# Water
 item.water_rod.name=Rod of Water
+item.snow_rod.name=Rod of Snow
+item.snow_golum_rod.name=Rod of Summoning: Snow Golum
+# Earth
 item.earth_rod.name=Rod of Earth
+item.dirt_rod.name=Rod of Dirt
+item.cobble_stone_rod.name=Rod of Cobble Stone
+# Wind
 item.wind_rod.name=Rod of Wind
+item.travel_rod.name=Rod of Travel
+item.blast_rod.name=Rod of Blasting
+# Voidium
 item.voidium_rod.name=Rod of Voidium
 # Tiles
 # Elemental Ore

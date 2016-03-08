@@ -30,10 +30,17 @@ public final class EIInfuserRecipeManager {
 	// Voidium Crystal
 	private static EIInfuserRecipe voidiumCrystal; // Tier 2 Tools and Armor
 	// Elemental Rods Tier 1
+	// Fire
 	private static EIInfuserRecipe fireRod;
+	private static EIInfuserRecipe lavaRod;
+	private static EIInfuserRecipe smeltingRod;
+	// Water
 	private static EIInfuserRecipe waterRod;
+	// Earth
 	private static EIInfuserRecipe earthRod;
+	// Wind
 	private static EIInfuserRecipe windRod;
+	// Voidium
 	private static EIInfuserRecipe voidiumRod;
 	
 	public static HashMap<String, EIInfuserRecipe> recipes;
@@ -54,16 +61,22 @@ public final class EIInfuserRecipeManager {
 		illuminationRune = new EIInfuserRecipe();
 		growthRune = new EIInfuserRecipe();
 		miningRune = new EIInfuserRecipe();
-		
 		// Voidium Ingot
 		voidiumIngot = new EIInfuserRecipe();
 		// Voidium Crystal
 		voidiumCrystal = new EIInfuserRecipe();
 		// Prima Rods
+		// Fire
 		fireRod = new EIInfuserRecipe();
+		lavaRod = new EIInfuserRecipe();
+		smeltingRod = new EIInfuserRecipe();
+		// Water
 		waterRod = new EIInfuserRecipe();
+		// Earth
 		earthRod = new EIInfuserRecipe();
+		// Wind
 		windRod = new EIInfuserRecipe();
+		// Voidium
 		voidiumRod = new EIInfuserRecipe();
 		// Blank Rune
 		// Components for crafting
@@ -142,6 +155,17 @@ public final class EIInfuserRecipeManager {
 		fireRod.add(new ItemStack(EIBlocks.voidiumStone));
 		fireRod.setCraftedItem(new ItemStack(EIItems.fireRod));
 		//fireRod.setDescription("Crafting: Fire Rod");
+		// Lava Rod
+		lavaRod.add(new ItemStack(EIItems.fireRune));
+		lavaRod.add(new ItemStack(EIItems.fireRod));
+		lavaRod.add(new ItemStack(Items.lava_bucket));
+		lavaRod.setCraftedItem(new ItemStack(EIItems.lavaRod));
+		// Smelting Rod
+		smeltingRod.add(new ItemStack(EIItems.fireRune));
+		smeltingRod.add(new ItemStack(EIItems.fireRod));
+		smeltingRod.add(new ItemStack(Blocks.coal_block));
+		smeltingRod.add(new ItemStack(Blocks.furnace));
+		smeltingRod.setCraftedItem(new ItemStack(EIItems.smeltingRod));
 		// Water Rod
 		waterRod.add(new ItemStack(EIItems.waterRune));
 		waterRod.add(new ItemStack(Items.stick));
@@ -188,10 +212,17 @@ public final class EIInfuserRecipeManager {
 		// Voidium Crystla
 		add("voidium_crystal", voidiumCrystal);
 		// Prima Rods
+		// Fire
 		add("fire_rod", fireRod);
+		add("lava_rod", lavaRod);
+		add("smelting_rod", smeltingRod);
+		// Water
 		add("water_rod", waterRod);
+		// Earth
 		add("earth_rod", earthRod);
+		// Wind
 		add("wind_rod", windRod);
+		// Voidium
 		add("voidium_rod", voidiumRod);
 	}
 	
