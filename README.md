@@ -35,3 +35,8 @@ don't flood my issues section for the moment unless it really necisary. I'm
 constantly testing this using the forge developer kit (whatever you call it) for
 both client and server side. So I'll probably find it and fix right then and there.
 If its exteemly serious I'll get to it. It won't be instantly. Please be patient.
+
+## Branch 1.8.9
+I've decided to put 1.8.9 in its own branch so do editing to it separatly. Because
+of a possible 1.9 update over the horizon this could mean that I will add a new 
+branch when I'm done with the current 1.8.9 branch.
