@@ -40,7 +40,7 @@ public class EIItemElementalWand extends Item {
 			
 			
 			if(player.isSneaking()) {
-				if(state.getBlock() == EIBlocks.voidiumStone) {
+				if(state.getBlock() == EIBlocks.elementalStone) {
 					world.setBlockState(pos, EIBlocks.elementalInfuser.getDefaultState());
 				} else if(state.getBlock() == EIBlocks.elementalInfuser) {
 					EITileEntityElementalInfuser core = (EITileEntityElementalInfuser) world.getTileEntity(pos);

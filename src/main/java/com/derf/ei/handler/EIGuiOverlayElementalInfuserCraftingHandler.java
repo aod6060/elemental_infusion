@@ -28,6 +28,7 @@ public class EIGuiOverlayElementalInfuserCraftingHandler {
 	
 	@SubscribeEvent
 	public void render(RenderGameOverlayEvent.Post e) {
+		/*
 		if(show && currentInfuser != null) {
 			EIInfuserRecipe recipe = EIInfuserRecipeManager.get(currentInfuser.getRecipe());
 			
@@ -35,6 +36,7 @@ public class EIGuiOverlayElementalInfuserCraftingHandler {
 			
 			this.renderIcon(finished, 32.0, 32.0, 32.0, 32.0);
 		}
+		*/
 	}
 	
 	@SubscribeEvent
@@ -55,7 +57,7 @@ public class EIGuiOverlayElementalInfuserCraftingHandler {
 	}
 	
 	private void renderIcon(ItemStack stack, double x, double y, double width, double height) {
-		Minecraft mc = Minecraft.getMinecraft();
+		/*Minecraft mc = Minecraft.getMinecraft();
 		
 		IBakedModel model = mc.getRenderItem().getItemModelMesher().getItemModel(stack);
 		TextureAtlasSprite sprite = model.getParticleTexture();
@@ -66,6 +68,6 @@ public class EIGuiOverlayElementalInfuserCraftingHandler {
 		WorldRenderer wr = tess.getWorldRenderer();
 		
 		//wr.begin(7, DefaultVertexFormats.);
-		
+		*/
 	}
 }

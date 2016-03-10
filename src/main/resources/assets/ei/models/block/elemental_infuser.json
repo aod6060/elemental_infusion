@@ -6,6 +6,7 @@
 		"north": "ei:blocks/elemental_infuser_north",
 		"south": "ei:blocks/elemental_infuser_south",
 		"west": "ei:blocks/elemental_infuser_west",
-		"east": "ei:blocks/elemental_infuser_east"
+		"east": "ei:blocks/elemental_infuser_east",
+		"particle": "ei:blocks/elemental_infuser_down"
 	}
 }

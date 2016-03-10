@@ -70,6 +70,12 @@ item.travel_rod.name=Rod of Travel
 item.blast_rod.name=Rod of Blasting
 # Voidium
 item.voidium_rod.name=Rod of Voidium
+# Complex
+item.magnetism_rod.name=Rod of Magnetism
+item.illumination_rod.name=Rod of Illumination
+item.growth_rod.name=Rod of Growth
+item.minning_rod.name=Rod of Minning
+item.living_magnet_rod.name=Rod of Living Magnet
 # Tiles
 # Elemental Ore
 tile.fire_ore.name=Fire Ore
@@ -78,5 +84,12 @@ tile.earth_ore.name=Earth Ore
 tile.wind_ore.name=Wind Ore
 # Voidium Stone
 tile.voidium_stone.name=Voidium Stone
+tile.voidium_stone_input.name=Voidium Stone Input
+tile.voidium_stone_output.name=Voidium Stone Output
+tile.voidium_stone_io.name=Voidium Stone Bidirectional
 # Elemental Infuser
 tile.elemental_infuser.name=Elemental Infuser
+# Light
+tile.light.name=Illumination Lamp
+# Elemental Stone
+tile.elemental_stone.name=Elemental Stone

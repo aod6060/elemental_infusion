@@ -19,7 +19,12 @@ import com.derf.ei.items.rods.EIItemRodCobbleStone;
 import com.derf.ei.items.rods.EIItemRodDirt;
 import com.derf.ei.items.rods.EIItemRodEarth;
 import com.derf.ei.items.rods.EIItemRodFire;
+import com.derf.ei.items.rods.EIItemRodGrowth;
+import com.derf.ei.items.rods.EIItemRodIllumination;
 import com.derf.ei.items.rods.EIItemRodLava;
+import com.derf.ei.items.rods.EIItemRodLivingMagnet;
+import com.derf.ei.items.rods.EIItemRodMagnetism;
+import com.derf.ei.items.rods.EIItemRodMinning;
 import com.derf.ei.items.rods.EIItemRodSmelting;
 import com.derf.ei.items.rods.EIItemRodSnow;
 import com.derf.ei.items.rods.EIItemRodSnowGolum;
@@ -77,11 +82,6 @@ public final class EIItems {
 	public static Item earthRune;
 	public static Item windRune;
 	public static Item voidiumRune;
-	// Secondary Runes
-	public static Item magnetismRune;
-	public static Item illuminationRune;
-	public static Item growthRune; // Grows plants faster
-	public static Item miningRune;
 	// Wand
 	public static Item elementalWand;
 	// Rods
@@ -103,6 +103,12 @@ public final class EIItems {
 	public static Item blastRod;
 	// Voidium
 	public static Item voidiumRod;
+	// Complex
+	public static Item magnetismRod;
+	public static Item illuminationRod;
+	public static Item growthRod;
+	public static Item minningRod;
+	public static Item livingMagnetRod;
 	
 	public static void create() {
 		VOIDIUM = EnumHelper.addToolMaterial("VOIDIUM", 2, 750, 6.0F, 2.0F, 0);
@@ -151,11 +157,6 @@ public final class EIItems {
 		earthRune = new EIItemBasic("earth_rune");
 		windRune = new EIItemBasic("wind_rune");
 		voidiumRune = new EIItemBasic("voidium_rune");
-		// Secondary Runes
-		magnetismRune = new EIItemBasic("magnetism_rune");
-		illuminationRune = new EIItemBasic("illumination_rune");
-		growthRune = new EIItemBasic("growth_rune");
-		miningRune = new EIItemBasic("mining_rune");
 		// Wand
 		elementalWand = new EIItemElementalWand("elemental_wand");
 		// Rods
@@ -177,7 +178,12 @@ public final class EIItems {
 		blastRod = new EIItemRodBlast("blast_rod");
 		// Voidium
 		voidiumRod = new EIItemRodVoidium("voidium_rod");
-		
+		// Complex
+		magnetismRod = new EIItemRodMagnetism("magnetism_rod");
+		illuminationRod = new EIItemRodIllumination("illumination_rod");
+		growthRod = new EIItemRodGrowth("growth_rod");
+		minningRod = new EIItemRodMinning("minning_rod");
+		livingMagnetRod = new EIItemRodLivingMagnet("living_magnet_rod");
 	}
 	
 	public static void register() {
@@ -223,11 +229,6 @@ public final class EIItems {
 		GameRegistry.registerItem(earthRune, "earth_rune");
 		GameRegistry.registerItem(windRune, "wind_rune");
 		GameRegistry.registerItem(voidiumRune, "voidium_rune");
-		// Secondary Runes
-		GameRegistry.registerItem(magnetismRune, "magnetism_rune");
-		GameRegistry.registerItem(illuminationRune, "illumination_rune");
-		GameRegistry.registerItem(growthRune, "growth_rune");
-		GameRegistry.registerItem(miningRune, "mining_rune");
 		// Wand
 		GameRegistry.registerItem(elementalWand, "elemental_wand");
 		// Rods
@@ -250,6 +251,11 @@ public final class EIItems {
 		// Voidium
 		GameRegistry.registerItem(voidiumRod, "voidium_rod");
 		// Complex
+		GameRegistry.registerItem(magnetismRod, "magnetism_rod");
+		GameRegistry.registerItem(illuminationRod, "illumination_rod");
+		GameRegistry.registerItem(growthRod, "growth_rod");
+		GameRegistry.registerItem(minningRod, "minning_rod");
+		GameRegistry.registerItem(livingMagnetRod, "living_magnet_rod");
 	}
 	
 	public static void creativeTabs() {
@@ -295,11 +301,6 @@ public final class EIItems {
 		earthRune.setCreativeTab(EICreativeTabs.tabEI);
 		windRune.setCreativeTab(EICreativeTabs.tabEI);
 		voidiumRune.setCreativeTab(EICreativeTabs.tabEI);
-		// Secondary Runes
-		magnetismRune.setCreativeTab(EICreativeTabs.tabEI);
-		illuminationRune.setCreativeTab(EICreativeTabs.tabEI);
-		growthRune.setCreativeTab(EICreativeTabs.tabEI);
-		miningRune.setCreativeTab(EICreativeTabs.tabEI);
 		// Elemental Wand
 		elementalWand.setCreativeTab(EICreativeTabs.tabEI);
 		// Rods
@@ -321,6 +322,12 @@ public final class EIItems {
 		blastRod.setCreativeTab(EICreativeTabs.tabEI);
 		// Voidium
 		voidiumRod.setCreativeTab(EICreativeTabs.tabEI);
+		// Complex
+		magnetismRod.setCreativeTab(EICreativeTabs.tabEI);
+		illuminationRod.setCreativeTab(EICreativeTabs.tabEI);
+		growthRod.setCreativeTab(EICreativeTabs.tabEI);
+		minningRod.setCreativeTab(EICreativeTabs.tabEI);
+		livingMagnetRod.setCreativeTab(EICreativeTabs.tabEI);
 	}
 	
 	public static void crafting() {
@@ -450,7 +457,7 @@ public final class EIItems {
 				"v",
 				"s",
 				"v",
-				'v', EIBlocks.voidiumStone,
+				'v', EIBlocks.elementalStone,
 				's', Items.stick);
 	}
 	
@@ -498,11 +505,6 @@ public final class EIItems {
 		EIRendererRegister.register(earthRune, 0, EILoader.modid + ":earth_rune");
 		EIRendererRegister.register(windRune, 0, EILoader.modid + ":wind_rune");
 		EIRendererRegister.register(voidiumRune, 0, EILoader.modid + ":voidium_rune");
-		// Secondary Runes
-		EIRendererRegister.register(magnetismRune, 0, EILoader.modid + ":magnetism_rune");
-		EIRendererRegister.register(illuminationRune, 0, EILoader.modid + ":illumination_rune");
-		EIRendererRegister.register(growthRune, 0, EILoader.modid + ":growth_rune");
-		EIRendererRegister.register(miningRune, 0, EILoader.modid + ":mining_rune");
 		// Wand
 		EIRendererRegister.register(elementalWand, 0, EILoader.modid + ":elemental_wand");
 		// Rods
@@ -524,5 +526,11 @@ public final class EIItems {
 		EIRendererRegister.register(blastRod, 0, EILoader.modid + ":blast_rod");
 		// Voidium
 		EIRendererRegister.register(voidiumRod, 0, EILoader.modid + ":voidium_rod");
+		// Complex
+		EIRendererRegister.register(magnetismRod, 0, EILoader.modid + ":magnetism_rod");
+		EIRendererRegister.register(illuminationRod, 0, EILoader.modid + ":illumination_rod");
+		EIRendererRegister.register(growthRod, 0, EILoader.modid + ":growth_rod");
+		EIRendererRegister.register(minningRod, 0, EILoader.modid + ":minning_rod");
+		EIRendererRegister.register(livingMagnetRod, 0, EILoader.modid + ":living_magnet_rod");
 	}
 }

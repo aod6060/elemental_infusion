@@ -10,6 +10,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.derf.ei.EILoader;
+import com.derf.ei.blocks.material.EIMaterials;
 import com.derf.ei.blocks.tileentity.EITileEntityElementalInfuser;
 import com.derf.ei.client.EIRendererRegister;
 import com.derf.ei.creativetabs.EICreativeTabs;
@@ -29,6 +30,10 @@ public final class EIBlocks {
 	public static Block voidiumStoneIO;
 	// Elemental Infuser
 	public static Block elementalInfuser;
+	// Light
+	public static Block light;
+	// Elemental Stone
+	public static Block elementalStone;
 	
 	public static void create() {
 		// Elemental Ores
@@ -41,8 +46,13 @@ public final class EIBlocks {
 		voidiumStoneInput = new EIBlockVoidiumStone("voidium_stone_input", Material.rock);
 		voidiumStoneOutput = new EIBlockVoidiumStone("voidium_stone_output", Material.rock);
 		voidiumStoneIO = new EIBlockVoidiumStone("voidium_stone_io", Material.rock);
-		// Machine Core
+		// Elemental Infuser
 		elementalInfuser = new EIBlockElementalInfuser("elemental_infuser", Material.rock);
+		// Light
+		light = new EIBlockLight(Material.glass, "light");
+		// Elemental Stone
+		elementalStone = new EIBlockBasic(Material.rock, "elemental_stone", "pickaxe", 0, 1.0f, 1.0f, 0.0f, false);
+		
 	}
 	
 	public static void register() {
@@ -58,6 +68,10 @@ public final class EIBlocks {
 		GameRegistry.registerBlock(voidiumStoneIO, "voidium_stone_io");
 		// Machine Core
 		GameRegistry.registerBlock(elementalInfuser, "elemental_infuser");
+		// Light
+		GameRegistry.registerBlock(light, "light");
+		// Elemental Stone
+		GameRegistry.registerBlock(elementalStone, "elemental_stone");
 	}
 	
 	public static void registerTileEntities() {
@@ -74,10 +88,13 @@ public final class EIBlocks {
 		voidiumStone.setCreativeTab(EICreativeTabs.tabEI);
 		// Machine Core
 		elementalInfuser.setCreativeTab(EICreativeTabs.tabEI);
+		// Elemental Stone
+		elementalStone.setCreativeTab(EICreativeTabs.tabEI);
 	}
 	
 	public static void crafting() {
 		// Voidium Stone
+		/*
 		GameRegistry.addRecipe(
 				new ItemStack(voidiumStone), 
 				" f ",
@@ -88,6 +105,18 @@ public final class EIBlocks {
 				'e', EIItems.earthDust,
 				'd', EIItems.windDust,
 				's', new ItemStack(Blocks.stone, 1, 0));
+		*/
+		// Elemental Stone
+		GameRegistry.addRecipe(
+				new ItemStack(elementalStone), 
+				" r ",
+				"gsy",
+				" b ",
+				's', new ItemStack(Blocks.stone, 1, 0),
+				'r', new ItemStack(Items.dye, 1, 1),
+				'b', new ItemStack(Items.dye, 1, 4),
+				'g', new ItemStack(Items.dye, 1, 2),
+				'y', new ItemStack(Items.dye, 1, 11));
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -104,5 +133,9 @@ public final class EIBlocks {
 		EIRendererRegister.register(voidiumStoneIO, 0, EILoader.modid + ":voidium_stone_io");
 		// Elemental Infuser
 		EIRendererRegister.register(elementalInfuser, 0, EILoader.modid + ":elemental_infuser");
+		// Light
+		EIRendererRegister.register(light, 0, EILoader.modid + ":light");
+		// Elemental Stone
+		EIRendererRegister.register(elementalStone, 0, EILoader.modid + ":elemental_stone");
 	}
 }

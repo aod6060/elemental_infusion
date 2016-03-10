@@ -19,6 +19,7 @@ public class EIItemRodVoidium extends EIItemRod {
 	public static final int VOID_5x5 = 2;
 	public static final int VOID_7x7 = 3;
 	public static final int VOID_9x9 = 4;
+	protected boolean isMinable = false;
 	
 	public EIItemRodVoidium(String name) {
 		super(name);
@@ -107,7 +108,7 @@ public class EIItemRodVoidium extends EIItemRod {
 	private void void_1x1(World world, BlockPos pos, EntityPlayer player, EnumFacing facing) {
 		// TODO Auto-generated method stub
 		if(!this.isUnbreable(world, pos)) {	
-			world.destroyBlock(pos, false);
+			world.destroyBlock(pos, this.isMinable);
 		}
 	}
 
@@ -117,7 +118,7 @@ public class EIItemRodVoidium extends EIItemRod {
 		
 		for(int i = 0; i < bpos.size(); i++) {
 			if(!this.isUnbreable(world, bpos.get(i))) {	
-				world.destroyBlock(bpos.get(i), false);
+				world.destroyBlock(bpos.get(i), this.isMinable);
 			}
 		}
 	}
@@ -178,7 +179,7 @@ public class EIItemRodVoidium extends EIItemRod {
 		
 		for(int i = 0; i < bpos.size(); i++) {
 			if(!this.isUnbreable(world, bpos.get(i))) {	
-				world.destroyBlock(bpos.get(i), false);
+				world.destroyBlock(bpos.get(i), this.isMinable);
 			}
 		}
 	}
@@ -294,7 +295,7 @@ public class EIItemRodVoidium extends EIItemRod {
 		
 		for(int i = 0; i < bpos.size(); i++) {
 			if(!this.isUnbreable(world, bpos.get(i))) {	
-				world.destroyBlock(bpos.get(i), false);
+				world.destroyBlock(bpos.get(i), this.isMinable);
 			}
 		}
 	}
@@ -486,7 +487,7 @@ public class EIItemRodVoidium extends EIItemRod {
 		
 		for(int i = 0; i < bpos.size(); i++) {
 			if(!this.isUnbreable(world, bpos.get(i))) {	
-				world.destroyBlock(bpos.get(i), false);
+				world.destroyBlock(bpos.get(i), this.isMinable);
 			}
 		}
 	}

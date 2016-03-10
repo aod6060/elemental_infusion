@@ -20,11 +20,6 @@ public final class EIInfuserRecipeManager {
 	private static EIInfuserRecipe earthRune;
 	private static EIInfuserRecipe windRune;
 	private static EIInfuserRecipe voidiumRune;
-	// Secondary Runes
-	private static EIInfuserRecipe magnetismRune;
-	private static EIInfuserRecipe illuminationRune;
-	private static EIInfuserRecipe growthRune;
-	private static EIInfuserRecipe miningRune;
 	// Voidium Ingot
 	private static EIInfuserRecipe voidiumIngot; // Tier 1 Tools and Armor
 	// Voidium Crystal
@@ -36,12 +31,19 @@ public final class EIInfuserRecipeManager {
 	private static EIInfuserRecipe smeltingRod;
 	// Water
 	private static EIInfuserRecipe waterRod;
+	private static EIInfuserRecipe snowRod;
+	private static EIInfuserRecipe snowGolumRod;
 	// Earth
 	private static EIInfuserRecipe earthRod;
+	private static EIInfuserRecipe dirtRod;
+	private static EIInfuserRecipe cobbleStoneRod;
 	// Wind
 	private static EIInfuserRecipe windRod;
+	private static EIInfuserRecipe travelRod;
+	private static EIInfuserRecipe blastRod;
 	// Voidium
 	private static EIInfuserRecipe voidiumRod;
+	// Complex Rods
 	
 	public static HashMap<String, EIInfuserRecipe> recipes;
 	public static ArrayList<String> names;
@@ -56,11 +58,6 @@ public final class EIInfuserRecipeManager {
 		earthRune = new EIInfuserRecipe();
 		windRune = new EIInfuserRecipe();
 		voidiumRune = new EIInfuserRecipe();
-		// Secundario
-		magnetismRune = new EIInfuserRecipe();
-		illuminationRune = new EIInfuserRecipe();
-		growthRune = new EIInfuserRecipe();
-		miningRune = new EIInfuserRecipe();
 		// Voidium Ingot
 		voidiumIngot = new EIInfuserRecipe();
 		// Voidium Crystal
@@ -72,10 +69,16 @@ public final class EIInfuserRecipeManager {
 		smeltingRod = new EIInfuserRecipe();
 		// Water
 		waterRod = new EIInfuserRecipe();
+		snowRod = new EIInfuserRecipe();
+		snowGolumRod = new EIInfuserRecipe();
 		// Earth
 		earthRod = new EIInfuserRecipe();
+		dirtRod = new EIInfuserRecipe();
+		cobbleStoneRod = new EIInfuserRecipe();
 		// Wind
 		windRod = new EIInfuserRecipe();
+		travelRod = new EIInfuserRecipe();
+		blastRod = new EIInfuserRecipe();
 		// Voidium
 		voidiumRod = new EIInfuserRecipe();
 		// Blank Rune
@@ -115,24 +118,6 @@ public final class EIInfuserRecipeManager {
 		voidiumRune.add(new ItemStack(EIItems.windDust));
 		voidiumRune.setCraftedItem(new ItemStack(EIItems.voidiumRune));
 		// Secondary Rune
-		// Magnetism Rune Recipe (Fire Rune, Earth Rune)
-		magnetismRune.add(new ItemStack(EIItems.fireRune));
-		magnetismRune.add(new ItemStack(EIItems.earthRune));
-		magnetismRune.setCraftedItem(new ItemStack(EIItems.magnetismRune));
-		// Illumination Rune Recipe (Fire Rune, Wind Rune)
-		illuminationRune.add(new ItemStack(EIItems.fireRune));
-		illuminationRune.add(new ItemStack(EIItems.windRune));
-		illuminationRune.setCraftedItem(new ItemStack(EIItems.illuminationRune));
-		// Growth Rune Recipe (Earth Rune, Water Rune)
-		growthRune.add(new ItemStack(EIItems.earthRune));
-		growthRune.add(new ItemStack(EIItems.waterRune));
-		growthRune.setCraftedItem(new ItemStack(EIItems.growthRune));
-		// Mining Rune Recipe (Voidium Rune, Fire Rune, Earth Rune)
-		miningRune.add(new ItemStack(EIItems.voidiumRune));
-		miningRune.add(new ItemStack(EIItems.fireRune));
-		miningRune.add(new ItemStack(EIItems.earthRune));
-		miningRune.setCraftedItem(new ItemStack(EIItems.miningRune));
-		//voidiumRune.setDescription("Crafting: Voidium Rune");
 		// Voidium Ingot
 		voidiumIngot.add(new ItemStack(Items.iron_ingot));
 		voidiumIngot.add(new ItemStack(EIItems.fireDust));
@@ -171,18 +156,49 @@ public final class EIInfuserRecipeManager {
 		waterRod.add(new ItemStack(Items.stick));
 		waterRod.add(new ItemStack(EIBlocks.voidiumStone));
 		waterRod.setCraftedItem(new ItemStack(EIItems.waterRod));
+		// Snow
+		snowRod.add(new ItemStack(EIItems.waterRune));
+		snowRod.add(new ItemStack(EIItems.waterRod));
+		snowRod.add(new ItemStack(Blocks.snow));
+		snowRod.setCraftedItem(new ItemStack(EIItems.snowRod));
+		// Snow Golum
+		snowGolumRod.add(new ItemStack(EIItems.waterRune));
+		snowGolumRod.add(new ItemStack(EIItems.snowRod));
+		snowGolumRod.add(new ItemStack(Blocks.snow));
+		snowGolumRod.add(new ItemStack(Blocks.pumpkin));
+		snowGolumRod.setCraftedItem(new ItemStack(EIItems.snowGolumRod));
 		//waterRod.setDescription("Crafting: Water Rod");
 		// Earth Rod
 		earthRod.add(new ItemStack(EIItems.earthRune));
 		earthRod.add(new ItemStack(Items.stick));
 		earthRod.add(new ItemStack(EIBlocks.voidiumStone));
 		earthRod.setCraftedItem(new ItemStack(EIItems.earthRod));
+		// Dirt Rod
+		dirtRod.add(new ItemStack(EIItems.earthRune));
+		dirtRod.add(new ItemStack(EIItems.earthRod));
+		dirtRod.add(new ItemStack(Blocks.dirt, 64));
+		dirtRod.setCraftedItem(new ItemStack(EIItems.dirtRod));
+		// CobbleStone Rod
+		cobbleStoneRod.add(new ItemStack(EIItems.earthRune));
+		cobbleStoneRod.add(new ItemStack(EIItems.earthRod));
+		cobbleStoneRod.add(new ItemStack(Blocks.cobblestone, 64));
+		cobbleStoneRod.setCraftedItem(new ItemStack(EIItems.cobbleStoneRod));
 		//earthRod.setDescription("Crafting: Earth Rod");
 		// Wind Rod
 		windRod.add(new ItemStack(EIItems.windRune));
 		windRod.add(new ItemStack(Items.stick));
 		windRod.add(new ItemStack(EIBlocks.voidiumStone));
 		windRod.setCraftedItem(new ItemStack(EIItems.windRod));
+		// Travel
+		travelRod.add(new ItemStack(EIItems.windRune));
+		travelRod.add(new ItemStack(EIItems.windRod));
+		travelRod.add(new ItemStack(Items.feather, 32));
+		travelRod.setCraftedItem(new ItemStack(EIItems.travelRod));
+		// Blast
+		blastRod.add(new ItemStack(EIItems.windRune));
+		blastRod.add(new ItemStack(EIItems.windRod));
+		blastRod.add(new ItemStack(Items.gunpowder, 32));
+		blastRod.setCraftedItem(new ItemStack(EIItems.blastRod));
 		//windRod.setDescription("Crafting: Wind Rod");
 		// Voidium Rod
 		voidiumRod.add(new ItemStack(EIItems.voidiumRune));
@@ -196,17 +212,12 @@ public final class EIInfuserRecipeManager {
 		
 		// Blank Rune
 		add("blank_rune", blankRune);
-		// Prima Runes
+		// Runes
 		add("fire_rune", fireRune);
 		add("water_rune", waterRune);
 		add("earth_rune", earthRune);
 		add("wind_rune", windRune);
 		add("voidium_rune", voidiumRune);
-		// Secondary Runes
-		add("magnetism_rune", magnetismRune);
-		add("illumination_rune", illuminationRune);
-		add("growth_rune", growthRune);
-		add("mining_rune", miningRune);
 		// Voidium Ingot
 		add("voidium_ingot", voidiumIngot);
 		// Voidium Crystla
@@ -218,10 +229,16 @@ public final class EIInfuserRecipeManager {
 		add("smelting_rod", smeltingRod);
 		// Water
 		add("water_rod", waterRod);
+		add("snow_rod", snowRod);
+		add("snow_golum_rod", snowGolumRod);
 		// Earth
 		add("earth_rod", earthRod);
+		add("dirt_rod", dirtRod);
+		add("cobble_stone_rod", cobbleStoneRod);
 		// Wind
 		add("wind_rod", windRod);
+		add("travel_rod", travelRod);
+		add("blast_rod", blastRod);
 		// Voidium
 		add("voidium_rod", voidiumRod);
 	}
