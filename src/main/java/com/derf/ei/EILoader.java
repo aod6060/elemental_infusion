@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class EILoader {
 	public static final String modid 	= "ei";
 	public static final String name		= "Elemental Infusion";
-	public static final String version 	= "0.0.1";
+	public static final String version 	= "0.0.2";
 	
 	@Instance
 	public static EILoader instance = new EILoader();

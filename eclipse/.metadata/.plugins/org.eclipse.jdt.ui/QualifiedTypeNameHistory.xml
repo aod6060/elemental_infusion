@@ -11,7 +11,6 @@
 <fullyQualifiedTypeName name="net.minecraft.util.EnumParticleTypes"/>
 <fullyQualifiedTypeName name="net.minecraft.entity.player.EntityPlayer"/>
 <fullyQualifiedTypeName name="com.derf.ei.blocks.tileentity.EITileEntityMachineCore"/>
-<fullyQualifiedTypeName name="com.derf.ei.items.EIItems"/>
 <fullyQualifiedTypeName name="net.minecraft.inventory.IInventory"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="net.minecraft.item.Item"/>
@@ -53,4 +52,5 @@
 <fullyQualifiedTypeName name="com.derf.ei.blocks.material.EIMaterials"/>
 <fullyQualifiedTypeName name="com.derf.ei.blocks.EIBlocks"/>
 <fullyQualifiedTypeName name="net.minecraftforge.fml.relauncher.Side"/>
+<fullyQualifiedTypeName name="com.derf.ei.items.EIItems"/>
 </qualifiedTypeNameHistroy>

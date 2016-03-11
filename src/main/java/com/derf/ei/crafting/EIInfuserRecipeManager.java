@@ -20,6 +20,10 @@ public final class EIInfuserRecipeManager {
 	private static EIInfuserRecipe earthRune;
 	private static EIInfuserRecipe windRune;
 	private static EIInfuserRecipe voidiumRune;
+	// Elemental Stone
+	private static EIInfuserRecipe elementalStone;
+	// Voidium Stone
+	private static EIInfuserRecipe voidiumStone;
 	// Voidium Ingot
 	private static EIInfuserRecipe voidiumIngot; // Tier 1 Tools and Armor
 	// Voidium Crystal
@@ -44,6 +48,11 @@ public final class EIInfuserRecipeManager {
 	// Voidium
 	private static EIInfuserRecipe voidiumRod;
 	// Complex Rods
+	private static EIInfuserRecipe magnetismRod;
+	private static EIInfuserRecipe illuminationRod;
+	private static EIInfuserRecipe growthRod;
+	private static EIInfuserRecipe minningRod;
+	private static EIInfuserRecipe livingMagnetRod;
 	
 	public static HashMap<String, EIInfuserRecipe> recipes;
 	public static ArrayList<String> names;
@@ -58,6 +67,10 @@ public final class EIInfuserRecipeManager {
 		earthRune = new EIInfuserRecipe();
 		windRune = new EIInfuserRecipe();
 		voidiumRune = new EIInfuserRecipe();
+		// Elemental Stone
+		elementalStone = new EIInfuserRecipe();
+		// Voidium Stone
+		voidiumStone = new EIInfuserRecipe();
 		// Voidium Ingot
 		voidiumIngot = new EIInfuserRecipe();
 		// Voidium Crystal
@@ -81,6 +94,12 @@ public final class EIInfuserRecipeManager {
 		blastRod = new EIInfuserRecipe();
 		// Voidium
 		voidiumRod = new EIInfuserRecipe();
+		// Complex Rod
+		magnetismRod = new EIInfuserRecipe();
+		illuminationRod = new EIInfuserRecipe();
+		growthRod = new EIInfuserRecipe();
+		minningRod = new EIInfuserRecipe();
+		livingMagnetRod = new EIInfuserRecipe();
 		// Blank Rune
 		// Components for crafting
 		blankRune.add(new ItemStack(Blocks.cobblestone));
@@ -110,6 +129,21 @@ public final class EIInfuserRecipeManager {
 		windRune.add(new ItemStack(EIItems.windDust, 4));
 		windRune.setCraftedItem(new ItemStack(EIItems.windRune));
 		//windRune.setDescription("Crafting: Wind Rune");
+		// Elemental Stone
+		elementalStone.add(new ItemStack(Blocks.stone));
+		elementalStone.add(new ItemStack(EIItems.fireDust));
+		elementalStone.add(new ItemStack(EIItems.waterDust));
+		elementalStone.add(new ItemStack(EIItems.earthDust));
+		elementalStone.add(new ItemStack(EIItems.windDust));
+		elementalStone.setCraftedItem(new ItemStack(EIBlocks.elementalStone));
+		// Voidium Stone
+		voidiumStone.add(new ItemStack(EIBlocks.elementalStone));
+		voidiumStone.add(new ItemStack(EIItems.fireRune));
+		voidiumStone.add(new ItemStack(EIItems.waterRune));
+		voidiumStone.add(new ItemStack(EIItems.earthRune));
+		voidiumStone.add(new ItemStack(EIItems.windRune));
+		voidiumStone.add(new ItemStack(EIItems.voidiumRune));
+		voidiumStone.setCraftedItem(new ItemStack(EIBlocks.voidiumStone));
 		// Voidium Rune
 		voidiumRune.add(new ItemStack(EIItems.blankRune));
 		voidiumRune.add(new ItemStack(EIItems.fireDust));
@@ -205,6 +239,43 @@ public final class EIInfuserRecipeManager {
 		voidiumRod.add(new ItemStack(Items.stick));
 		voidiumRod.add(new ItemStack(EIBlocks.voidiumStone));
 		voidiumRod.setCraftedItem(new ItemStack(EIItems.voidiumRod));
+		// Complex Rods
+		// Magnetism
+		magnetismRod.add(new ItemStack(EIItems.fireRune));
+		magnetismRod.add(new ItemStack(EIItems.earthRune));
+		magnetismRod.add(new ItemStack(Items.stick));
+		magnetismRod.add(new ItemStack(EIBlocks.voidiumStone));
+		magnetismRod.setCraftedItem(new ItemStack(EIItems.magnetismRod));
+		// Illumination
+		illuminationRod.add(new ItemStack(EIItems.fireRune));
+		illuminationRod.add(new ItemStack(EIItems.windRune));
+		illuminationRod.add(new ItemStack(Items.stick));
+		illuminationRod.add(new ItemStack(EIBlocks.voidiumStone));
+		illuminationRod.setCraftedItem(new ItemStack(EIItems.illuminationRod));
+		// Growth
+		growthRod.add(new ItemStack(EIItems.waterRune));
+		growthRod.add(new ItemStack(EIItems.earthRune));
+		growthRod.add(new ItemStack(Items.stick));
+		growthRod.add(new ItemStack(EIBlocks.voidiumStone));
+		growthRod.setCraftedItem(new ItemStack(EIItems.growthRod));
+		// Mining
+		minningRod.add(new ItemStack(EIItems.fireRune));
+		minningRod.add(new ItemStack(EIItems.windRune));
+		minningRod.add(new ItemStack(EIItems.voidiumRune));
+		minningRod.add(new ItemStack(EIItems.voidiumRod));
+		minningRod.add(new ItemStack(EIItems.voidiumCrystalPickaxe));
+		minningRod.add(new ItemStack(EIItems.voidiumCrystalPickaxe));
+		minningRod.add(new ItemStack(EIItems.voidiumCrystalAxe));
+		minningRod.setCraftedItem(new ItemStack(EIItems.minningRod));
+		// Living Magnet
+		livingMagnetRod.add(new ItemStack(EIItems.fireRune));
+		livingMagnetRod.add(new ItemStack(EIItems.earthRune));
+		livingMagnetRod.add(new ItemStack(EIItems.magnetismRod));
+		livingMagnetRod.add(new ItemStack(Items.beef));
+		livingMagnetRod.add(new ItemStack(Items.porkchop));
+		livingMagnetRod.add(new ItemStack(Items.mutton));
+		livingMagnetRod.add(new ItemStack(Items.chicken));
+		livingMagnetRod.setCraftedItem(new ItemStack(EIItems.livingMagnetRod));
 		//voidiumRod.setDescription("Crafting: Voidium Rod");
 		// Register Recipe
 		recipes = new HashMap<String, EIInfuserRecipe>();
@@ -218,6 +289,10 @@ public final class EIInfuserRecipeManager {
 		add("earth_rune", earthRune);
 		add("wind_rune", windRune);
 		add("voidium_rune", voidiumRune);
+		// Elemental Stone
+		add("elemental_stone", elementalStone);
+		// Voidium Stone
+		add("voidium_stone", voidiumStone);
 		// Voidium Ingot
 		add("voidium_ingot", voidiumIngot);
 		// Voidium Crystla
@@ -241,6 +316,12 @@ public final class EIInfuserRecipeManager {
 		add("blast_rod", blastRod);
 		// Voidium
 		add("voidium_rod", voidiumRod);
+		// Complex Rod
+		add("magnetism_rod", magnetismRod);
+		add("illumination_rod", illuminationRod);
+		add("growth_rod", growthRod);
+		add("minning_rod", minningRod);
+		add("living_magnet_rod", livingMagnetRod);
 	}
 	
 	public static EIInfuserRecipe get(String name) {
