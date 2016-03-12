@@ -4,7 +4,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
-public interface IMultiBlock {
+public interface EIIMultiBlock {
 	
 	public void update(World world, BlockPos pos);
 	

@@ -6,7 +6,6 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import com.derf.ei.blocks.EIBlocks;
-import com.derf.ei.blocks.material.EIMaterials;
 import com.derf.ei.crafting.EIInfuserRecipeManager;
 import com.derf.ei.creativetabs.EICreativeTabs;
 import com.derf.ei.handler.EIHandlers;
@@ -18,7 +17,6 @@ public class EICommonProxy {
 	
 	public void preInit(FMLPreInitializationEvent e) {
 		EIItems.create();
-		EIMaterials.create();
 		EIBlocks.create();
 		EIItems.register();
 		EIBlocks.register();

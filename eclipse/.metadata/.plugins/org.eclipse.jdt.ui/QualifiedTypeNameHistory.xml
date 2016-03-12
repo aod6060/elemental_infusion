@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="com.derf.ei.creativetabs.EICreativeTabs"/>
-<fullyQualifiedTypeName name="com.derf.ei.client.EIRendererRegister"/>
 <fullyQualifiedTypeName name="com.derf.ei.EILoader"/>
 <fullyQualifiedTypeName name="net.minecraftforge.fml.common.registry.GameRegistry"/>
 <fullyQualifiedTypeName name="net.minecraftforge.common.util.EnumHelper"/>
@@ -53,4 +52,6 @@
 <fullyQualifiedTypeName name="com.derf.ei.blocks.EIBlocks"/>
 <fullyQualifiedTypeName name="net.minecraftforge.fml.relauncher.Side"/>
 <fullyQualifiedTypeName name="com.derf.ei.items.EIItems"/>
+<fullyQualifiedTypeName name="com.derf.ei.client.EIRendererRegister"/>
+<fullyQualifiedTypeName name="com.derf.ei.blocks.tileentity.EITileEntityCore"/>
 </qualifiedTypeNameHistroy>
