@@ -4,13 +4,11 @@
 <fullyQualifiedTypeName name="com.derf.ei.EILoader"/>
 <fullyQualifiedTypeName name="net.minecraftforge.fml.common.registry.GameRegistry"/>
 <fullyQualifiedTypeName name="net.minecraftforge.common.util.EnumHelper"/>
-<fullyQualifiedTypeName name="net.minecraft.block.BlockContainer"/>
 <fullyQualifiedTypeName name="net.minecraft.tileentity.TileEntity"/>
 <fullyQualifiedTypeName name="net.minecraft.util.ITickable"/>
 <fullyQualifiedTypeName name="net.minecraft.util.EnumParticleTypes"/>
 <fullyQualifiedTypeName name="net.minecraft.entity.player.EntityPlayer"/>
 <fullyQualifiedTypeName name="com.derf.ei.blocks.tileentity.EITileEntityMachineCore"/>
-<fullyQualifiedTypeName name="net.minecraft.inventory.IInventory"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="net.minecraft.item.Item"/>
 <fullyQualifiedTypeName name="net.minecraft.init.Items"/>
@@ -54,4 +52,7 @@
 <fullyQualifiedTypeName name="com.derf.ei.items.EIItems"/>
 <fullyQualifiedTypeName name="com.derf.ei.client.EIRendererRegister"/>
 <fullyQualifiedTypeName name="com.derf.ei.blocks.tileentity.EITileEntityCore"/>
+<fullyQualifiedTypeName name="net.minecraft.block.BlockContainer"/>
+<fullyQualifiedTypeName name="net.minecraft.inventory.IInventory"/>
+<fullyQualifiedTypeName name="com.derf.ei.blocks.tileentity.EITileEntityPedestal"/>
 </qualifiedTypeNameHistroy>
