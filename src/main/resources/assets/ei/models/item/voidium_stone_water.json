@@ -1,0 +1,6 @@
+{
+	"parent": "ei:item/block_basic",
+	"textures": {
+		"all": "ei:blocks/voidium_stone_water"
+	}
+}

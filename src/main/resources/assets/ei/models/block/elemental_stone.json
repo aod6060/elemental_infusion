@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"down": "blocks/stone",
+		"up": "blocks/stone",
+		"north": "ei:blocks/elemental_stone_north",
+		"south": "ei:blocks/elemental_stone_south",
+		"west": "ei:blocks/elemental_stone_west",
+		"east": "ei:blocks/elemental_stone_east",
+		"particle": "blocks/stone"
+	}
+}

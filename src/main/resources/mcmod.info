@@ -1,0 +1,16 @@
+[
+{
+  "modid": "ei",
+  "name": "Elemental Infusion",
+  "description": "This is a magic mod about absorbing the elements and using them to do fun things.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["derf6060"],
+  "credits": "derf6060 author",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

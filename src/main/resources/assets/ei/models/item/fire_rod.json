@@ -1,0 +1,6 @@
+{
+	"parent": "ei:item/item_tools",
+	"textures": {
+		"layer0": "ei:items/fire_rod"
+	}
+}
