@@ -466,73 +466,73 @@ public final class EIItems {
 	@SideOnly(Side.CLIENT)
 	public static void registerRenderer() {
 		// Elemental Dust
-		EIRendererRegister.register(fireDust, 0, EILoader.modid + ":fire_dust");
-		EIRendererRegister.register(waterDust, 0, EILoader.modid + ":water_dust");
-		EIRendererRegister.register(earthDust, 0, EILoader.modid + ":earth_dust");
-		EIRendererRegister.register(windDust, 0, EILoader.modid + ":wind_dust");
+		EIRendererRegister.register(fireDust, "fire_dust");
+		EIRendererRegister.register(waterDust, "water_dust");
+		EIRendererRegister.register(earthDust, "earth_dust");
+		EIRendererRegister.register(windDust, "wind_dust");
 		// Voidium Ingot
-		EIRendererRegister.register(voidiumIngot, 0, EILoader.modid + ":voidium_ingot");
+		EIRendererRegister.register(voidiumIngot, "voidium_ingot");
 		// Voidium Crystal
-		EIRendererRegister.register(voidiumCrystal, 0, EILoader.modid + ":voidium_crystal");
+		EIRendererRegister.register(voidiumCrystal, "voidium_crystal");
 		// Tier 1 Tools VOIDIUM
 		// Tools
-		EIRendererRegister.register(voidiumSword, 0, EILoader.modid + ":voidium_sword");
-		EIRendererRegister.register(voidiumPickaxe, 0, EILoader.modid + ":voidium_pickaxe");
-		EIRendererRegister.register(voidiumSpade, 0, EILoader.modid + ":voidium_shovel");
-		EIRendererRegister.register(voidiumAxe, 0, EILoader.modid + ":voidium_axe");
-		EIRendererRegister.register(voidiumHoe, 0, EILoader.modid + ":voidium_hoe");
+		EIRendererRegister.register(voidiumSword, "voidium_sword");
+		EIRendererRegister.register(voidiumPickaxe, "voidium_pickaxe");
+		EIRendererRegister.register(voidiumSpade, "voidium_shovel");
+		EIRendererRegister.register(voidiumAxe, "voidium_axe");
+		EIRendererRegister.register(voidiumHoe, "voidium_hoe");
 		// Armor
-		EIRendererRegister.register(voidiumHelmet, 0, EILoader.modid + ":voidium_helmet");
-		EIRendererRegister.register(voidiumChestplate, 0, EILoader.modid + ":voidium_chestplate");
-		EIRendererRegister.register(voidiumLeggings, 0, EILoader.modid + ":voidium_leggings");
-		EIRendererRegister.register(voidiumBoots, 0, EILoader.modid + ":voidium_boots");
+		EIRendererRegister.register(voidiumHelmet, "voidium_helmet");
+		EIRendererRegister.register(voidiumChestplate, "voidium_chestplate");
+		EIRendererRegister.register(voidiumLeggings, "voidium_leggings");
+		EIRendererRegister.register(voidiumBoots, "voidium_boots");
 		// Tier 2 Tools (Voidium Crystal Tools and Armor)
 		// Tools
-		EIRendererRegister.register(voidiumCrystalSword, 0, EILoader.modid + ":voidium_crystal_sword");
-		EIRendererRegister.register(voidiumCrystalPickaxe, 0, EILoader.modid + ":voidium_crystal_pickaxe");
-		EIRendererRegister.register(voidiumCrystalSpade, 0, EILoader.modid + ":voidium_crystal_shovel");
-		EIRendererRegister.register(voidiumCrystalAxe, 0, EILoader.modid + ":voidium_crystal_axe");
-		EIRendererRegister.register(voidiumCrystalHoe, 0, EILoader.modid + ":voidium_crystal_hoe");
+		EIRendererRegister.register(voidiumCrystalSword, "voidium_crystal_sword");
+		EIRendererRegister.register(voidiumCrystalPickaxe, "voidium_crystal_pickaxe");
+		EIRendererRegister.register(voidiumCrystalSpade, "voidium_crystal_shovel");
+		EIRendererRegister.register(voidiumCrystalAxe, "voidium_crystal_axe");
+		EIRendererRegister.register(voidiumCrystalHoe, "voidium_crystal_hoe");
 		// Armor
 		// Armor
-		EIRendererRegister.register(voidiumCrystalHelmet, 0, EILoader.modid + ":voidium_crystal_helmet");
-		EIRendererRegister.register(voidiumCrystalChestplate, 0, EILoader.modid + ":voidium_crystal_chestplate");
-		EIRendererRegister.register(voidiumCrystalLeggings, 0, EILoader.modid + ":voidium_crystal_leggings");
-		EIRendererRegister.register(voidiumCrystalBoots, 0, EILoader.modid + ":voidium_crystal_boots");
+		EIRendererRegister.register(voidiumCrystalHelmet, "voidium_crystal_helmet");
+		EIRendererRegister.register(voidiumCrystalChestplate, "voidium_crystal_chestplate");
+		EIRendererRegister.register(voidiumCrystalLeggings, "voidium_crystal_leggings");
+		EIRendererRegister.register(voidiumCrystalBoots, "voidium_crystal_boots");
 		// Runes
-		EIRendererRegister.register(blankRune, 0, EILoader.modid + ":blank_rune");
+		EIRendererRegister.register(blankRune, "blank_rune");
 		// Prima Runes
-		EIRendererRegister.register(fireRune, 0, EILoader.modid + ":fire_rune");
-		EIRendererRegister.register(waterRune, 0, EILoader.modid + ":water_rune");
-		EIRendererRegister.register(earthRune, 0, EILoader.modid + ":earth_rune");
-		EIRendererRegister.register(windRune, 0, EILoader.modid + ":wind_rune");
-		EIRendererRegister.register(voidiumRune, 0, EILoader.modid + ":voidium_rune");
+		EIRendererRegister.register(fireRune, "fire_rune");
+		EIRendererRegister.register(waterRune, "water_rune");
+		EIRendererRegister.register(earthRune, "earth_rune");
+		EIRendererRegister.register(windRune, "wind_rune");
+		EIRendererRegister.register(voidiumRune, "voidium_rune");
 		// Wand
-		EIRendererRegister.register(elementalWand, 0, EILoader.modid + ":elemental_wand");
+		EIRendererRegister.register(elementalWand, "elemental_wand");
 		// Rods
 		// Fire
-		EIRendererRegister.register(fireRod, 0, EILoader.modid + ":fire_rod");
-		EIRendererRegister.register(lavaRod, 0, EILoader.modid + ":lava_rod");
-		EIRendererRegister.register(smeltingRod, 0, EILoader.modid + ":smelting_rod");
+		EIRendererRegister.register(fireRod, "fire_rod");
+		EIRendererRegister.register(lavaRod, "lava_rod");
+		EIRendererRegister.register(smeltingRod, "smelting_rod");
 		// Water
-		EIRendererRegister.register(waterRod, 0, EILoader.modid + ":water_rod");
-		EIRendererRegister.register(snowRod, 0, EILoader.modid + ":snow_rod");
-		EIRendererRegister.register(snowGolumRod, 0, EILoader.modid + ":snow_golum_rod");
+		EIRendererRegister.register(waterRod, "water_rod");
+		EIRendererRegister.register(snowRod, "snow_rod");
+		EIRendererRegister.register(snowGolumRod, "snow_golum_rod");
 		// Earth
-		EIRendererRegister.register(earthRod, 0, EILoader.modid + ":earth_rod");
-		EIRendererRegister.register(dirtRod, 0, EILoader.modid + ":dirt_rod");
-		EIRendererRegister.register(cobbleStoneRod, 0, EILoader.modid + ":cobble_stone_rod");
+		EIRendererRegister.register(earthRod, "earth_rod");
+		EIRendererRegister.register(dirtRod, "dirt_rod");
+		EIRendererRegister.register(cobbleStoneRod, "cobble_stone_rod");
 		// Wind
-		EIRendererRegister.register(windRod, 0, EILoader.modid + ":wind_rod");
-		EIRendererRegister.register(travelRod, 0, EILoader.modid + ":travel_rod");
-		EIRendererRegister.register(blastRod, 0, EILoader.modid + ":blast_rod");
+		EIRendererRegister.register(windRod, "wind_rod");
+		EIRendererRegister.register(travelRod, "travel_rod");
+		EIRendererRegister.register(blastRod, "blast_rod");
 		// Voidium
-		EIRendererRegister.register(voidiumRod, 0, EILoader.modid + ":voidium_rod");
+		EIRendererRegister.register(voidiumRod, "voidium_rod");
 		// Complex
-		EIRendererRegister.register(magnetismRod, 0, EILoader.modid + ":magnetism_rod");
-		EIRendererRegister.register(illuminationRod, 0, EILoader.modid + ":illumination_rod");
-		EIRendererRegister.register(growthRod, 0, EILoader.modid + ":growth_rod");
-		EIRendererRegister.register(minningRod, 0, EILoader.modid + ":minning_rod");
-		EIRendererRegister.register(livingMagnetRod, 0, EILoader.modid + ":living_magnet_rod");
+		EIRendererRegister.register(magnetismRod, "magnetism_rod");
+		EIRendererRegister.register(illuminationRod, "illumination_rod");
+		EIRendererRegister.register(growthRod, "growth_rod");
+		EIRendererRegister.register(minningRod, "minning_rod");
+		EIRendererRegister.register(livingMagnetRod, "living_magnet_rod");
 	}
 }

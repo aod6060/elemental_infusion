@@ -128,6 +128,13 @@ public final class EIInfuserRecipeManager {
 		windRune.add(new ItemStack(EIItems.windDust, 4));
 		windRune.setCraftedItem(new ItemStack(EIItems.windRune));
 		//windRune.setDescription("Crafting: Wind Rune");
+		// Voidium Rune
+		voidiumRune.add(new ItemStack(EIItems.blankRune));
+		voidiumRune.add(new ItemStack(EIItems.fireDust));
+		voidiumRune.add(new ItemStack(EIItems.waterDust));
+		voidiumRune.add(new ItemStack(EIItems.earthDust));
+		voidiumRune.add(new ItemStack(EIItems.windDust));
+		voidiumRune.setCraftedItem(new ItemStack(EIItems.voidiumRune));
 		// Elemental Stone
 		elementalStone.add(new ItemStack(Blocks.stone));
 		elementalStone.add(new ItemStack(EIItems.fireDust));
@@ -143,14 +150,6 @@ public final class EIInfuserRecipeManager {
 		voidiumStone.add(new ItemStack(EIItems.windRune));
 		voidiumStone.add(new ItemStack(EIItems.voidiumRune));
 		voidiumStone.setCraftedItem(new ItemStack(EIBlocks.voidiumStone));
-		// Voidium Rune
-		voidiumRune.add(new ItemStack(EIItems.blankRune));
-		voidiumRune.add(new ItemStack(EIItems.fireDust));
-		voidiumRune.add(new ItemStack(EIItems.waterDust));
-		voidiumRune.add(new ItemStack(EIItems.earthDust));
-		voidiumRune.add(new ItemStack(EIItems.windDust));
-		voidiumRune.setCraftedItem(new ItemStack(EIItems.voidiumRune));
-		// Secondary Rune
 		// Voidium Ingot
 		voidiumIngot.add(new ItemStack(Items.iron_ingot));
 		voidiumIngot.add(new ItemStack(EIItems.fireDust));

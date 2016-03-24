@@ -5,6 +5,8 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumBlockRenderType;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -14,15 +16,6 @@ public class EIBlockLight extends Block {
 		// TODO Auto-generated constructor stub
 		this.setUnlocalizedName(name);
 	}
-
-	/*
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int getRenderType() {
-		// TODO Auto-generated method stub
-		return 3;
-	}
-	*/
 	
 	@Override
 	public int quantityDropped(IBlockState p_quantityDropped_1_,
@@ -31,27 +24,30 @@ public class EIBlockLight extends Block {
 		return 0;
 	}
 
-	/*
 	@Override
-	public int getLightValue() {
+	@SideOnly(Side.CLIENT)
+	public EnumBlockRenderType getRenderType(IBlockState state) {
+		// TODO Auto-generated method stub
+		return EnumBlockRenderType.MODEL;
+	}
+
+	@Override
+	public int getLightValue(IBlockState state) {
 		// TODO Auto-generated method stub
 		return 15;
 	}
-	*/
-	
-	/*
+
 	@Override
 	@SideOnly(Side.CLIENT)
-	public EnumWorldBlockLayer getBlockLayer() {
+	public BlockRenderLayer getBlockLayer() {
 		// TODO Auto-generated method stub
-		return EnumWorldBlockLayer.TRANSLUCENT;
+		return BlockRenderLayer.TRANSLUCENT;
 	}
-	*/
-	/*
+
 	@Override
-	public boolean isOpaqueCube() {
+	public boolean isOpaqueCube(IBlockState state) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	*/
+	
 }

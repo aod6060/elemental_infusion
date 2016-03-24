@@ -23,11 +23,7 @@ public class EIItemRodFire extends EIItemRod {
 	}
 	
 	@Override
-	public EnumActionResult onItemUse(ItemStack stack,
-			EntityPlayer player, World world,
-			BlockPos pos, EnumHand hand,
-			EnumFacing facing, float fx,
-			float fy, float fz) {
+	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float fx, float fy, float fz) {
 		
 		if(!world.isRemote) {
 			

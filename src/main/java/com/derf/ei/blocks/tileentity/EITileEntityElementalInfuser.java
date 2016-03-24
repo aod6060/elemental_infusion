@@ -20,20 +20,17 @@ public class EITileEntityElementalInfuser extends TileEntity {
 	private int mode = 0;
 	
 	public void launch(EntityPlayer player) {
-		
-		if(!worldObj.isRemote) {
-			if(isMultiBlockComplete(player)) {
-				player.addChatMessage(new TextComponentString("Lauchning Recipe..."));
-				
-				
-				if(doCrafting(player)) {
-					player.addChatMessage(new TextComponentString("Crafting Complete!"));
-				} else {
-					player.addChatMessage(new TextComponentString("Crafting failed, missing items."));
-				}
+		if(isMultiBlockComplete(player)) {
+			player.addChatMessage(new TextComponentString("Lauchning Recipe..."));
+			
+			
+			if(doCrafting(player)) {
+				player.addChatMessage(new TextComponentString("Crafting Complete!"));
 			} else {
-				player.addChatMessage(new TextComponentString("MultiBlock Incomplete - Missing chest most likely"));
+				player.addChatMessage(new TextComponentString("Crafting failed, missing items."));
 			}
+		} else {
+			player.addChatMessage(new TextComponentString("MultiBlock Incomplete - Missing chest most likely"));
 		}
 	}
 
@@ -82,16 +79,21 @@ public class EITileEntityElementalInfuser extends TileEntity {
 	}
 	
 	public void toggleMode(EntityPlayer player) {
-		ArrayList<String> names = new ArrayList<String>();
-		EIInfuserRecipeManager.getNames(names);
 		
-		if(mode < names.size() - 1) {
-			this.setMode(this.getMode() + 1);
+		if(this.isMultiBlockComplete(player)) {
+			ArrayList<String> names = new ArrayList<String>();
+			EIInfuserRecipeManager.getNames(names);
+			
+			if(mode < names.size() - 1) {
+				this.setMode(this.getMode() + 1);
+			} else {
+				this.setMode(0);
+			}
+			
+			player.addChatMessage(new TextComponentString(EIInfuserRecipeManager.get(names.get(this.mode)).getDescription()));
 		} else {
-			this.setMode(0);
+			player.addChatMessage(new TextComponentString("MultiBlock Incomplete - Missing chest most likely"));
 		}
-		
-		player.addChatMessage(new TextComponentString(EIInfuserRecipeManager.get(names.get(this.mode)).getDescription()));
 	}
 
 	@Override
@@ -109,10 +111,14 @@ public class EITileEntityElementalInfuser extends TileEntity {
 	}
 	
 	public void currentMode(EntityPlayer player) {
-		ArrayList<String> names = new ArrayList<String>();
-		EIInfuserRecipeManager.getNames(names);
-		
-		player.addChatMessage(new TextComponentString(EIInfuserRecipeManager.get(names.get(this.mode)).getDescription()));
+		if(this.isMultiBlockComplete(player)) {
+			ArrayList<String> names = new ArrayList<String>();
+			EIInfuserRecipeManager.getNames(names);
+			
+			player.addChatMessage(new TextComponentString(EIInfuserRecipeManager.get(names.get(this.mode)).getDescription()));
+		} else {
+			player.addChatMessage(new TextComponentString("MultiBlock Incomplete - Missing chest most likely"));
+		}
 	}
 	
 	public String getRecipe() {

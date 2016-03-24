@@ -143,28 +143,28 @@ public final class EIBlocks {
 	@SideOnly(Side.CLIENT)
 	public static void registerRenderer() {
 		// Elemental Ore
-		EIRendererRegister.register(fireOre, 0, EILoader.modid + ":fire_ore");
-		EIRendererRegister.register(waterOre, 0, EILoader.modid + ":water_ore");
-		EIRendererRegister.register(earthOre, 0, EILoader.modid + ":earth_ore");
-		EIRendererRegister.register(windOre, 0, EILoader.modid + ":wind_ore");
+		EIRendererRegister.register(fireOre, "fire_ore");
+		EIRendererRegister.register(waterOre, "water_ore");
+		EIRendererRegister.register(earthOre, "earth_ore");
+		EIRendererRegister.register(windOre, "wind_ore");
 		// Voidium Stone
-		EIRendererRegister.register(voidiumStone, 0, EILoader.modid + ":voidium_stone");
-		EIRendererRegister.register(voidiumStoneInput, 0, EILoader.modid + ":voidium_stone_input");
-		EIRendererRegister.register(voidiumStoneOutput, 0, EILoader.modid + ":voidium_stone_output");
-		EIRendererRegister.register(voidiumStoneIO, 0, EILoader.modid + ":voidium_stone_io");
+		EIRendererRegister.register(voidiumStone, "voidium_stone");
+		EIRendererRegister.register(voidiumStoneInput, "voidium_stone_input");
+		EIRendererRegister.register(voidiumStoneOutput, "voidium_stone_output");
+		EIRendererRegister.register(voidiumStoneIO, "voidium_stone_io");
 		// Elemental Voidium Stone
-		EIRendererRegister.register(voidiumStoneFire, 0, EILoader.modid + ":voidium_stone_fire");
-		EIRendererRegister.register(voidiumStoneWater, 0, EILoader.modid + ":voidium_stone_water");
-		EIRendererRegister.register(voidiumStoneEarth, 0, EILoader.modid + ":voidium_stone_earth");
-		EIRendererRegister.register(voidiumStoneWind, 0, EILoader.modid + ":voidium_stone_wind");
-		EIRendererRegister.register(voidiumStoneVoid, 0, EILoader.modid + ":voidium_stone_void");
+		EIRendererRegister.register(voidiumStoneFire, "voidium_stone_fire");
+		EIRendererRegister.register(voidiumStoneWater, "voidium_stone_water");
+		EIRendererRegister.register(voidiumStoneEarth, "voidium_stone_earth");
+		EIRendererRegister.register(voidiumStoneWind, "voidium_stone_wind");
+		EIRendererRegister.register(voidiumStoneVoid, "voidium_stone_void");
 		// Elemental Infuser
-		EIRendererRegister.register(elementalInfuser, 0, EILoader.modid + ":elemental_infuser");
+		EIRendererRegister.register(elementalInfuser, "elemental_infuser");
 		// Light
-		EIRendererRegister.register(light, 0, EILoader.modid + ":light");
+		EIRendererRegister.register(light, "light");
 		// Elemental Stone
-		EIRendererRegister.register(elementalStone, 0, EILoader.modid + ":elemental_stone");
+		EIRendererRegister.register(elementalStone, "elemental_stone");
 		// Core
-		EIRendererRegister.register(core, 0, EILoader.modid + ":core");
+		EIRendererRegister.register(core, "core");
 	}
 }

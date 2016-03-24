@@ -797,11 +797,11 @@ public class EIItemRodVoidium extends EIItemRod {
 			IBlockState state = world.getBlockState(pos);
 			
 			List<ItemStack> list = state.getBlock().getDrops(world, pos, state, 0);
-			if(!world.isRemote) {
-				for(int i = 0; i < list.size(); i++) {
-					world.spawnEntityInWorld(new EntityItem(world, center.getX(), center.getY(), center.getZ(), list.get(i)));
-				}
+			
+			for(int i = 0; i < list.size(); i++) {
+				world.spawnEntityInWorld(new EntityItem(world, center.getX(), center.getY(), center.getZ(), list.get(i)));
 			}
+			
 			world.setBlockToAir(pos);
 		} else {
 			world.setBlockToAir(pos);
