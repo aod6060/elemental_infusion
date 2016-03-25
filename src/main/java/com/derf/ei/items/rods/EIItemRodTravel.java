@@ -9,7 +9,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
-import com.derf.ei.util.EIVec3;
+import com.derf.ei.util.EIVec3d;
 
 public class EIItemRodTravel extends EIItemRod {
 
@@ -25,9 +25,9 @@ public class EIItemRodTravel extends EIItemRod {
 		if(!world.isRemote) {
 			// TODO Auto-generated method stub
 			Vec3d v = player.getLookVec();
-			EIVec3 direction = new EIVec3(v);
+			EIVec3d direction = new EIVec3d(v);
 			
-			direction = EIVec3.mul(direction, speed);
+			direction = EIVec3d.mul(direction, speed);
 			
 			player.motionX = direction.getX();
 			player.motionY = direction.getY();

@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -17,6 +18,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
+import com.derf.ei.util.EIVec3i;
+
 public class EIItemRodVoidium extends EIItemRod {
 	
 	public static final int VOID_1x1 = 0;
@@ -26,13 +29,17 @@ public class EIItemRodVoidium extends EIItemRod {
 	public static final int VOID_9x9 = 4;
 	protected boolean isMinable = false;
 	
+	public static final int fortune = 3;
+	
 	public EIItemRodVoidium(String name) {
 		super(name);
 	}
 
+
 	@Override
-	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world,EntityPlayer player, EnumHand hand) {
+	protected void onCreateNBT(ItemStack stack, World world, EntityPlayer entity) {
 		// TODO Auto-generated method stub
+		super.onCreateNBT(stack, world, entity);
 		
 		if(!world.isRemote) {
 			if(stack.getTagCompound() == null) {
@@ -40,7 +47,15 @@ public class EIItemRodVoidium extends EIItemRod {
 				tag.setInteger("mode", VOID_1x1);
 				stack.setTagCompound(tag);
 			}
-			
+		}
+	}
+
+
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world,EntityPlayer player, EnumHand hand) {
+		// TODO Auto-generated method stub
+		
+		if(!world.isRemote) {
 			if(player.isSneaking()) {
 				switch(stack.getTagCompound().getInteger("mode")) {
 				case VOID_1x1:
@@ -84,12 +99,6 @@ public class EIItemRodVoidium extends EIItemRod {
 			float fy, float fz) {
 		
 		if(!world.isRemote) {
-			if(stack.getTagCompound() == null) {
-				NBTTagCompound tag = new NBTTagCompound();
-				tag.setInteger("mode", VOID_1x1);
-				stack.setTagCompound(tag);
-			}		
-			
 			// This needs to be in both 
 			if(player.isSneaking()) {
 			} else {
@@ -121,7 +130,7 @@ public class EIItemRodVoidium extends EIItemRod {
 	private void void_1x1(World world, BlockPos pos, EntityPlayer player, EnumFacing facing) {
 		// TODO Auto-generated method stub
 		if(!this.isUnbreable(world, pos)) {	
-			destroyBlock(world, pos, pos, this.isMinable);
+			destroyBlock(world, pos, pos, this.isMinable, facing);
 		}
 	}
 
@@ -131,7 +140,7 @@ public class EIItemRodVoidium extends EIItemRod {
 		
 		for(int i = 0; i < bpos.size(); i++) {
 			if(!this.isUnbreable(world, bpos.get(i))) {	
-				destroyBlock(world, bpos.get(i), pos, this.isMinable);
+				destroyBlock(world, bpos.get(i), pos, this.isMinable, facing);
 				//System.out.println(bpos.get(i));
 			}
 		}
@@ -193,7 +202,7 @@ public class EIItemRodVoidium extends EIItemRod {
 		
 		for(int i = 0; i < bpos.size(); i++) {
 			if(!this.isUnbreable(world, bpos.get(i))) {	
-				destroyBlock(world, bpos.get(i), pos, this.isMinable);
+				destroyBlock(world, bpos.get(i), pos, this.isMinable, facing);
 			}
 		}
 	}
@@ -309,7 +318,7 @@ public class EIItemRodVoidium extends EIItemRod {
 		
 		for(int i = 0; i < bpos.size(); i++) {
 			if(!this.isUnbreable(world, bpos.get(i))) {	
-				destroyBlock(world, bpos.get(i), pos, this.isMinable);
+				destroyBlock(world, bpos.get(i), pos, this.isMinable, facing);
 			}
 		}
 	}
@@ -501,7 +510,7 @@ public class EIItemRodVoidium extends EIItemRod {
 		
 		for(int i = 0; i < bpos.size(); i++) {
 			if(!this.isUnbreable(world, bpos.get(i))) {	
-				destroyBlock(world, bpos.get(i), pos, this.isMinable);
+				destroyBlock(world, bpos.get(i), pos, this.isMinable, facing);
 			}
 		}
 	}
@@ -791,15 +800,39 @@ public class EIItemRodVoidium extends EIItemRod {
 	}
 	
 	// This should be faster than destroy block
-	private void destroyBlock(World world, BlockPos pos, BlockPos center, boolean minable) {
+	private void destroyBlock(World world, BlockPos pos, BlockPos center, boolean minable, EnumFacing facing) {
 		
 		if(minable) {
 			IBlockState state = world.getBlockState(pos);
 			
-			List<ItemStack> list = state.getBlock().getDrops(world, pos, state, 0);
+			List<ItemStack> list = state.getBlock().getDrops(world, pos, state, fortune);
+			int exp = state.getBlock().getExpDrop(state, world, pos, fortune);
+			
+			EIVec3i eiCent = new EIVec3i(center);
+			EIVec3i eiFace = new EIVec3i();
+			
+			if(facing == EnumFacing.NORTH) {
+				eiFace.setZ(-1);
+			} else if(facing == EnumFacing.SOUTH) {
+				eiFace.setZ(1);
+			} else if(facing == EnumFacing.WEST) {
+				eiFace.setX(-1);
+			} else if(facing == EnumFacing.EAST) {
+				eiFace.setX(1);
+			} else if(facing == EnumFacing.UP) {
+				eiFace.setY(1);
+			} else if(facing == EnumFacing.DOWN) {
+				eiFace.setY(-1);
+			}
+			
+			BlockPos spawn = EIVec3i.createBlockPos(EIVec3i.add(eiCent, eiFace));
 			
 			for(int i = 0; i < list.size(); i++) {
-				world.spawnEntityInWorld(new EntityItem(world, center.getX(), center.getY(), center.getZ(), list.get(i)));
+				world.spawnEntityInWorld(new EntityItem(world, spawn.getX(), spawn.getY(), spawn.getZ(), list.get(i)));
+				
+				if(exp > 0) {
+					world.spawnEntityInWorld(new EntityXPOrb(world, spawn.getX(), spawn.getY(), spawn.getZ(), exp));
+				}
 			}
 			
 			world.setBlockToAir(pos);

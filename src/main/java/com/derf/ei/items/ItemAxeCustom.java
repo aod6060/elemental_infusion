@@ -7,9 +7,11 @@ import java.util.Set;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
+import net.minecraft.world.World;
 
 /**
  * This is an implementation of the ItemAxe. This class was created
@@ -32,8 +34,12 @@ public class ItemAxeCustom extends ItemTool {
 	public ItemAxeCustom(ToolMaterial material) {
 		super(material, getEffectedBlocks());
 		this.material = material;
+		this.setHarvestLevel("axe", material.getHarvestLevel());
+		
+		this.attackSpeed = - 4.0f * (1.0f - (material.getEfficiencyOnProperMaterial()/ToolMaterial.DIAMOND.getEfficiencyOnProperMaterial()));
+		this.damageVsEntity *= 3.0f;
 	}
-
+	
 	/**
 	 * This create a list of vanilla blocks that the custom
 	 * axe can be used on.
@@ -136,4 +142,6 @@ public class ItemAxeCustom extends ItemTool {
 		// TODO Auto-generated method stub
 		return (!checkStrVsBlock(stack, state))? super.getStrVsBlock(stack, state) : this.material.getEfficiencyOnProperMaterial();
 	}
+	
+	
 }

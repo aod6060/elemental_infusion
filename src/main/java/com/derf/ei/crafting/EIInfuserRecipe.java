@@ -98,7 +98,7 @@ public class EIInfuserRecipe {
 			
 			if(left > 0) {
 				if(inv.getStackInSlot(i) == null) {
-					inv.setInventorySlotContents(i, new ItemStack(craftedItem.getItem(), left));
+					inv.setInventorySlotContents(i, createCraftingItem(left));
 					break;
 				}
 				
@@ -156,6 +156,12 @@ public class EIInfuserRecipe {
 		}
 	}
 	
+	private ItemStack createCraftingItem(int left) {
+		// TODO Auto-generated method stub
+		ItemStack stack = new ItemStack(this.craftedItem.getItem(), left);
+		return stack;
+	}
+
 	public String getDescription() {
 		return "Crafting: " + craftedItem.getDisplayName();
 	}

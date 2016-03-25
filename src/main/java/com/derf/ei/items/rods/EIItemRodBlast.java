@@ -2,7 +2,7 @@ package com.derf.ei.items.rods;
 
 import java.util.ArrayList;
 
-import com.derf.ei.util.EIVec3;
+import com.derf.ei.util.EIVec3d;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
@@ -41,7 +41,7 @@ public class EIItemRodBlast extends EIItemRod {
 			AxisAlignedBB box = this.getRangedBox(player);
 			ArrayList<Entity> list = this.getEntitiesWithAABB(world, EntityCreature.class, box);
 			
-			EIVec3 pp = new EIVec3(
+			EIVec3d pp = new EIVec3d(
 					player.posX,
 					player.posY,
 					player.posZ);
@@ -49,10 +49,10 @@ public class EIItemRodBlast extends EIItemRod {
 			
 			for(int i = 0; i < list.size(); i++) {
 				Entity ei = list.get(i);
-				EIVec3 v = new EIVec3(ei.posX, ei.posY, ei.posZ);
-				EIVec3 s = EIVec3.sub(v, pp);
-				s = EIVec3.unit(s);
-				s = EIVec3.mul(s, this.strength);
+				EIVec3d v = new EIVec3d(ei.posX, ei.posY, ei.posZ);
+				EIVec3d s = EIVec3d.sub(v, pp);
+				s = EIVec3d.unit(s);
+				s = EIVec3d.mul(s, this.strength);
 				ei.motionX += s.getX();
 				ei.motionY += strength;
 				ei.motionZ += s.getZ();

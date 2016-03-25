@@ -14,7 +14,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 
-import com.derf.ei.util.EIVec3;
+import com.derf.ei.util.EIVec3d;
 
 public class EIItemRodMagnetism extends EIItemRod {
 
@@ -69,13 +69,13 @@ public class EIItemRodMagnetism extends EIItemRod {
 		// TODO Auto-generated method stub
 		AxisAlignedBB box = this.getBox(entity);
 		ArrayList<Entity> list = this.getEntitiesWithinAABB(world, EntityItem.class, box);
-		EIVec3 playerPos = new EIVec3(entity.posX, entity.posY, entity.posZ);
+		EIVec3d playerPos = new EIVec3d(entity.posX, entity.posY, entity.posZ);
 		for(int i = 0; i < list.size(); i++) {
 			Entity ei = list.get(i);
-			EIVec3 v = new EIVec3(ei.posX, ei.posY, ei.posZ);
-			EIVec3 s = EIVec3.sub(playerPos, v);
-			s = EIVec3.unit(s);
-			s = EIVec3.mul(s, strength);
+			EIVec3d v = new EIVec3d(ei.posX, ei.posY, ei.posZ);
+			EIVec3d s = EIVec3d.sub(playerPos, v);
+			s = EIVec3d.unit(s);
+			s = EIVec3d.mul(s, strength);
 			ei.motionX += s.getX();
 			ei.motionY += s.getY();
 			ei.motionZ += s.getZ();
@@ -83,10 +83,10 @@ public class EIItemRodMagnetism extends EIItemRod {
 		list = this.getEntitiesWithinAABB(world, EntityXPOrb.class, box);
 		for(int i = 0; i < list.size(); i++) {
 			Entity ei = list.get(i);
-			EIVec3 v = new EIVec3(ei.posX, ei.posY, ei.posZ);
-			EIVec3 s = EIVec3.sub(playerPos, v);
-			s = EIVec3.unit(s);
-			s = EIVec3.mul(s, strength);
+			EIVec3d v = new EIVec3d(ei.posX, ei.posY, ei.posZ);
+			EIVec3d s = EIVec3d.sub(playerPos, v);
+			s = EIVec3d.unit(s);
+			s = EIVec3d.mul(s, strength);
 			ei.motionX += s.getX();
 			ei.motionY += s.getY();
 			ei.motionZ += s.getZ();

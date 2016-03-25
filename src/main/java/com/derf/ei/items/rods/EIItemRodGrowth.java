@@ -3,7 +3,7 @@ package com.derf.ei.items.rods;
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.derf.ei.util.EIVec3;
+import com.derf.ei.util.EIVec3d;
 
 import net.minecraft.block.BlockBeetroot;
 import net.minecraft.block.BlockCrops;

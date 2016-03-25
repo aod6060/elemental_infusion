@@ -9,7 +9,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 import com.derf.ei.blocks.EIBlocks;
-import com.derf.ei.util.EIVec3;
+import com.derf.ei.util.EIVec3d;
 
 public class EIEntityLight extends EntityThrowable {
 
@@ -31,8 +31,8 @@ public class EIEntityLight extends EntityThrowable {
 	public EIEntityLight(World world, EntityLivingBase player) {
 		super(world, player);
 		this.setSize(0.5f, 0.5f);
-		EIVec3 velocity = new EIVec3(player.getLookVec());
-		velocity = EIVec3.mul(velocity, 10.0);
+		EIVec3d velocity = new EIVec3d(player.getLookVec());
+		velocity = EIVec3d.mul(velocity, 10.0);
 		this.setLocationAndAngles(player.posX, player.posY + player.height, player.posZ, 0.0f, 0.0f);
 		this.motionX = velocity.getX();
 		this.motionY = velocity.getY();
