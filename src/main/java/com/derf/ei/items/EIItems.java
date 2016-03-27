@@ -34,6 +34,11 @@ import com.derf.ei.items.rods.EIItemRodTravel;
 import com.derf.ei.items.rods.EIItemRodVoidium;
 import com.derf.ei.items.rods.EIItemRodWater;
 import com.derf.ei.items.rods.EIItemRodWind;
+import com.derf.ei.items.tools.EIItemAxe;
+import com.derf.ei.items.tools.EIItemHoe;
+import com.derf.ei.items.tools.EIItemPickaxe;
+import com.derf.ei.items.tools.EIItemSpade;
+import com.derf.ei.items.tools.EIItemSword;
 
 public final class EIItems {
 	// Materials
