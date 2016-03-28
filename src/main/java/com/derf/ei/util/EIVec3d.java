@@ -1,7 +1,9 @@
 package com.derf.ei.util;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.text.TextComponentString;
 
 public class EIVec3d {
@@ -27,6 +29,20 @@ public class EIVec3d {
 		this.z = v.zCoord;
 	}
 	
+	public EIVec3d(BlockPos pos) {
+		// TODO Auto-generated constructor stub
+		this.x = pos.getX();
+		this.y = pos.getY();
+		this.z = pos.getZ();
+	}
+
+	public EIVec3d(Vec3i v) {
+		// TODO Auto-generated constructor stub
+		this.x = v.getX();
+		this.y = v.getY();
+		this.z = v.getZ();
+	}
+
 	public double getX() {
 		return x;
 	}

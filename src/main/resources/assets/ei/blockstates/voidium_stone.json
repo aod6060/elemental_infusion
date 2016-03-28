@@ -1,7 +1,31 @@
 {
 	"variants": {
-		"normal": {
+		"type=regular": {
 			"model": "ei:voidium_stone"
+		},
+		"type=input": {
+			"model": "ei:voidium_stone_input"
+		},
+		"type=output": {
+			"model": "ei:voidium_stone_output"
+		},
+		"type=bidirectional": {
+			"model": "ei:voidium_stone_io"
+		},
+		"type=fire": {
+			"model": "ei:voidium_stone_fire"
+		},
+		"type=water": {
+			"model": "ei:voidium_stone_water"
+		},
+		"type=earth": {
+			"model": "ei:voidium_stone_earth"
+		},
+		"type=wind": {
+			"model": "ei:voidium_stone_wind"
+		},
+		"type=void": {
+			"model": "ei:voidium_stone_void"
 		}
 	}
 }

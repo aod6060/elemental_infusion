@@ -54,18 +54,4 @@ public class EIGuiOverlayElementalInfuserCraftingHandler {
 		this.currentInfuser = currentInfuser;
 	}
 	
-	private void renderIcon(ItemStack stack, double x, double y, double width, double height) {
-		/*Minecraft mc = Minecraft.getMinecraft();
-		
-		IBakedModel model = mc.getRenderItem().getItemModelMesher().getItemModel(stack);
-		TextureAtlasSprite sprite = model.getParticleTexture();
-		
-		mc.getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
-		
-		Tessellator tess = Tessellator.getInstance();
-		WorldRenderer wr = tess.getWorldRenderer();
-		
-		//wr.begin(7, DefaultVertexFormats.);
-		*/
-	}
 }

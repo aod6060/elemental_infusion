@@ -83,16 +83,16 @@ tile.water_ore.name=Water Ore
 tile.earth_ore.name=Earth Ore
 tile.wind_ore.name=Wind Ore
 # Voidium Stone
-tile.voidium_stone.name=Voidium Stone
-tile.voidium_stone_input.name=Voidium Stone Input
-tile.voidium_stone_output.name=Voidium Stone Output
-tile.voidium_stone_io.name=Voidium Stone Bidirectional
+tile.voidium_stone.regular.name=Voidium Stone
+tile.voidium_stone.input.name=Voidium Stone Input
+tile.voidium_stone.output.name=Voidium Stone Output
+tile.voidium_stone.bidirectional.name=Voidium Stone Bidirectional
 # Elemental Voidium Stone
-tile.voidium_stone_fire.name=Voidium Fire Stone
-tile.voidium_stone_water.name=Voidium Water Stone
-tile.voidium_stone_earth.name=Voidium Earth Stone
-tile.voidium_stone_wind.name=Voidium Wind Stone
-tile.voidium_stone_void.name=Voidium Void Stone
+tile.voidium_stone.fire.name=Voidium Fire Stone
+tile.voidium_stone.water.name=Voidium Water Stone
+tile.voidium_stone.earth.name=Voidium Earth Stone
+tile.voidium_stone.wind.name=Voidium Wind Stone
+tile.voidium_stone.void.name=Voidium Void Stone
 # Elemental Infuser
 tile.elemental_infuser.name=Elemental Infuser
 # Light

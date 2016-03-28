@@ -3,6 +3,7 @@ package com.derf.ei.crafting;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.derf.ei.blocks.EIBlockVoidiumStone;
 import com.derf.ei.blocks.EIBlocks;
 import com.derf.ei.items.EIItems;
 
@@ -23,6 +24,12 @@ public final class EIInfuserRecipeManager {
 	private static EIInfuserRecipe elementalStone;
 	// Voidium Stone
 	private static EIInfuserRecipe voidiumStone;
+	// Elemental Voidium Stone
+	private static EIInfuserRecipe voidiumStoneFire;
+	private static EIInfuserRecipe voidiumStoneWater;
+	private static EIInfuserRecipe voidiumStoneEarth;
+	private static EIInfuserRecipe voidiumStoneWind;
+	private static EIInfuserRecipe voidiumStoneVoid;
 	// Voidium Ingot
 	private static EIInfuserRecipe voidiumIngot; // Tier 1 Tools and Armor
 	// Voidium Crystal
@@ -70,6 +77,11 @@ public final class EIInfuserRecipeManager {
 		elementalStone = new EIInfuserRecipe();
 		// Voidium Stone
 		voidiumStone = new EIInfuserRecipe();
+		voidiumStoneFire = new EIInfuserRecipe();
+		voidiumStoneWater = new EIInfuserRecipe();
+		voidiumStoneEarth = new EIInfuserRecipe();
+		voidiumStoneWind = new EIInfuserRecipe();
+		voidiumStoneVoid = new EIInfuserRecipe();
 		// Voidium Ingot
 		voidiumIngot = new EIInfuserRecipe();
 		// Voidium Crystal
@@ -150,6 +162,26 @@ public final class EIInfuserRecipeManager {
 		voidiumStone.add(new ItemStack(EIItems.windRune));
 		voidiumStone.add(new ItemStack(EIItems.voidiumRune));
 		voidiumStone.setCraftedItem(new ItemStack(EIBlocks.voidiumStone));
+		// Fire
+		voidiumStoneFire.add(new ItemStack(EIItems.fireRune, 6));
+		voidiumStoneFire.add(new ItemStack(EIBlocks.voidiumStone, 1, EIBlockVoidiumStone.VoidiumStoneType.REGULAR.getID()));
+		voidiumStoneFire.setCraftedItem(new ItemStack(EIBlocks.voidiumStone, 1, EIBlockVoidiumStone.VoidiumStoneType.FIRE.getID()));
+		// Water
+		voidiumStoneWater.add(new ItemStack(EIItems.waterRune, 6));
+		voidiumStoneWater.add(new ItemStack(EIBlocks.voidiumStone, 1, EIBlockVoidiumStone.VoidiumStoneType.REGULAR.getID()));
+		voidiumStoneWater.setCraftedItem(new ItemStack(EIBlocks.voidiumStone, 1, EIBlockVoidiumStone.VoidiumStoneType.WATER.getID()));
+		// Earth
+		voidiumStoneEarth.add(new ItemStack(EIItems.earthRune, 6));
+		voidiumStoneEarth.add(new ItemStack(EIBlocks.voidiumStone, 1, EIBlockVoidiumStone.VoidiumStoneType.REGULAR.getID()));
+		voidiumStoneEarth.setCraftedItem(new ItemStack(EIBlocks.voidiumStone, 1, EIBlockVoidiumStone.VoidiumStoneType.EARTH.getID()));
+		// Wind
+		voidiumStoneWind.add(new ItemStack(EIItems.windRune, 6));
+		voidiumStoneWind.add(new ItemStack(EIBlocks.voidiumStone, 1, EIBlockVoidiumStone.VoidiumStoneType.REGULAR.getID()));
+		voidiumStoneWind.setCraftedItem(new ItemStack(EIBlocks.voidiumStone, 1, EIBlockVoidiumStone.VoidiumStoneType.WIND.getID()));
+		// Voidium
+		voidiumStoneVoid.add(new ItemStack(EIItems.voidiumRune, 6));
+		voidiumStoneVoid.add(new ItemStack(EIBlocks.voidiumStone, 1, EIBlockVoidiumStone.VoidiumStoneType.REGULAR.getID()));
+		voidiumStoneVoid.setCraftedItem(new ItemStack(EIBlocks.voidiumStone, 1, EIBlockVoidiumStone.VoidiumStoneType.VOID.getID()));
 		// Voidium Ingot
 		voidiumIngot.add(new ItemStack(Items.iron_ingot));
 		voidiumIngot.add(new ItemStack(EIItems.fireDust));
@@ -169,7 +201,7 @@ public final class EIInfuserRecipeManager {
 		// Fire Rod
 		fireRod.add(new ItemStack(EIItems.fireRune));
 		fireRod.add(new ItemStack(Items.stick));
-		fireRod.add(new ItemStack(EIBlocks.voidiumStone));
+		fireRod.add(new ItemStack(EIBlocks.voidiumStone, 1, EIBlockVoidiumStone.VoidiumStoneType.REGULAR.getID()));
 		fireRod.setCraftedItem(new ItemStack(EIItems.fireRod));
 		//fireRod.setDescription("Crafting: Fire Rod");
 		// Lava Rod
@@ -186,7 +218,7 @@ public final class EIInfuserRecipeManager {
 		// Water Rod
 		waterRod.add(new ItemStack(EIItems.waterRune));
 		waterRod.add(new ItemStack(Items.stick));
-		waterRod.add(new ItemStack(EIBlocks.voidiumStone));
+		waterRod.add(new ItemStack(EIBlocks.voidiumStone, 1, EIBlockVoidiumStone.VoidiumStoneType.REGULAR.getID()));
 		waterRod.setCraftedItem(new ItemStack(EIItems.waterRod));
 		// Snow
 		snowRod.add(new ItemStack(EIItems.waterRune));
@@ -203,7 +235,7 @@ public final class EIInfuserRecipeManager {
 		// Earth Rod
 		earthRod.add(new ItemStack(EIItems.earthRune));
 		earthRod.add(new ItemStack(Items.stick));
-		earthRod.add(new ItemStack(EIBlocks.voidiumStone));
+		earthRod.add(new ItemStack(EIBlocks.voidiumStone, 1, EIBlockVoidiumStone.VoidiumStoneType.REGULAR.getID()));
 		earthRod.setCraftedItem(new ItemStack(EIItems.earthRod));
 		// Dirt Rod
 		dirtRod.add(new ItemStack(EIItems.earthRune));
@@ -219,7 +251,7 @@ public final class EIInfuserRecipeManager {
 		// Wind Rod
 		windRod.add(new ItemStack(EIItems.windRune));
 		windRod.add(new ItemStack(Items.stick));
-		windRod.add(new ItemStack(EIBlocks.voidiumStone));
+		windRod.add(new ItemStack(EIBlocks.voidiumStone, 1, EIBlockVoidiumStone.VoidiumStoneType.REGULAR.getID()));
 		windRod.setCraftedItem(new ItemStack(EIItems.windRod));
 		// Travel
 		travelRod.add(new ItemStack(EIItems.windRune));
@@ -235,26 +267,26 @@ public final class EIInfuserRecipeManager {
 		// Voidium Rod
 		voidiumRod.add(new ItemStack(EIItems.voidiumRune));
 		voidiumRod.add(new ItemStack(Items.stick));
-		voidiumRod.add(new ItemStack(EIBlocks.voidiumStone));
+		voidiumRod.add(new ItemStack(EIBlocks.voidiumStone, 1, EIBlockVoidiumStone.VoidiumStoneType.REGULAR.getID()));
 		voidiumRod.setCraftedItem(new ItemStack(EIItems.voidiumRod));
 		// Complex Rods
 		// Magnetism
 		magnetismRod.add(new ItemStack(EIItems.fireRune));
 		magnetismRod.add(new ItemStack(EIItems.earthRune));
 		magnetismRod.add(new ItemStack(Items.stick));
-		magnetismRod.add(new ItemStack(EIBlocks.voidiumStone));
+		magnetismRod.add(new ItemStack(EIBlocks.voidiumStone, 1, EIBlockVoidiumStone.VoidiumStoneType.REGULAR.getID()));
 		magnetismRod.setCraftedItem(new ItemStack(EIItems.magnetismRod));
 		// Illumination
 		illuminationRod.add(new ItemStack(EIItems.fireRune));
 		illuminationRod.add(new ItemStack(EIItems.windRune));
 		illuminationRod.add(new ItemStack(Items.stick));
-		illuminationRod.add(new ItemStack(EIBlocks.voidiumStone));
+		illuminationRod.add(new ItemStack(EIBlocks.voidiumStone, 1, EIBlockVoidiumStone.VoidiumStoneType.REGULAR.getID()));
 		illuminationRod.setCraftedItem(new ItemStack(EIItems.illuminationRod));
 		// Growth
 		growthRod.add(new ItemStack(EIItems.waterRune));
 		growthRod.add(new ItemStack(EIItems.earthRune));
 		growthRod.add(new ItemStack(Items.stick));
-		growthRod.add(new ItemStack(EIBlocks.voidiumStone));
+		growthRod.add(new ItemStack(EIBlocks.voidiumStone, 1, EIBlockVoidiumStone.VoidiumStoneType.REGULAR.getID()));
 		growthRod.setCraftedItem(new ItemStack(EIItems.growthRod));
 		// Mining
 		minningRod.add(new ItemStack(EIItems.fireRune));
@@ -291,6 +323,11 @@ public final class EIInfuserRecipeManager {
 		add("elemental_stone", elementalStone);
 		// Voidium Stone
 		add("voidium_stone", voidiumStone);
+		add("voidium_stone.fire", voidiumStoneFire);
+		add("voidium_stone.water", voidiumStoneWater);
+		add("voidium_stone.earth", voidiumStoneEarth);
+		add("voidium_stone.wind", voidiumStoneWind);
+		add("voidium_stone.void", voidiumStoneVoid);
 		// Voidium Ingot
 		add("voidium_ingot", voidiumIngot);
 		// Voidium Crystla

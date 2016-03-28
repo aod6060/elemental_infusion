@@ -7,10 +7,10 @@ import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 
-import com.derf.ei.crafting.EIInfuserRecipe;
 import com.derf.ei.crafting.EIInfuserRecipeManager;
 
 public class EITileEntityElementalInfuser extends TileEntity {
@@ -49,7 +49,7 @@ public class EITileEntityElementalInfuser extends TileEntity {
 		
 		if(EIInfuserRecipeManager.get(names.get(mode)).checkInventory(inv)) {
 			
-			EIInfuserRecipeManager.get(names.get(mode)).doCraft(inv, worldObj, chest);
+			EIInfuserRecipeManager.get(names.get(mode)).doCraft(inv, worldObj, this.pos, player);
 			
 			b = true;
 		}

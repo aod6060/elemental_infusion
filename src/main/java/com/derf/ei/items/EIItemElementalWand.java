@@ -12,6 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
+import com.derf.ei.blocks.EIBlockVoidiumStone;
 import com.derf.ei.blocks.EIBlocks;
 import com.derf.ei.blocks.tileentity.EITileEntityElementalInfuser;
 import com.derf.ei.handler.EIHandlers;
@@ -43,19 +44,41 @@ public class EIItemElementalWand extends Item {
 				}
 			} else {
 				if(state.getBlock() == EIBlocks.elementalInfuser) {
-					//player.addChatComponentMessage(new ChatComponentText("Machine Core"));
-					// To do add the ability to change to different multi blocks (this is similar to the older one, however
-					// less multi blocks).
 					EITileEntityElementalInfuser infuser = (EITileEntityElementalInfuser) world.getTileEntity(pos);
 					
 					System.out.println("Hello, World");
 					
 					infuser.launch(player);
+					
+				} else if(state.getBlock() == EIBlocks.voidiumStone) {
+					changeVoidium(world, state, pos);
 				}
 			}
 		}
 		
 		return result;
+	}
+
+	@SuppressWarnings("incomplete-switch")
+	private void changeVoidium(World world, IBlockState state, BlockPos pos) {
+		// TODO Auto-generated method stub
+		
+		EIBlockVoidiumStone.VoidiumStoneType type = state.getValue(EIBlockVoidiumStone.TYPE);
+		
+		switch(type) {
+		case REGULAR:
+			world.setBlockState(pos, EIBlocks.voidiumStone.getDefaultState().withProperty(EIBlockVoidiumStone.TYPE, EIBlockVoidiumStone.VoidiumStoneType.INPUT));
+			break;
+		case INPUT:
+			world.setBlockState(pos, EIBlocks.voidiumStone.getDefaultState().withProperty(EIBlockVoidiumStone.TYPE, EIBlockVoidiumStone.VoidiumStoneType.OUTPUT));
+			break;
+		case OUTPUT:
+			world.setBlockState(pos, EIBlocks.voidiumStone.getDefaultState().withProperty(EIBlockVoidiumStone.TYPE, EIBlockVoidiumStone.VoidiumStoneType.BIDIRECTIONAL));
+			break;
+		case BIDIRECTIONAL:
+			world.setBlockState(pos, EIBlocks.voidiumStone.getDefaultState().withProperty(EIBlockVoidiumStone.TYPE, EIBlockVoidiumStone.VoidiumStoneType.REGULAR));
+			break;
+		}
 	}
 
 	@Override
